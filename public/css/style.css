@@ -7,6 +7,7 @@
     /* Add other styles as needed */
 }
 
-#title {
+.welcomeText {
     color: white;
+    padding-left: 10%;
 }

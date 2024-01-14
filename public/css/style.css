@@ -1,0 +1,12 @@
+#welcome {
+    background-image: url("/images/rave.jpg");
+    background-size: cover; /* or contain, depending on your preference */
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 900px; /* Set a height for the row, adjust as needed */
+    /* Add other styles as needed */
+}
+
+#title {
+    color: white;
+}

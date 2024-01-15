@@ -7,7 +7,7 @@
             <div class="card mt-4">
 
                 <div class="card-body">
-                    <h1 class="text-center my-3">Log in to The Rave Cave</h1>
+                    <h1 class="text-center my-3">LOG IN TO THE RAVE CAVE</h1>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

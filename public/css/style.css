@@ -1,3 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
 #welcome {
     background-image: url("/images/rave.jpg");
     background-size: cover; /* or contain, depending on your preference */
@@ -10,4 +17,13 @@
 .welcomeText {
     color: white;
     padding-left: 10%;
+}
+
+#login, #register{
+    background-image: url("/images/rave.jpg");
+    background-size: cover; /* or contain, depending on your preference */
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 900px; /* Set a height for the row, adjust as needed */
+    /* Add other styles as needed */
 }

@@ -94,7 +94,7 @@
             </div>
         </nav>
 
-        <main class="py-4 min-vh-80">
+        <main class="py-4">
             @yield('content')
         </main>
 

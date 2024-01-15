@@ -4,9 +4,7 @@
 <div class="container-fluid" id="register">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mx-auto">
-
-
+            <div class="card mt-4">
                 <div class="card-body">
                     <h1 class="text-center my-3">CREATE AN ACCOUNT</h1>
                     <form method="POST" action="{{ route('register') }}">

@@ -24,6 +24,7 @@ class User extends Authenticatable
         'country',
         'username',
         'password',
+        'isAdmin'
     ];
 
     /**

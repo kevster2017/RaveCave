@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'country' => ['required', 'string', 'max:100'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'isAdmin' => ['required', 'integer'],
         ]);
     }
 

@@ -37,8 +37,8 @@
                 <div class="card custom-card h-100">
                     <img src="/images/eventImage.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">View Tickets</h5>
+                        <p class="card-text">View Your tickets here</p>
                     </div>
                 </div>
             </div>

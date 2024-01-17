@@ -73,7 +73,7 @@ class EventController extends Controller
 
         $event->userID = $request->userID;
         $event->dj = $request->dj;
-        $event->video = $request->video;
+        $event->video = $request->file('video')->store('uploads', 'public');
         $event->title = $request->title;
         $event->date = $request->date;
         $event->time = $request->time;

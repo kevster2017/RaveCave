@@ -12,9 +12,9 @@
                         @csrf
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control @error('town') is-invalid @enderror" id="username" placeholder="Enter a username" name="username" value="{{ old('username') }}" required autocomplete="username">
-                            <label for="username">Username</label>
-                            @error('username')
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Enter email address" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <label for="email">Email</label>
+                            @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

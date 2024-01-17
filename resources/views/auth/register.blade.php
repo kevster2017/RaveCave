@@ -11,6 +11,7 @@
                         @csrf
 
                         <input type="hidden" name="isAdmin" value="0">
+                        <input type="hidden" name="image" value="null">
 
                         <div class="form-floating my-3 col-10 offset-1">
                             <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus>

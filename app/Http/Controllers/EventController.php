@@ -35,6 +35,8 @@ class EventController extends Controller
      */
     public function store(Request $request, Event $event)
     {
+
+
         $request->validate([
             'userID' => 'required|exists:users,id',
             'dj' => 'required|string|max:255',
@@ -79,6 +81,8 @@ class EventController extends Controller
 
 
         $event->save();
+
+        return redirect()->back()->with('success', "Event added");
     }
 
     /**

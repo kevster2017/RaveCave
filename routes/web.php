@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* Event Routes */
+Route::get("/events", [EventController::class, 'index']);
+Route::get("/events/create", [EventController::class, 'create'])->name('events.create')->middleware('auth');
+Route::post("/events/store", [EventController::class, 'store'])->name('events.store')->middleware('auth');
+
+Route::get("/events/{id}/edit", [EventController::class, 'edit'])->name('events.edit')->middleware('auth');
+Route::put("/events/{id}", [EventController::class, 'update'])->name('events.update')->middleware('auth');
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('auth');
+
+Route::get("/events/show/{id}", [EventController::class, 'show'])->name('events.show')->middleware('auth');

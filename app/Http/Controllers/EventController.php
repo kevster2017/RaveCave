@@ -32,9 +32,18 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event)
     {
-        //
+        $request->validate([
+            'userID' => 'required',
+            'dj' => 'required',
+            'video' => 'required|mimes:mp4,avi,mov,wmv',
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            'description' => 'required',
+        ]);
     }
 
     /**

@@ -95,6 +95,7 @@
         </nav>
 
         <main class="py-4">
+            @include('flashMessage')
             @yield('content')
         </main>
 

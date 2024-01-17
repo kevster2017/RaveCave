@@ -73,11 +73,11 @@ class EventController extends Controller
 
         $event->userID = $request->userID;
         $event->dj = $request->dj;
-        $event->userID = $request->video;
-        $event->dj = $request->title;
-        $event->userID = $request->date;
-        $event->dj = $request->time;
-        $event->userID = $request->description;
+        $event->video = $request->video;
+        $event->title = $request->title;
+        $event->date = $request->date;
+        $event->time = $request->time;
+        $event->description = $request->description;
 
 
         $event->save();

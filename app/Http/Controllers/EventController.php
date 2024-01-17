@@ -12,7 +12,13 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::where('id', '>', 0)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('events.index', [
+            'events' => $events
+        ]);
     }
 
     /**

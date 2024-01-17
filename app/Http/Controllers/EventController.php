@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
 {
@@ -35,15 +36,49 @@ class EventController extends Controller
     public function store(Request $request, Event $event)
     {
         $request->validate([
-            'userID' => 'required',
-            'dj' => 'required',
+            'userID' => 'required|exists:users,id',
+            'dj' => 'required|string|max:255',
             'video' => 'required|mimes:mp4,avi,mov,wmv',
-            'title' => 'required',
+            'title' => 'required|string|max:255',
             'image' => 'required|mimes:jpg,jpeg,png,gif',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
-            'description' => 'required',
+            'description' => 'required|string|max:500',
         ]);
+
+
+        // Images without using image/intervention
+        if ($request->hasFile('image')) {
+            $event->image = $request->file('image')->store('uploads', 'public');
+        } else {
+            $event->image = "/images/liveEvent.jpg";
+        }
+
+        /* Images with using image/intervention
+
+        $imagePath = (request('image')->store('uploads', 'public'));
+
+        if ($request->hasFile('image') == null) {
+            $imagePath = "/images/profileImage.jpg
+";
+        } else {
+            $imagePath = $request->file('image')->store('uploads', 'public');
+           
+            $image = Image::make(public_path("storage/{$imagePath}"))->orientate()->fit(300, 300); //Save updated image as 300px x 300 px
+        
+        }
+        */
+
+        $event->userID = $request->userID;
+        $event->dj = $request->dj;
+        $event->userID = $request->video;
+        $event->dj = $request->title;
+        $event->userID = $request->date;
+        $event->dj = $request->time;
+        $event->userID = $request->description;
+
+
+        $event->save();
     }
 
     /**

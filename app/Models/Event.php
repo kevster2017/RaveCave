@@ -15,7 +15,7 @@ class Event extends Model
         'time',
         'dj',
         'video',
-        'decsription',
+        'description',
         'image'
     ];
 }

@@ -57,16 +57,6 @@
 
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="file" class="form-control @error('video') is-invalid @enderror" id="video" name="video" accept="video/*" required>
-                            <label for="video">Video</label>
-                            @error('video')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-floating my-3 col-10 offset-1">
                             <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}" required autocomplete="date">
                             <label for="date">Date</label>
                             @error('date')
@@ -76,15 +66,6 @@
                             @enderror
                         </div>
 
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control @error('town') is-invalid @enderror" id="username" placeholder="Enter a username" name="username" value="{{ old('username') }}" required autocomplete="username">
-                            <label for="username">Username</label>
-                            @error('username')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
 
                         <div class="form-floating my-3 col-10 offset-1">
                             <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="time" value="{{ old('time') }}" required autocomplete="time">
@@ -96,15 +77,6 @@
                             @enderror
                         </div>
 
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="time" value="{{ old('time') }}" required autocomplete="time">
-                            <label for="time">Time</label>
-                            @error('time')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
 
                         <div class="form-floating my-3 col-10 offset-1">
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Enter a description" required>{{ old('description') }}</textarea>
@@ -119,15 +91,11 @@
                         <div class="row my-5">
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Submit') }}
                                 </button>
                             </div>
                         </div>
-                        <div class="row my-5">
-                            <div class="col text-center">
-                                <p>Already with us? Click <a href="{{ route('login') }}">here</a> to log in</p>
-                            </div>
-                        </div>
+
                     </form>
                 </div>
             </div>

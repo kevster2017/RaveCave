@@ -20,4 +20,10 @@ class DJ extends Model
         'date',
 
     ];
+
+    // Define relationship with User Model
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

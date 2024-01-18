@@ -26,9 +26,38 @@ class DJController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, DJ $dj)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'djname' => 'required|string|max:25',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'town' => 'required|string|max:25',
+            'country' => 'required|string|max:25',
+            'genre' => 'required|string|max:25',
+            'description' => 'required|string|max:500',
+            'social' => 'required|string|max:500',
+            'date' => 'required|date',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $dj->image = $request->file('image')->store('uploads', 'public');
+        } else {
+            $dj->image = "/images/liveEvent.jpg";
+        }
+
+        $dj->user_id = $request->user_id;
+        $dj->djname = $request->djname;
+        $dj->town = $request->town;
+        $dj->country = $request->country;
+        $dj->genre = $request->genre;
+        $dj->description = $request->description;
+        $dj->social = $request->social;
+        $dj->date = $request->date;
+
+        $dj->save();
+
+        return redirect()->back()->with('success', "DJ Profile Created");
     }
 
     /**

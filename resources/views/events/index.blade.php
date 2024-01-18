@@ -30,7 +30,7 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col">
-                                    <a href="{{ route('events.show', $event->id) }}"><img src="/storage/{{$event->image}}" class="img-responsive rounded-start img-fluid" alt="event Image"></a>
+                                    <a href="{{ route('events.show', $event->id) }}"><img src="/storage/{{$event->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Event Image"></a>
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">
@@ -42,7 +42,7 @@
 
                                         <h6 class="card-text">{{ $event->dj}}</h6>
                                         <p class="card-text">{{ $event->date }} {{ $event->time }}</p>
-                                        <p class="card-text">Price: {{ price }}</p>
+                                        <p class="card-text">Price: £5</p>
                                         <p class="card-text"><small class="text-muted">Event Created: {{ $event->created_at->diffForHumans() }}</small></p>
 
                                     </div>

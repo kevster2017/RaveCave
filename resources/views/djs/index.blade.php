@@ -29,8 +29,8 @@
 
                         <div class="my-2">
                             <div class="row g-0">
-                                <div class="col">
-                                    <a href="{{ route('djs.show', $dj->id) }}"><img src="/storage/{{$dj->image}}" class="img-responsive rounded-start img-fluid" alt="dj Image"></a>
+                                <div class="col-4">
+                                    <a href="{{ route('djs.show', $dj->id) }}"><img src="/storage/{{$dj->image}}" class="img-responsive rounded-start img-fluid card-DJimg" alt="dj Image"></a>
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">

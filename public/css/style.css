@@ -35,3 +35,14 @@ body {
     object-fit: cover; /* Ensures the image covers the entire space, maintaining its aspect ratio */
   }
 
+  .card-img {
+    max-height: 300px; /* Set to height of largest image*/
+    object-fit: cover; /* Ensures the image covers the entire space, maintaining its aspect ratio */
+  }
+
+  .card-DJimg {
+    height: 300px; /* Set to height of largest image*/
+    object-fit: cover; /* Ensures the image covers the entire space, maintaining its aspect ratio */
+   
+  }
+

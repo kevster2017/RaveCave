@@ -49,10 +49,10 @@
                             <a class="nav-link" href="#">My Tickets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Upcoming Events</a>
+                            <a class="nav-link" href="{{ route('events.index') }}">Upcoming Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">View DJs</a>
+                            <a class="nav-link" href="{{ route('djs.index') }}">View DJs</a>
                         </li>
                     </ul>
 

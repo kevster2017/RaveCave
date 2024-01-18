@@ -9,7 +9,7 @@ class DJ extends Model
 {
     use HasFactory;
 
-    protected $table = 'djs'; // Explicitly specify the table name
+    protected $table = 'djs'; // Explicitly specify the table nameas laravel looking for a table called d_j_s
 
     protected $fillable = [
         'djname',

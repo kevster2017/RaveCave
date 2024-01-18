@@ -20,7 +20,7 @@ class DJController extends Controller
      */
     public function create()
     {
-        //
+        return view('djs.create');
     }
 
     /**

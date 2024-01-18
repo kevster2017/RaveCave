@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('djs', function (Blueprint $table) {
             $table->id();
-            $table->integer('userID');
+            $table->foreignId('user_id')->constrained();
             $table->string('djname');
             $table->string('image');
             $table->string('town');
             $table->string('country');
             $table->string('genre');
             $table->string('description');
-            $table->string('social');
+            $table->text('social');
             $table->date('date');
 
 

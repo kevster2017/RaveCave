@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class DJ extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'djname',
+        'image',
+        'town',
+        'country',
+        'genre',
+        'description',
+        'social',
+        'date',
+
+    ];
 }

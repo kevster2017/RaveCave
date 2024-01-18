@@ -33,3 +33,14 @@ Route::put("/events/{id}", [EventController::class, 'update'])->name('events.upd
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('auth');
 
 Route::get("/events/show/{id}", [EventController::class, 'show'])->name('events.show')->middleware('auth');
+
+/* DJ Routes */
+Route::get("/djs", [DjController::class, 'index']);
+Route::get("/djs/create", [DjController::class, 'create'])->name('djs.create')->middleware('auth');
+Route::post("/djs/store", [DjController::class, 'store'])->name('djs.store')->middleware('auth');
+
+Route::get("/djs/{id}/edit", [DjController::class, 'edit'])->name('djs.edit')->middleware('auth');
+Route::put("/djs/{id}", [DjController::class, 'update'])->name('djs.update')->middleware('auth');
+Route::delete('/djs/{id}', [DjController::class, 'destroy'])->name('djs.destroy')->middleware('auth');
+
+Route::get("/djs/show/{id}", [DjController::class, 'show'])->name('djs.show')->middleware('auth');

@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="container-fluid" id="register">
+    @if(count($errors) > 0 )
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+        </button>
+        <ul class="p-0 m-0" style="list-style: none;">
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-4">
@@ -10,7 +22,7 @@
                     <form method="POST" action="{{ route('djs.store') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <input type="hidden" name="user_ID" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
 
                         <div class="form-floating my-3 col-10 offset-1">

@@ -9,6 +9,8 @@ class DJ extends Model
 {
     use HasFactory;
 
+    protected $table = 'djs'; // Explicitly specify the table name
+
     protected $fillable = [
         'djname',
         'image',

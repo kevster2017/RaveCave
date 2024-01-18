@@ -28,6 +28,8 @@ class DJController extends Controller
      */
     public function store(Request $request, DJ $dj)
     {
+
+        // dd($request);
         $request->validate([
             'user_id' => 'required',
             'djname' => 'required|string|max:25',
@@ -40,13 +42,14 @@ class DJController extends Controller
             'date' => 'required|date',
         ]);
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $dj->image = $request->file('image')->store('uploads', 'public');
         } else {
             $dj->image = "/images/liveEvent.jpg";
         }
 
-        $dj->user_id = $request->user_id;
+
+        $dj->user_id = auth()->user()->id;
         $dj->djname = $request->djname;
         $dj->town = $request->town;
         $dj->country = $request->country;

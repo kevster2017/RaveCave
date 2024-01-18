@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* Event Routes */
-Route::get("/events", [EventController::class, 'index']);
+Route::get("/events", [EventController::class, 'index'])->name('events.index');
 Route::get("/events/create", [EventController::class, 'create'])->name('events.create')->middleware('auth');
 Route::post("/events/store", [EventController::class, 'store'])->name('events.store')->middleware('auth');
 
@@ -36,7 +36,7 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events
 Route::get("/events/show/{id}", [EventController::class, 'show'])->name('events.show')->middleware('auth');
 
 /* DJ Routes */
-Route::get("/djs", [DjController::class, 'index']);
+Route::get("/djs", [DjController::class, 'index'])->name('djs.index');
 Route::get("/djs/create", [DjController::class, 'create'])->name('djs.create')->middleware('auth');
 Route::post("/djs/store", [DjController::class, 'store'])->name('djs.store')->middleware('auth');
 

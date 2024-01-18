@@ -12,7 +12,13 @@ class DJController extends Controller
      */
     public function index()
     {
-        //
+        $djs = DJ::where('id', '>', 0)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('djs.index', [
+            'djs' => $djs
+        ]);
     }
 
     /**

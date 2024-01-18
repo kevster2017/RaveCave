@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card mt-4">
                 <div class="card-body">
-                    <h1 class="text-center my-3">CREATE AN EVENT</h1>
-                    <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
+                    <h1 class="text-center my-3">CREATE YOUR DJ PROFILE</h1>
+                    <form method="POST" action="{{ route('djs.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <input type="hidden" name="userID" value="{{ Auth::user()->id }}">

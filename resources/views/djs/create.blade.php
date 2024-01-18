@@ -10,24 +10,13 @@
                     <form method="POST" action="{{ route('djs.store') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <input type="hidden" name="userID" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="user_ID" value="{{ Auth::user()->id }}">
 
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="title" placeholder="Enter event title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required autocomplete="title" autofocus>
-                            <label for="title">Event Title</label>
-                            @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-                        </div>
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input id="dj" type="text" class="form-control @error('dj') is-invalid @enderror" name="dj" value="{{ old('dj') }}" placeholder="Enter DJ Name" required autocomplete="dj">
-                            <label for="dj">DJ Name</label>
-                            @error('dj')
+                            <input type="text" class="form-control" id="djname" placeholder="Enter your DJ name" name="djname" class="form-control @error('djname') is-invalid @enderror" value="{{ old('djname') }}" required autocomplete="djname" autofocus>
+                            <label for="djname">Your DJ Name</label>
+                            @error('djname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -37,7 +26,7 @@
 
                         <div class="form-floating my-3 col-10 offset-1">
                             <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" required>
-                            <label for="image">Image</label>
+                            <label for="image">DJ Image</label>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -45,36 +34,38 @@
                             @enderror
                         </div>
 
+
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="file" class="form-control @error('video') is-invalid @enderror" id="video" name="video" accept="video/*" required>
-                            <label for="video">Video</label>
-                            @error('video')
+                            <input type="text" class="form-control" id="town" placeholder="Enter your town" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}" required autocomplete="town" autofocus>
+                            <label for="town">Home Town</label>
+                            @error('town')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+
                         </div>
 
-
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}" required autocomplete="date">
-                            <label for="date">Date</label>
-                            @error('date')
+                            <input type="text" class="form-control" id="country" placeholder="Enter your Country" name="country" class="form-control @error('country') is-invalid @enderror" value="{{ old('country') }}" required autocomplete="country" autofocus>
+                            <label for="country">Home Country</label>
+                            @error('country')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+
                         </div>
 
-
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="time" value="{{ old('time') }}" required autocomplete="time">
-                            <label for="time">Time</label>
-                            @error('time')
+                            <input type="text" class="form-control" id="genre" placeholder="Enter your Music Genre" name="genre" class="form-control @error('genre') is-invalid @enderror" value="{{ old('genre') }}" required autocomplete="genre" autofocus>
+                            <label for="genre">Genre</label>
+                            @error('genre')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+
                         </div>
 
 
@@ -87,6 +78,32 @@
                             </span>
                             @enderror
                         </div>
+
+                        <div class="form-floating my-3 col-10 offset-1">
+                            <input type="text" class="form-control" id="social" placeholder="Enter your Social Media Link" name="social" class="form-control @error('social') is-invalid @enderror" value="{{ old('social') }}" required autocomplete="social" autofocus>
+                            <label for="social">Social Media Link</label>
+                            @error('social')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
+                        </div>
+
+
+
+                        <div class="form-floating my-3 col-10 offset-1">
+                            <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}" required autocomplete="date">
+                            <label for="date">Date you started DJing</label>
+                            @error('date')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+
+
 
                         <div class="row my-5">
                             <div class="col text-center">

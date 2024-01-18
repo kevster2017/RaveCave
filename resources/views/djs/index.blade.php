@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="container">
+<div class="container mt-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
@@ -13,7 +13,7 @@
 
 <div class="container py-3">
 
-    <h1 class="text-center py-3">All DJs</h1>
+    <h1 class="text-center">All DJs</h1>
 
 
     @foreach($djs as $dj)
@@ -36,7 +36,7 @@
                                     <div class="card-body">
 
                                         <a href="{{ route('djs.show', $dj->id) }}">
-                                            <h5 class="card-title">{{ $dj->name}}</h5>
+                                            <h5 class="card-title">{{ $dj->djname}}</h5>
                                         </a>
 
 

@@ -2,21 +2,21 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="container">
+<div class="container mt-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">All Hotels</li>
+            <li class="breadcrumb-item active" aria-current="page">All Events</li>
         </ol>
     </nav>
 </div>
 
 <div class="container py-3">
 
-    <h1 class="text-center py-3">All Hotels</h1>
+    <h1 class="text-center">All Events</h1>
 
 
-    @foreach($hotels as $hotel)
+    @foreach($events as $event)
     <div class="row">
         <div class="col-sm-8 mx-auto">
 
@@ -30,21 +30,20 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col">
-                                    <a href="{{ route('hotels.show', $hotel->id) }}"><img src="/storage/{{$hotel->image}}" class="img-responsive rounded-start img-fluid" alt="Hotel Image"></a>
+                                    <a href="{{ route('events.show', $event->id) }}"><img src="/storage/{{$event->image}}" class="img-responsive rounded-start img-fluid" alt="event Image"></a>
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">
 
-                                        <a href="{{ route('hotels.show', $hotel->id) }}">
-                                            <h5 class="card-title">{{ $hotel->name}}</h5>
+                                        <a href="{{ route('events.show', $event->id) }}">
+                                            <h5 class="card-title">{{ $event->title}}</h5>
                                         </a>
-                                        @for ($i = 1; $i <= $hotel->stars; $i++)
-                                            <span> <i class="fa-solid fa-star mb-3" style="color:gold"></i></span>
-                                            @endfor
 
-                                            <p class="card-text">Room Type: {{ $hotel->roomType}}</p>
-                                            <p class="card-text">Town: {{ $hotel->town }}</p>
-                                            <p class="card-text"><small class="text-muted">Hotel Added: {{ $hotel->created_at->diffForHumans() }}</small></p>
+
+                                        <h6 class="card-text">{{ $event->dj}}</h6>
+                                        <p class="card-text">{{ $event->date }} {{ $event->time }}</p>
+                                        <p class="card-text">Price: {{ price }}</p>
+                                        <p class="card-text"><small class="text-muted">Event Created: {{ $event->created_at->diffForHumans() }}</small></p>
 
                                     </div>
                                 </div>

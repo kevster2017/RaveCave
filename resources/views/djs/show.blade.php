@@ -21,16 +21,16 @@
         <div class="my-2">
             <div class="row g-0">
                 <div class="col-3">
-                    <img src="/storage/{{$dj->image}}" class="img-responsive rounded-start img-fluid card-img" alt="dj Image">
+                    <img src="/storage/{{$dj->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="dj Image">
                     <div class="text-center">
-                        <a class="btn btn-primary mt-5" href="#">Add to favourites</a>
-                        <a class="btn btn-primary mt-5" href="#">Button 2</a>
+                        <a class="btn btn-primary mt-5" href="#">Add to favourites</a><br>
+                        <a class="btn btn-primary mt-5" href="#">Button 2</a><br>
                         <a class="btn btn-primary mt-5" href="#">Button 3</a>
                     </div>
 
                 </div>
 
-                <div class="col ms-5">
+                <div class="col mt-3 ms-5">
                     <div class="card-body">
 
 

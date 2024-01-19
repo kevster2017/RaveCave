@@ -80,4 +80,15 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+    function show($id)
+    {
+
+        $user = User::findOrFail($id);
+
+        return view('users.show', [
+            'user' => $user
+        ]);
+    }
 }

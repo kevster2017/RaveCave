@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="container">
+<div class="container mt-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
@@ -13,27 +13,42 @@
 </div>
 
 <div class="container mt-3">
-    <h1 class="text-center my-5">{{ $dj->name }}</h1>
-    <div class="card text-bg-light mb-3">
-        <div class="row g-0">
-            <div class="col-sm-4">
-                <img src="/storage/{{ $dj->image }}" class="img-responsive rounded-start" alt="DJ Image">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h2 class="card-title">{{ $dj->djname }}</h2>
-                    <p class="card-text">{{ $dj->town }}</p>
-                    <p class="card-text">{{ $dj->country }}</p>
-                    <p class="card-text"><small class="text-body-secondary">dj Added: {{ $dj->created_at->diffForHumans() }}</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1 class="text-center my-5">{{ $dj->djname }}</h1>
 </div>
 
+<div class="container">
+    <div class="card text-bg-light mb-3">
+        <div class="my-2">
+            <div class="row g-0">
+                <div class="col-3">
+                    <img src="/storage/{{$dj->image}}" class="img-responsive rounded-start img-fluid card-img" alt="dj Image">
+                    <div class="text-center">
+                        <a class="btn btn-primary mt-5" href="#">Add to favourites</a>
+                        <a class="btn btn-primary mt-5" href="#">Button 2</a>
+                        <a class="btn btn-primary mt-5" href="#">Button 3</a>
+                    </div>
+
+                </div>
+
+                <div class="col ms-5">
+                    <div class="card-body">
 
 
-<div class="container mt-3">
+                        <h2 class="card-title mb-3">{{ $dj->djname}}</h2>
+
+                        <p class="card-text">Home Town: {{ $dj->town}}</p>
+                        <p class="card-text">Country: {{ $dj->country }}</p>
+                        <p class="card-text">Genre: {{ $dj->genre }}</p>
+                        <p class="card-text"><small class="text-muted">Joined The Rave Cave: {{ $dj->created_at->diffForHumans() }}</small></p>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
 
     <div class="card text-bg-light">
         <h5 class="card-header">Description</h5>

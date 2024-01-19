@@ -72,9 +72,14 @@ class DJController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DJ $dJ)
+    public function show($id)
     {
-        //
+        $dj = DJ::findOrFail($id);
+
+
+        return view('djs.show', [
+            'dj' => $dj
+        ]);
     }
 
     /**

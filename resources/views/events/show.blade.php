@@ -32,10 +32,10 @@
 
                         <h2 class="card-title mb-3">{{ $event->title}}</h2>
 
-                        <h3 class="card-text"> {{ $event->dj }}</h3>
-                        <p class="card-text"><strong>Country:</strong> {{ $event->country }}</p>
-                        <p class="card-text"><strong>Genre:</strong> {{ $event->genre }}</p>
-                        <p class="card-text"><small class="text-muted"><strong>Joined The Rave Cave:</strong> {{ $event->created_at->diffForHumans() }}</small></p>
+                        <h3 class="card-text mb-3"> {{ $event->dj }}</h3>
+                        <p class="card-text"><strong>Date:</strong> {{ date('d/m/Y', strtotime($event->date)) }}</p>
+                        <p class="card-text"><strong>Time:</strong> {{ $event->time }} </p>
+
 
 
                     </div>
@@ -56,10 +56,10 @@
                             <a class="btn btn-primary" href="#">Buy Tickets</a>
                         </div>
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Follow</a>
+                            <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
                         </div>
                         <div class="col-12 col-md-4">
-                            <a class="btn btn-primary" href="#">Button 3</a>
+                            <a class="btn btn-primary" href="#">Join Event</a>
                         </div>
                     </div>
                 </div>
@@ -72,9 +72,8 @@
                 <div class="card-body">
 
                     <div class="ms-5">
-                        <p class="card-text"><strong>Description:</strong> {{ $event->description}}</p>
-                        <p class="card-text"><strong>Social Media:</strong> {{ $event->social }}</p>
-                        <p class="card-text"><strong>Began event Career:</strong> {{ date('d/m/Y', strtotime($event->date)) }}</p>
+                        <p class="card-text"><strong>Description:</strong> {{ $event->description }}</p>
+                        <p class="card-text"><strong>Ticket Price:</strong> £TBC </p>
                     </div>
                 </div>
             </div>

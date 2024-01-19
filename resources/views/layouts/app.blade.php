@@ -78,7 +78,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">
+                                <a class="dropdown-item" href="{{ route('users.show', ['id' => Auth::user()->id]) }}">
                                     {{ __('My Profile') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

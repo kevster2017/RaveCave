@@ -47,32 +47,33 @@
         </div>
     </div>
     <div class="row mb-5">
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <div class="card text-bg-light">
                 <h5 class="card-header">Follow {{ $dj->djname }}</h5>
                 <div class="card-body">
                     <div class="row text-center ms-3">
-                        <div class="col">
+                        <div class="col-12 col-md-4 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Add to favourites</a>
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-md-4 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Button 2</a>
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-md-4">
                             <a class="btn btn-primary" href="#">Button 3</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="col">
             <div class="card text-bg-light">
                 <h5 class="card-header">About {{ $dj->djname }}</h5>
                 <div class="card-body">
 
                     <div class="ms-5">
-                        <p class="card-text"><strong>Description:</strong> {{ $dj->town}}</p>
-                        <p class="card-text"><strong>Social Media:</strong> {{ $dj->country }}</p>
+                        <p class="card-text"><strong>Description:</strong> {{ $dj->description}}</p>
+                        <p class="card-text"><strong>Social Media:</strong> {{ $dj->social }}</p>
                         <p class="card-text"><strong>Began DJ Career:</strong> {{ date('d/m/Y', strtotime($dj->date)) }}</p>
                     </div>
                 </div>

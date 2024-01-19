@@ -53,10 +53,10 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Add to favourites</a>
+                            <a class="btn btn-primary" href="#">Buy Tickets</a>
                         </div>
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Button 2</a>
+                            <a class="btn btn-primary" href="#">Follow</a>
                         </div>
                         <div class="col-12 col-md-4">
                             <a class="btn btn-primary" href="#">Button 3</a>

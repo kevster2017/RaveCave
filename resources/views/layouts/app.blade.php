@@ -97,6 +97,10 @@
             </div>
         </nav>
 
+        <a class="dropdown-item" href="{{ route('users.show', ['id' => Auth::user()->id]) }}">
+            {{ __('My Profile') }}
+        </a>
+
         <main class="container-fluid">
             @include('flashMessage')
             @yield('content')

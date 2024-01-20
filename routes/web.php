@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DJController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -23,7 +24,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/users/show/{id}', [RegisterController::class, 'show'])->name('users.show');
+Route::get('/users/show/{id}', [UserController::class, 'show'])->name('users.show');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

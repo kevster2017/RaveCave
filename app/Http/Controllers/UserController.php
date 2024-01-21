@@ -39,5 +39,38 @@ class UserController extends Controller
             'isAdmin' => 'required',
 
         ]);
+
+        $user = User::find($id);
+
+        if (!empty($request->input('name'))) {
+            $user->name = $request->name;
+        }
+
+        if (!empty($request->input('email'))) {
+            $user->name = $request->email;
+        }
+
+        if (!empty($request->input('town'))) {
+            $user->town = $request->town;
+        }
+        if (!empty($request->input('country'))) {
+            $user->country = $request->country;
+        }
+
+        if (!empty($request->input('username'))) {
+            $user->town = $request->username;
+        }
+        if (!empty($request->input('isAdmin'))) {
+            $user->country = $request->isAdmin;
+        }
+
+        if (!empty($request->hasFile('image'))) {
+
+            $user->image = $request->file('image')->store('uploads', 'public');
+        }
+
+        $user->save();
+
+        return redirect()->route('users.show', $user->id)->with('success', 'Profile successfully updated');
     }
 }

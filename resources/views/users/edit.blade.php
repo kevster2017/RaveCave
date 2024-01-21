@@ -33,7 +33,7 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <h1 class="text-center my-3">EDIT YOUR PROFILE</h1>
-                    <form method="POST" action="{{ route('users.update', $user->id) }}">
+                    <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 

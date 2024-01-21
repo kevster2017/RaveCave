@@ -28,6 +28,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request);
 
         $request->validate([
             'name' => 'required',
@@ -35,7 +36,7 @@ class UserController extends Controller
             'town' => 'required',
             'country' => 'required',
             'username' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,gif|file|image|max:2048',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
             'isAdmin' => 'required',
 
         ]);

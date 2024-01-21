@@ -73,4 +73,11 @@ class UserController extends Controller
 
         return redirect()->route('users.show', $user->id)->with('success', 'Profile successfully updated');
     }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+
+        return redirect()->route('home')->with('success', 'User Profile successfully deleted');
+    }
 }

@@ -35,7 +35,7 @@ class UserController extends Controller
             'town' => 'required',
             'country' => 'required',
             'username' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'image' => 'required|mimes:jpg,jpeg,png,gif|file|image|max:2048',
             'isAdmin' => 'required',
 
         ]);

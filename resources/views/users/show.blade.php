@@ -52,7 +52,7 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Edit Profile</a>
+                            <a class="btn btn-primary" href="{{ route('users.edit', auth()->user()->id) }}">Edit Profile</a>
                         </div>
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Reset Password</a>

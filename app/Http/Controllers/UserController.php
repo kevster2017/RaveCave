@@ -23,7 +23,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('userss.edit', ['user' => $user]);
+        return view('users.edit', ['user' => $user]);
     }
 
     public function update(Request $request, $id)

@@ -18,4 +18,11 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+
+        return view('userss.edit', ['user' => $user]);
+    }
 }

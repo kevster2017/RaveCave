@@ -85,9 +85,11 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('events.edit', ['event' => $event]);
     }
 
     /**

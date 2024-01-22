@@ -85,9 +85,13 @@ class DJController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DJ $dJ)
+    public function edit($id)
     {
-        //
+        $dj = DJ::find($id);
+
+        return view('djs.edit', [
+            'dj' => $dj
+        ]);
     }
 
     /**

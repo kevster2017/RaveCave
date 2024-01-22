@@ -95,7 +95,7 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
 
         $request->validate([
@@ -108,6 +108,43 @@ class EventController extends Controller
             'time' => 'required|date_format:H:i',
             'description' => 'required|string|max:500',
         ]);
+
+        $event = Event::find($id);
+
+        $event->userID = auth()->user()->id;
+
+        if (!empty($request->input('dj'))) {
+            $event->dj = $request->dj;
+        }
+        if (!empty($request->input('title'))) {
+            $event->title = $request->title;
+        }
+
+        if (!empty($request->hasFile('image'))) {
+
+            $event->image = $request->file('image')->store('uploads', 'public');
+        }
+
+        if (!empty($request->hasFile('video'))) {
+
+            $event->video = $request->file('video')->store('uploads', 'public');
+        }
+
+        if (!empty($request->input('date'))) {
+            $event->date = $request->date;
+        }
+        if (!empty($request->input('time'))) {
+            $event->time = $request->time;
+        }
+
+        if (!empty($request->input('description'))) {
+            $event->description = $request->description;
+        }
+
+
+        $event->save();
+
+        return view('events.show', $event->id)->with('success', 'Event details successfully updated');
     }
 
     /**

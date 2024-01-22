@@ -152,7 +152,7 @@ class DJController extends Controller
 
         $dj->save();
 
-        return view('djs.show', $dj->id)->with('success', 'DJ prfile successfully updated');
+        return view('djs.show', $dj->id)->with('success', 'DJ profile successfully updated');
     }
 
     /**

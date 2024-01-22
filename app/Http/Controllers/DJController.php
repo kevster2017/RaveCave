@@ -89,9 +89,7 @@ class DJController extends Controller
     {
         $dj = DJ::find($id);
 
-        return view('djs.edit', [
-            'dj' => $dj
-        ]);
+        return view('djs.edit', ['dj' => $dj]);
     }
 
     /**

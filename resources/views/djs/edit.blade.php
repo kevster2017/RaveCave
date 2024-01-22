@@ -26,7 +26,7 @@
 
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="djname" placeholder="Enter your DJ name" name="djname" class="form-control @error('djname') is-invalid @enderror" value="{{ $dj->djname') }}" required autocomplete="djname" autofocus>
+                            <input type="text" class="form-control" id="djname" placeholder="Enter your DJ name" name="djname" class="form-control @error('djname') is-invalid @enderror" value="{{ $dj->djname }}" required autocomplete="djname" autofocus>
                             <label for="djname">Your DJ Name</label>
                             @error('djname')
                             <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" value="{{ $dj->image') }}" required>
+                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" value="{{ $dj->image }}" required>
                             <label for="image">DJ Image</label>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
 
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="town" placeholder="Enter your town" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ $dj->town) }}" required autocomplete="town" autofocus>
+                            <input type="text" class="form-control" id="town" placeholder="Enter your town" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ $dj->town }}" required autocomplete="town" autofocus>
                             <label for="town">Home Town</label>
                             @error('town')
                             <span class="invalid-feedback" role="alert">

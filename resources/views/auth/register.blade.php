@@ -7,7 +7,7 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <h1 class="text-center my-3">CREATE AN ACCOUNT</h1>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <input type="hidden" name="isAdmin" value="0">

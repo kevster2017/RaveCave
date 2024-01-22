@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!--Breadcrumb-->
+
+<div class="container mt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('djs.show', $dj->id) }}">My DJ Profile</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit DJ Profile</li>
+        </ol>
+    </nav>
+</div>
+
 <div class="container-fluid" id="register">
     @if(count($errors) > 0 )
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -36,9 +49,17 @@
 
                         </div>
 
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" value="{{ $dj->image }}" required>
-                            <label for="image">DJ Image</label>
+                        <div class="form-floating my-3 col-10 offset-1" style="display: flex; align-items: center;">
+                            @if($dj->image)
+                            <img src="{{ asset('storage/' . $dj->image) }}" alt="Current DJ Image" style="max-width: 20%; margin-right: 10px;">
+                            @endif
+
+                            <div style="flex-grow: 1;">
+
+                                <label for="image">DJ Image</label>
+                                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*">
+                            </div>
+
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -115,9 +136,7 @@
                         </div>
 
 
-
-
-                        <div class="row my-5">
+                        <div class="row my-3">
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Submit') }}

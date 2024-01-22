@@ -64,12 +64,12 @@
 
                         <div class="form-floating my-3 col-10 offset-1" style="display: flex; align-items: center;">
                             @if($event->image)
-                            <img src="{{ asset('uploads/' . $event->image) }}" alt="Current Event Image" style="max-width: 20%; margin-right: 10px;">
+                            <img src="{{ asset('storage/' . $event->image) }}" alt="Current Event Image" style="max-width: 20%; margin-right: 10px;">
                             @endif
 
                             <div style="flex-grow: 1;">
 
-                                <label for="image">DJ Image</label>
+                                <label for="image">Event Image</label>
                                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*">
                             </div>
 
@@ -81,21 +81,25 @@
                         </div>
 
                         <div class="form-floating my-3 col-10 offset-1" style="display: flex; align-items: center;">
-                            @if($event->video)
-                            <video src="{{ asset('uploads/' . $event->video) }}" alt="Current Event Video" style="max-width: 20%; margin-right: 10px;">
+                            <div>
+                                @if($event->video)
+                                <video controls style="max-width: 20%; margin-right: 10px;">
+                                    <source src="{{ asset('uploads/' . $event->video) }}" type="video/*">
+                                    Your browser does not support the video tag.
+                                </video>
                                 @endif
+                            </div>
 
-                                <div style="flex-grow: 1;">
+                            <div style="flex-grow: 1;">
+                                <label for="video">Event Video</label>
+                                <input type="file" class="form-control @error('video') is-invalid @enderror" id="video" name="video" accept="video/*">
+                            </div>
 
-                                    <label for="video">Event Video</label>
-                                    <input type="file" class="form-control @error('video') is-invalid @enderror" id="video" name="video" accept="video/*">
-                                </div>
-
-                                @error('video')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            @error('video')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
 
 

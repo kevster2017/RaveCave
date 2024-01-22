@@ -97,7 +97,17 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+
+        $request->validate([
+            'userID' => 'required|exists:users,id',
+            'dj' => 'required|string|max:255',
+            'video' => 'required|mimes:mp4,avi,mov,wmv',
+            'title' => 'required|string|max:255',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            'description' => 'required|string|max:500',
+        ]);
     }
 
     /**

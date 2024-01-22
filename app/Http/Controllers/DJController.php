@@ -95,9 +95,64 @@ class DJController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DJ $dJ)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'djname' => 'required|string|max:25',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'town' => 'required|string|max:25',
+            'country' => 'required|string|max:25',
+            'genre' => 'required|string|max:25',
+            'description' => 'required|string|max:500',
+            'social' => 'required|string|max:500',
+            'date' => 'required|date',
+
+        ]);
+
+
+        $dj = DJ::find($id);
+
+        $dj->user_id = auth()->user()->id;
+
+        if (!empty($request->input('djname'))) {
+            $dj->name = $request->djname;
+        }
+
+        if (!empty($request->hasFile('image'))) {
+
+            $dj->image = $request->file('image')->store('uploads', 'public');
+        }
+
+        if (!empty($request->input('town'))) {
+            $dj->town = $request->town;
+        }
+
+        if (!empty($request->input('country'))) {
+            $dj->country = $request->country;
+        }
+
+        if (!empty($request->input('genre'))) {
+            $dj->genre = $request->genre;
+        }
+
+        if (!empty($request->input('description'))) {
+            $dj->description = $request->description;
+        }
+
+        if (!empty($request->input('social'))) {
+            $dj->social = $request->social;
+        }
+
+        if (!empty($request->input('date'))) {
+            $dj->date = $request->date;
+        }
+
+
+
+        $dj->save();
+
+        return view('djs.show', $dj->id)->with('success', 'DJ prfile successfully updated');
     }
 
     /**

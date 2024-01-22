@@ -34,6 +34,7 @@
                     <h1 class="text-center my-3">EDIT YOUR DJ PROFILE</h1>
                     <form method="POST" action="{{ route('djs.update', $dj->id) }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 

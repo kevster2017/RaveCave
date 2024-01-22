@@ -52,15 +52,20 @@
                 <h5 class="card-header">Follow {{ $event->title }}</h5>
                 <div class="card-body">
                     <div class="row text-center ms-3">
-                        <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Buy Tickets</a>
                         </div>
-                        <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
                         </div>
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 col-md-3">
                             <a class="btn btn-primary" href="#">Join Event</a>
                         </div>
+                        @if ($event->userID == auth()->user()->id)
+                        <div class="col-12 col-md-3">
+                            <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

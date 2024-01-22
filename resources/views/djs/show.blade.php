@@ -55,9 +55,11 @@
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Add to favourites</a>
                         </div>
+                        @if( $dj->user_id == auth()->user()->id)
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Button 2</a>
+                            <a class="btn btn-danger" href="{{ route('djs.edit', $dj->id) }}">Edit Profile</a>
                         </div>
+                        @endif
                         <div class="col-12 col-md-4">
                             <a class="btn btn-primary" href="#">Button 3</a>
                         </div>

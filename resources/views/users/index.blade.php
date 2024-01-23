@@ -16,15 +16,15 @@
     <h1 class="text-center">All Users</h1>
 
 
-    @foreach($users as $user)
+
     <div class="row">
         <div class="col-sm-8 mx-auto">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Image</th>
                         <th>Name</th>
+                        <th>Image</th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Town</th>
@@ -39,13 +39,13 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
-                        <td><img src="{{ $user->image }}" alt="User Image" width="50"></td>
+                        <td><img src="/storage/{{ $user->image }}" alt="User Image" width="50"></td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->town }}</td>
                         <td>{{ $user->country }}</td>
                         <td>{{ $user->isAdmin }}</td>
-                        <td>{{ $user->created_at->diffForHumans }}</td>
+                        <td>{{ $user->created_at->diffForHumans() }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -54,7 +54,5 @@
         </div>
     </div>
 
-    <br>
-    @endforeach
 </div>
 @endsection

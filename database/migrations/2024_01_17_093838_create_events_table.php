@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('title');
             $table->date('date');
             $table->time('time');
-
             $table->string('description');
+            $table->integer('price');
 
             $table->timestamps();
         });

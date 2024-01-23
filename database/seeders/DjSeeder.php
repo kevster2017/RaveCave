@@ -22,7 +22,7 @@ class DjSeeder extends Seeder
             'genre' => 'Techno',
             'description' => 'Oh yes, oh yes!!',
             'social' => 'www.carlcox.com', // You can store multiple links as a string
-            'date' => 1981 - 02 - 02, // You can adjust the date as needed
+            'date' => '1981-02-02', // You can adjust the date as needed
         ]);
 
         DJ::create([
@@ -34,7 +34,7 @@ class DjSeeder extends Seeder
             'genre' => 'Techno',
             'description' => 'Hard Techno',
             'social' => 'www.cdw.com', // You can store multiple links as a string
-            'date' => 1991 - 02 - 02, // You can adjust the date as needed
+            'date' => '1991-02-02', // You can adjust the date as needed
         ]);
     }
 }

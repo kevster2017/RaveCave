@@ -25,6 +25,8 @@ Route::get('/', function () {
 Auth::routes();
 
 /* User routes */
+
+Route::get("/users", [UserController::class, 'index'])->name('users.index');
 Route::get('/users/show/{id}', [UserController::class, 'show'])->name('users.show');
 Route::get("/users/{id}/edit", [UserController::class, 'edit'])->name('users.edit')->middleware('auth');
 Route::put("/users/{id}", [UserController::class, 'update'])->name('users.update')->middleware('auth');

@@ -16,6 +16,7 @@ class Event extends Model
         'dj',
         'video',
         'description',
+        'price',
         'image'
     ];
 }

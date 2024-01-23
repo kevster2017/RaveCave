@@ -10,7 +10,7 @@
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('events.index') }}">Events Index</a></li>
             <li class="breadcrumb-item"><a href="{{ route('events.show', $event->id) }}">My Events</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit EventDetails</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Event Details</li>
         </ol>
     </nav>
 </div>

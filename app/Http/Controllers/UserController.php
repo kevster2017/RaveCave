@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
+    function index()
+    {
+
+        $users = User::where('id', '>', 0)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('users.index', [
+            'users' => $users
+        ]);
+    }
+
     function show($id)
     {
 

@@ -77,6 +77,16 @@
                             @enderror
                         </div>
 
+                        <div class="form-floating my-3 col-10 offset-1">
+                            <input type="number" class="form-control" id="price" placeholder="Enter event price" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" required autocomplete="price" autofocus>
+                            <label for="price">Event Price</label>
+                            @error('price')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
 
                         <div class="form-floating my-3 col-10 offset-1">
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Enter a description" required>{{ old('description') }}</textarea>

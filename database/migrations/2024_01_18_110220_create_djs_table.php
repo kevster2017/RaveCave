@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('djs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('djname');
             $table->string('image');
             $table->string('town');

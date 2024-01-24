@@ -91,6 +91,10 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return redirect()->route('home')->with('success', 'User Profile successfully deleted');
+        if (auth()->user()->isAdmin == 1) {
+            return redirect()->back()->with('success', 'User Profile successfully deleted');
+        } else {
+            return redirect()->route('home')->with('success', 'User Profile successfully deleted');
+        }
     }
 }

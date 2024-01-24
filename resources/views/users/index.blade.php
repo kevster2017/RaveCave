@@ -40,7 +40,13 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
-                        <td><img src="/storage/{{ $user->image }}" alt="User Image" width="50"></td>
+                        <td>
+                            @if( $user->image == 'images/profileImage.jpg')
+                            <img src="images/profileImage.jpg" alt="User Image" width="50">
+                            @else
+                            <img src="/storage/{{ $user->image }}" alt="User Image" width="50">
+                            @endif
+                        </td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->town }}</td>

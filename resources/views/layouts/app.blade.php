@@ -102,7 +102,7 @@
 
 
 
-        <main class="container-fluid">
+        <main class="container-fluid min-vh-100">
             @include('flashMessage')
             @yield('content')
         </main>

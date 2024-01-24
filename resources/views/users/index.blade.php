@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-sm-8 mx-auto">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -31,6 +31,7 @@
                         <th>Country</th>
                         <th>Is Admin</th>
                         <th>Account Created</th>
+                        <th>Delete User?</th>
 
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@
                         <td>{{ $user->country }}</td>
                         <td>{{ $user->isAdmin }}</td>
                         <td>{{ $user->created_at->diffForHumans() }}</td>
+                        <td><button class="btn btn-danger">Delete</button></td>
                     </tr>
                     @endforeach
                 </tbody>

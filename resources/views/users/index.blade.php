@@ -13,14 +13,14 @@
 
 <div class="container py-3">
 
-    <h1 class="text-center">All Users</h1>
+    <h1 class="text-center mb-5">All Users</h1>
 
 
 
     <div class="row">
         <div class="col-sm-8 mx-auto">
             <table class="table table-bordered table-hover">
-                <thead>
+                <thead class="table table-primary">
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
@@ -47,7 +47,33 @@
                         <td>{{ $user->country }}</td>
                         <td>{{ $user->isAdmin }}</td>
                         <td>{{ $user->created_at->diffForHumans() }}</td>
-                        <td><button class="btn btn-danger">Delete</button></td>
+                        <td><!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+                                Delete
+                            </button>
+                        </td>
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="deleteUserModalLabel">Delete User?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Deleting this user is permanent and cannot be undone!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Delete User</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </tr>
                     @endforeach
                 </tbody>

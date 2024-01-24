@@ -25,7 +25,7 @@
 <body>
     <div id="app mb-3">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid ms-3 me-3">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     The Rave Cave
                 </a>

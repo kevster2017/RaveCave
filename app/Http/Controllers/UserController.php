@@ -13,7 +13,7 @@ class UserController extends Controller
     {
 
         $users = User::where('id', '>', 0)
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('id', 'DESC')
             ->get();
 
         return view('users.index', [

@@ -30,6 +30,7 @@ Route::get("/users", [UserController::class, 'index'])->name('users.index');
 Route::get('/users/show/{id}', [UserController::class, 'show'])->name('users.show');
 Route::get("/users/{id}/edit", [UserController::class, 'edit'])->name('users.edit')->middleware('auth');
 Route::put("/users/{id}", [UserController::class, 'update'])->name('users.update')->middleware('auth');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

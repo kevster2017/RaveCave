@@ -6,19 +6,19 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">All Users</li>
+            <li class="breadcrumb-item active" aria-current="page">All Messages</li>
         </ol>
     </nav>
 </div>
 
 <div class="container py-3">
 
-    <h1 class="text-center mb-5">All Users</h1>
+    <h1 class="text-center mb-5">All Messages</h1>
 
 
 
     <div class="row">
-        <div class="col-sm-8 mx-auto">
+        <div class="col mx-auto">
             <table class="table table-bordered table-hover">
                 <thead class="table table-primary">
                     <tr>
@@ -36,8 +36,9 @@
                 </thead>
                 <tbody>
                     @foreach($contacts as $contact)
-                    <tr>
-                        <td>{{ $message->id }}</td>
+                    <tr onclick="window.location='{{ route('contacts.show', $contact->id) }}';" style="cursor:pointer;">
+                        <td>{{ $contact->id }}</td>
+                        <td>{{ $contact->userID }}</td>
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->username }}</td>
                         <td>{{ $contact->email }}</td>
@@ -53,7 +54,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="deleteContactModalLabel">Delete {{ $contact->name }}?</h1>
+                                            <h1 class="modal-title fs-5" id="deleteContactModalLabel">Delete {{ $contact->name }}'s message?</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -73,6 +74,8 @@
                         </td>
 
                     </tr>
+
+
                     @endforeach
                 </tbody>
             </table>

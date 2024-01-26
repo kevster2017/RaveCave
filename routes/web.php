@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DJController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +55,11 @@ Route::put("/djs/{id}", [DjController::class, 'update'])->name('djs.update')->mi
 Route::delete('/djs/{id}', [DjController::class, 'destroy'])->name('djs.destroy')->middleware('auth');
 
 Route::get("/djs/show/{id}", [DjController::class, 'show'])->name('djs.show')->middleware('auth');
+
+/* Contact Routes */
+Route::get("/contacts", [ContactController::class, 'index'])->name('contacts.index');
+Route::get("/contacts/create", [ContactController::class, 'create'])->name('contacts.create')->middleware('auth');
+Route::post("/contacts/store", [ContactController::class, 'store'])->name('contacts.store')->middleware('auth');
+Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy')->middleware('auth');
+
+Route::get("/contacts/show/{id}", [ContactController::class, 'show'])->name('contacts.show')->middleware('auth');

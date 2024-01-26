@@ -36,6 +36,8 @@
                 </thead>
                 <tbody>
                     @foreach($contacts as $contact)
+
+                    <!--  Make each row a clickable link -->
                     <tr onclick="window.location='{{ route('contacts.show', $contact->id) }}';" style="cursor:pointer;">
                         <td>{{ $contact->id }}</td>
                         <td>{{ $contact->userID }}</td>

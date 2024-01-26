@@ -23,57 +23,48 @@
                 <thead class="table table-primary">
                     <tr>
                         <th>ID</th>
+                        <th>User ID</th>
                         <th>Name</th>
-                        <th>Image</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Town</th>
-                        <th>Country</th>
-                        <th>Is Admin</th>
-                        <th>Account Created</th>
-                        <th>Delete User?</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Message Received</th>
+                        <th>Delete Message?</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($contacts as $contact)
                     <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>
-                            @if( $user->image == 'images/profileImage.jpg')
-                            <img src="images/profileImage.jpg" alt="User Image" width="50">
-                            @else
-                            <img src="/storage/{{ $user->image }}" alt="User Image" width="50">
-                            @endif
-                        </td>
-                        <td>{{ $user->username }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->town }}</td>
-                        <td>{{ $user->country }}</td>
-                        <td>{{ $user->isAdmin }}</td>
-                        <td>{{ $user->created_at->diffForHumans() }}</td>
+                        <td>{{ $message->id }}</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->username }}</td>
+                        <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->subject }}</td>
+                        <td>{{ $contact->message}}</td>
+                        <td>{{ $contact->created_at->diffForHumans() }}</td>
                         <td><!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal{{ $user->id }}">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModal{{ $contact->id }}">
                                 Delete
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true">
+                            <div class="modal fade" id="deleteContactModal{{ $contact->id }}" tabindex="-1" aria-labelledby="deleteContactModalLabel{{ $contact->id }}" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="deleteUserModalLabel">Delete {{ $user->name }}?</h1>
+                                            <h1 class="modal-title fs-5" id="deleteContactModalLabel">Delete {{ $contact->name }}?</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Deleting this user is permanent and cannot be undone!
+                                            Deleting this message is permanent and cannot be undone!
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                            <form method="POST" action="{{ route('contacts.destroy', $contact->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">Delete User</button>
+                                                <button class="btn btn-danger" type="submit">Delete Message</button>
                                             </form>
                                         </div>
                                     </div>

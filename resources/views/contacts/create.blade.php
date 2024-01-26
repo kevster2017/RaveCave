@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Page Content -->
+<div class="container mt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+        </ol>
+    </nav>
+</div>
+
 <div class="container-fluid" id="register">
     @if(count($errors) > 0 )
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -14,121 +24,70 @@
         </ul>
     </div>
     @endif
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-4">
-                <div class="card-body">
-                    <h1 class="text-center my-3">CREATE YOUR DJ PROFILE</h1>
-                    <form method="POST" action="{{ route('djs.store') }}" enctype="multipart/form-data">
-                        @csrf
+                <div class="row">
+                    <div class="col-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                    </div>
 
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h1 class="text-center my-3">Contact Us</h1>
+                            <form method="POST" action="{{ route('contacts.store') }}" enctype="multipart/form-data">
+                                @csrf
+
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->name }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->username }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->email }}">
+
+                                <div class="form-floating my-3 col-10 offset-1">
+                                    <input type="text" class="form-control" id="subject" placeholder="Enter subject of your message" name="subject" class="form-control @error('subject') is-invalid @enderror" value="{{ old('subject') }}" required autocomplete="subject" autofocus>
+                                    <label for="subject">Message Subject</label>
+                                    @error('subject')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
+                                </div>
 
 
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="djname" placeholder="Enter your DJ name" name="djname" class="form-control @error('djname') is-invalid @enderror" value="{{ old('djname') }}" required autocomplete="djname" autofocus>
-                            <label for="djname">Your DJ Name</label>
-                            @error('djname')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
 
+                                <div class="form-floating my-3 col-10 offset-1">
+                                    <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="100" placeholder="Enter a message" required>{{ old('message') }}</textarea>
+                                    <label for="description">Message</label>
+                                    @error('message')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+
+
+
+
+                                <div class="row my-5">
+                                    <div class="col text-center">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Submit') }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
                         </div>
+                    </div>
 
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" required>
-                            <label for="image">DJ Image</label>
-                            @error('image')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="town" placeholder="Enter your town" name="town" class="form-control @error('town') is-invalid @enderror" value="{{ old('town') }}" required autocomplete="town" autofocus>
-                            <label for="town">Home Town</label>
-                            @error('town')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-                        </div>
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="country" placeholder="Enter your Country" name="country" class="form-control @error('country') is-invalid @enderror" value="{{ old('country') }}" required autocomplete="country" autofocus>
-                            <label for="country">Home Country</label>
-                            @error('country')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-                        </div>
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="genre" placeholder="Enter your Music Genre" name="genre" class="form-control @error('genre') is-invalid @enderror" value="{{ old('genre') }}" required autocomplete="genre" autofocus>
-                            <label for="genre">Genre</label>
-                            @error('genre')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-                        </div>
-
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Enter a description" required>{{ old('description') }}</textarea>
-                            <label for="description">Description</label>
-                            @error('description')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="social" placeholder="Enter your Social Media Link" name="social" class="form-control @error('social') is-invalid @enderror" value="{{ old('social') }}" required autocomplete="social" autofocus>
-                            <label for="social">Social Media Link</label>
-                            @error('social')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-                        </div>
-
-
-
-                        <div class="form-floating my-3 col-10 offset-1">
-                            <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}" required autocomplete="date">
-                            <label for="date">Date you started DJing</label>
-                            @error('date')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-
-
-
-                        <div class="row my-5">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+
 </div>
 @endsection

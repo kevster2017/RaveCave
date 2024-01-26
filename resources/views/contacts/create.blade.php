@@ -29,8 +29,8 @@
         <div class="col-md-8">
             <div class="card mt-4">
                 <div class="row">
-                    <div class="col-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
+                    <div class="col-4 ">
+                        <img src="/images/contactUs.jpg" class="img-fluid rounded-start h-100" alt="Ravers with the message Contact Us">
                     </div>
 
                     <div class="col-8">

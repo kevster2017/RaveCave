@@ -39,10 +39,10 @@
                             <form method="POST" action="{{ route('contacts.store') }}" enctype="multipart/form-data">
                                 @csrf
 
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->name }}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->username }}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->email }}">
+                                <input type="hidden" name="userID" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                                <input type="hidden" name="username" value="{{ Auth::user()->username }}">
+                                <input type="hidden" name="email" value="{{ Auth::user()->email }}">
 
                                 <div class="form-floating my-3 col-10 offset-1">
                                     <input type="text" class="form-control" id="subject" placeholder="Enter subject of your message" name="subject" class="form-control @error('subject') is-invalid @enderror" value="{{ old('subject') }}" required autocomplete="subject" autofocus>

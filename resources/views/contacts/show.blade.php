@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('messages.index') }}">Messages Index</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('contacts.index') }}">Messages Index</a></li>
             <li class=" breadcrumb-item active" aria-current="page">Message from {{ $contact->name }}</li>
         </ol>
     </nav>
@@ -103,9 +103,10 @@
 <script>
     function replyToEmail() {
         var emailAddress = "{{ $contact->email }}"; // Email address fetched from the database
+        var emailSubject = "{{ $contact->subject }}"; // Message subject from database
 
         // Create the mailto link with the fetched email address
-        var mailtoLink = "mailto:" + "{{ $contact->email }}";
+        var mailtoLink = "mailto:" + "{{ $contact->email }}" + "?subject=" + encodeURIComponent(emailSubject);
 
         // Open the mailto link in a new tab
         window.open(mailtoLink, '_blank');

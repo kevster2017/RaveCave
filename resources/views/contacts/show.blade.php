@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="container mt-3">
-                                <label for="description"><strong>Message:</strong>{{ $contact->message }}</label>
+                                <label for="description"><strong>Message:</strong> {{ $contact->message }}</label>
                             </div>
 
 

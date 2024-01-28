@@ -39,17 +39,17 @@
                             <h1 class="text-center my-3">Message from {{ $contact->name }}</h1>
                             <div class="container">
 
-                                <label for="subject"><strong>Message Received:</strong> {{ $contact->created_at }}</label>
+                                <label for="subject"><strong>Message Received:</strong> {{ $contact->created_at->diffForHumans() }}</label>
                             </div>
 
 
-                            <div class="container">
+                            <div class="container mt-3">
 
                                 <label for="subject"><strong>Subject:</strong> {{ $contact->subject }}</label>
                             </div>
 
                             <div class="container mt-3">
-                                <label for="description"><strong>Message::</strong>{{ $contact->message }}</label>
+                                <label for="description"><strong>Message:</strong>{{ $contact->message }}</label>
                             </div>
 
 
@@ -60,9 +60,32 @@
 
                             <div class="row my-5">
                                 <div class="col text-center">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Submit') }}
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModal{{ $contact->id }}">
+                                        Delete
                                     </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="deleteContactModal{{ $contact->id }}" tabindex="-1" aria-labelledby="deleteContactModalLabel{{ $contact->id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="deleteContactModalLabel">Delete {{ $contact->name }}'s message?</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Deleting this message is permanent and cannot be undone!
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <form method="POST" action="{{ route('contacts.destroy', $contact->id) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger" type="submit">Delete Message</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

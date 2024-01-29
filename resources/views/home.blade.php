@@ -32,7 +32,7 @@
 
                     <div class="card-body">
                         <h5 class="card-title">Create New DJ Profile</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">Create your DJ profile here</p>
                     </div>
                 </div>
             </div>

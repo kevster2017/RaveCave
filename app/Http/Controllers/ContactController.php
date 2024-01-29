@@ -12,13 +12,19 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::where('id', '>', 0)
-            ->orderBy('created_at', 'ASC')
-            ->get();
+        if (auth()->user()->isAdmin != 1) {
 
-        return view('contacts.index', [
-            'contacts' => $contacts
-        ]);
+            return redirect()->back()->with('error', 'You are not authorised to view this page');
+        } else {
+
+            $contacts = Contact::where('id', '>', 0)
+                ->orderBy('created_at', 'ASC')
+                ->get();
+
+            return view('contacts.index', [
+                'contacts' => $contacts
+            ]);
+        }
     }
 
     /**

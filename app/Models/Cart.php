@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
-    public $table = "cart";
 
 
     public function event()

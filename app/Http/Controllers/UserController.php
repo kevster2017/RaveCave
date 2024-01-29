@@ -11,14 +11,19 @@ class UserController extends Controller
 
     function index()
     {
+        if (auth()->user()->isAdmin != 1) {
 
-        $users = User::where('id', '>', 0)
-            ->orderBy('id', 'DESC')
-            ->get();
+            return redirect()->back()->with('error', 'You are not authorised to view this page');
+        } else {
 
-        return view('users.index', [
-            'users' => $users
-        ]);
+            $users = User::where('id', '>', 0)
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            return view('users.index', [
+                'users' => $users
+            ]);
+        }
     }
 
     function show($id)

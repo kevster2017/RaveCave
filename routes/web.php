@@ -7,6 +7,7 @@ use App\Http\Controllers\DJController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +68,7 @@ Route::get("/contacts/show/{id}", [ContactController::class, 'show'])->name('con
 
 /* Admin Routes */
 Route::get("/admins", [AdminController::class, 'home'])->name('admins.home');
+
+/* Stripe Routes */
+Route::get("stripe", [StripeController::class, 'stripe'])->middleware('auth');
+Route::post("stripe", [StripeController::class, 'stripePost'])->name('stripe.post')->middleware('auth');

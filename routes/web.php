@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\DJController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,6 @@ Route::post("/contacts/store", [ContactController::class, 'store'])->name('conta
 Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy')->middleware('auth');
 
 Route::get("/contacts/show/{id}", [ContactController::class, 'show'])->name('contacts.show')->middleware('auth');
+
+/* Admin Routes */
+Route::get("/admins", [AdminController::class, 'home'])->name('admins.home');

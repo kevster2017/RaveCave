@@ -59,7 +59,7 @@
 
             <div class="col">
                 <div class="card custom-card h-100">
-                    <a href=" {{ route('users.index') }}"><img src="/images/allUsers.jpg" class="card-img-top img-fluid" alt="Ravers dancing"></a>
+                    <a href=" {{ route('admins.home') }}"><img src="/images/allUsers.jpg" class="card-img-top img-fluid" alt="Ravers dancing"></a>
                     <div class="card-body">
                         <h5 class="card-title">Admin Options</h5>
                         <p class="card-text">View the list of Admin features</p>

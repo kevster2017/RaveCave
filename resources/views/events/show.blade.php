@@ -53,7 +53,21 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
                         <div class="col-12 col-md-3 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Buy Tickets</a>
+                            <form action="{{ route('addToCart') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="userId" value="{{ Auth()->User()->id }}">
+                                <input type="hidden" name="name" value="{{ Auth()->User()->name }}">
+                                <input type="hidden" name="eventId" value="{{ $event->id }}">
+                                <input type="hidden" name="title" value="{{ $event->title }}">
+                                <input type="hidden" name="dj" value="{{ $event->dj }}">
+                                <input type="hidden" name="date" value="{{ $event->date }}">
+                                <input type="hidden" name="time" value="{{ $event->time }}">
+                                <input type="hidden" name="price" value="{{ $event->price }}">
+                                <input type="hidden" name="image" value="{{ $event->image }}">
+                                <input type="hidden" name="eventId" value="{{ $event->id }}">
+
+                                <button class="btn btn-primary" type="submit" href="#">Buy Tickets</button>
+                            </form>
                         </div>
                         <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>

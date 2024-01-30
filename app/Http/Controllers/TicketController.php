@@ -61,6 +61,57 @@ class TicketController extends Controller
         return view('tickets.review', ['ticket' => $ticket]);
     }
 
+    function bookNow()
+    {
+
+        $userId = auth()->user()->id;
+
+        $cart = DB::table('cart')
+            ->where('user_id', $userId)
+            ->first();
+
+
+        return view('tickets.review', ['cart' => $cart]);
+    }
+
+    function buyTicket(Request $req)
+    {
+
+        // Get the auth user's cart details
+        $userId = auth()->user()->id;
+        $fullCart = Cart::where('userId', $userId)
+            ->get();
+
+
+        // Loop through cart and create new ticket
+        foreach ($fullCart as $cart) {
+            $order = new Ticket;
+            $order->hotelId = $cart->hotelId;
+            $order->userId = $cart->userId;
+            $order->name = $req->name;
+            $order->status = "Pending";
+            $order->address = $req->address;
+            $order->payment_method = $req->payment;
+            $order->payment_status = "Pending";
+            $order->save();
+        }
+
+        // Check and redirect based on method of payment
+        if ($order->payment_method == 'Online') {
+            return redirect('/orders/stripe');
+        }
+
+        if ($order->payment_method == 'PayPal') {
+            $total = DB::table('cart')
+                ->join('tickets', 'cart.ticket_id', '=', 'tickets.id')
+                ->where('cart.user_id', $userId)
+                ->sum('tickets.price');
+
+            return view('/tickets/paypal', ['total' => $total]);
+        } else {
+            return redirect('/tickets/stripe');
+        }
+    }
 
     function myTickets()
     {

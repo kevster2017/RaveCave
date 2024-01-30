@@ -77,6 +77,6 @@ class StripeController extends Controller
             $ticket->save();
         }
 
-        return redirect('/orders/stripe')->with('success', 'Order Successful, proceed to payment');
+        return redirect('/tickets/stripe')->with('success', 'Order Successful, proceed to payment');
     }
 }

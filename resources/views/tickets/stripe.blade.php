@@ -13,6 +13,87 @@
 </div>
 
 
+<div class="container-fluid" id="register">
+   @if(count($errors) > 0 )
+   <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+      </button>
+      <ul class="p-0 m-0" style="list-style: none;">
+         @foreach($errors->all() as $error)
+         <li>{{$error}}</li>
+         @endforeach
+      </ul>
+   </div>
+   @endif
+
+   <div class="row justify-content-center">
+      <div class="col-md-8">
+         <div class="card mt-4">
+            <div class="row">
+               <div class="col-4 ">
+                  <img src="/images/contactUs.jpg" class="img-fluid rounded-start h-100" alt="Card Payment Image">
+               </div>
+
+               <div class="col-8">
+                  <div class="card-body">
+                     <h1 class="text-center my-3">Pay By Card</h1>
+                     <form method="POST" action="{{ route('contacts.store') }}" enctype="multipart/form-data">
+                        @csrf
+
+                        <input type="hidden" name="userID" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                        <input type="hidden" name="username" value="{{ Auth::user()->username }}">
+                        <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+
+                        <div class="form-floating my-3 col-10 offset-1">
+                           <input type="text" class="form-control" id="subject" placeholder="Enter subject of your message" name="subject" class="form-control @error('subject') is-invalid @enderror" value="{{ old('subject') }}" required autocomplete="subject" autofocus>
+                           <label for="subject">Message Subject</label>
+                           @error('subject')
+                           <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                           </span>
+                           @enderror
+
+                        </div>
+
+
+
+                        <div class="form-floating my-3 col-10 offset-1">
+                           <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="100" placeholder="Enter a message" required>{{ old('message') }}</textarea>
+                           <label for="description">Message</label>
+                           @error('message')
+                           <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                           </span>
+                           @enderror
+                        </div>
+
+
+
+
+
+                        <div class="row my-5">
+                           <div class="col text-center">
+                              <button type="submit" class="btn btn-primary">
+                                 {{ __('Submit') }}
+                              </button>
+                           </div>
+                        </div>
+
+                     </form>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+</div>
+
+
 <div class="container">
    <div class="row">
       <h3 style="text-align: center;margin-top: 40px;margin-bottom: 40px;">Payment Page</h3>

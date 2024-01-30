@@ -53,5 +53,30 @@ class StripeController extends Controller
 
     function orderTicket(Request $req)
     {
+        $userId = auth()->user()->id;
+        $fullCart = Cart::where('userId', $userId)
+            ->get();
+
+        $req->validate([
+            'payment' => 'required'
+        ]);
+
+        foreach ($fullCart as $cart) {
+            $ticket = new Ticket;
+            $ticket->ticketId = $cart->ticketId;
+            $ticket->userId = $cart->userId;
+            $ticket->eventId = $req->eventId;
+            $ticket->title = $cart->title;
+            $ticket->dj = $req->dj;
+            $ticket->date = $cart->date;
+            $ticket->time = $req->time;
+            $ticket->price = $cart->price;
+            $ticket->image = $req->image;
+            $ticket->paymentMethod = $req->payment;
+            $ticket->paymentStatus = "Pending";
+            $ticket->save();
+        }
+
+        return redirect('/orders/stripe')->with('success', 'Order Successful, proceed to payment');
     }
 }

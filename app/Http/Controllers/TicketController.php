@@ -29,12 +29,43 @@ class TicketController extends Controller
         return redirect('/tickets/viewCart')->with('success', 'Ticket added to cart');
     }
 
+    public function viewCart()
+    {
+
+        // Get auth userID
+        $userId = auth()->user()->id;
+
+        // Find userID in the Cart
+        $cart = Cart::where('userId', $userId)
+            ->first();
+
+        // Check if the cart is empty, return cart if not empty
+        if ($cart === null) {
+            return back()->with('error', 'No items in cart');
+        } else {
+
+            return view('tickets.viewCart', ['cart' => $cart]);
+        }
+    }
+
+    public function review()
+    {
+        $userId = auth()->user()->id;
+
+        // Find auth user ticket details
+        $ticket = DB::table('tickets')
+            ->where('userId', $userId)
+            ->get();
+
+
+        return view('tickets.review', ['ticket' => $ticket]);
+    }
 
 
     function myTickets()
     {
 
-        /* Get auth users id, get booking */
+        /* Get auth users id, get ticket */
         $userId = auth()->user()->id;
 
         $tickets = DB::table('tickets')

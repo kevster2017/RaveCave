@@ -11,8 +11,22 @@ use Carbon\Carbon;
 
 class TicketController extends Controller
 {
-    public function addToCart()
+    public function addToCart(Request $request)
     {
+        $cart = new Cart;
+        $cart->userId = auth()->user()->id;
+        $cart->name = $request->name;
+        $cart->eventId = $request->eventId;
+        $cart->dj = $request->dj;
+        $cart->date = $request->date;
+        $cart->time = $request->time;
+        $cart->price = $request->price;
+        $cart->image = $request->image;
+        $cart->title = $request->title;
+
+        $cart->save();
+
+        return redirect('/tickets/viewCart')->with('success', 'Ticket added to cart');
     }
 
 

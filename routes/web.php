@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,9 @@ Route::get("/admins", [AdminController::class, 'home'])->name('admins.home');
 /* Stripe Routes */
 Route::get("stripe", [StripeController::class, 'stripe'])->middleware('auth');
 Route::post("stripe", [StripeController::class, 'stripePost'])->name('stripe.post')->middleware('auth');
+
+/* Cart routes */
+Route::post("/add_to_cart", [TicketController::class, 'addToCart'])->name('addToCart')->middleware('auth');
+Route::get("/tickets/viewCart", [TicketController::class, 'viewCart'])->middleware('auth')->name("viewCart");
+Route::put("/update_cart/{id}", [TicketController::class, 'updateCart'])->name('cart.update')->middleware('auth');
+Route::delete("/removeCart/{id}", [TicketController::class, 'removeCart'])->name('delete.cart')->middleware('auth');

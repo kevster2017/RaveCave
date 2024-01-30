@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/events/show/{{ $cart->eventId }}">Event</a></li>
+            <li class="breadcrumb-item"><a href="/events/show/{{ $ticket->eventId }}">Event</a></li>
             <li class="breadcrumb-item"><a href="/tickets/viewCart">View Cart</a></li>
             <li class="breadcrumb-item active" aria-current="page">Ticket Booking Review</li>
         </ol>
@@ -15,7 +15,7 @@
 </div>
 
 <div class="container text-center my-5">
-    <h1>Review Ticket Booking at {{ $cart->title }}</h1>
+    <h1>Review Ticket Booking at {{ $ticket->title }}</h1>
 </div>
 
 <div class="container mt-3">
@@ -24,18 +24,18 @@
             <div class="col-md-4">
 
 
-                <img src="/storage/{{ $cart->image }}" class="img-fluid rounded-start" alt="Hotel Image">
+                <img src="/storage/{{ $ticket->image }}" class="img-fluid rounded-start img-fluid card-img" alt="Event Image">
 
 
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h2 class="card-title">{{ $cart->title }}</h2>
-                    <p class="card-text">{{ $cart->dj }}</p>
-                    <p class="card-text">{{ $cart->date }}</p>
-                    <p class="card-text">{{ $cart->time }}</p>
-                    <p class="card-text">{{ $cart->price }}</p>
-                    <p class="card-text"><small class="text-body-secondary">Ticket Booking Created: {{ $cart->created_at->diffForHumans() }}</small></p>
+                    <h2 class="card-title">{{ $ticket->title }}</h2>
+                    <p class="card-text">{{ $ticket->dj }}</p>
+                    <p class="card-text">{{ $ticket->date }}</p>
+                    <p class="card-text">{{ $ticket->time }}</p>
+                    <p class="card-text">{{ $ticket->price }}</p>
+                    <p class="card-text"><small class="text-body-secondary">Ticket Booking Created: {{ $ticket->created_at->diffForHumans() }}</small></p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
     <div class="card text-bg-light mt-3">
         <h5 class="card-header" id="divLeft">Ticket Price</h5>
         <div class="card-body">
-            <h3 class="text-center"><strong>Final Total: £</strong>{{ $cart->price}}</h3>
+            <h3 class="text-center"><strong>Final Total: £</strong>{{ $ticket->price}}</h3>
         </div>
     </div>
 
@@ -82,11 +82,11 @@
     <div class="container text-center">
         <a href="{{ route('tickets.stripe') }}" class="btn btn-primary" id="paymentButton">Book Now</a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cart->id }}" id="cancelBookButton">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $ticket->id }}" id="cancelBookButton">
             Cancel Ticket
         </button>
         <!-- Modal -->
-        <div class="modal fade" id="deleteModal{{ $cart->id  }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteModal{{ $ticket->id  }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -98,7 +98,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <form method="POST" action="{{ route('delete.cart', $cart->id) }}">
+                        <form method="POST" action="{{ route('delete.ticket', $ticket->id) }}">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Cancel Ticket</button>

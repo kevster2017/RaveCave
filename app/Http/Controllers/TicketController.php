@@ -50,4 +50,11 @@ class TicketController extends Controller
         $ticket = Ticket::findOrFail($id);
         return view('/tickets/show', ['ticket' => $ticket]);
     }
+
+    public function removeCart($id)
+    {
+        Cart::destroy($id);
+
+        return redirect()->route('home')->with('success', 'Item successfully removed from cart');
+    }
 }

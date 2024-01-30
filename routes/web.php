@@ -79,3 +79,16 @@ Route::post("/add_to_cart", [TicketController::class, 'addToCart'])->name('addTo
 Route::get("/tickets/viewCart", [TicketController::class, 'viewCart'])->middleware('auth')->name("viewCart");
 Route::put("/update_cart/{id}", [TicketController::class, 'updateCart'])->name('cart.update')->middleware('auth');
 Route::delete("/removeCart/{id}", [TicketController::class, 'removeCart'])->name('delete.cart')->middleware('auth');
+
+/* Ticket Routes */
+Route::get("/tickets", [TicketController::class, 'index']);
+Route::get("/tickets/create", [TicketController::class, 'create'])->name('tickets.create')->middleware('auth');
+Route::get("/tickets/myTickets", [TicketController::class, 'myTickets'])->name('myTickets')->middleware('auth');
+
+Route::post("/tickets/store", [TicketController::class, 'store'])->name('tickets.store')->middleware('auth');
+Route::delete('/tickets/{id}', [TicketController::class, 'destroy'])->name('tickets.destroy')->middleware('auth');
+
+Route::get("/tickets/show/{id}", [TicketController::class, 'show'])->name('tickets.show')->middleware('auth');
+Route::get("/tickets/review", [TicketController::class, 'review'])->name('tickets.review')->middleware('auth');
+Route::get("/tickets/payment", [TicketController::class, 'payment'])->name('tickets.payment')->middleware('auth');
+Route::get("/tickets/paymentComplete", [TicketController::class, 'paymentComplete'])->name('tickets.paymentComplete')->middleware('auth');

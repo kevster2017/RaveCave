@@ -21,7 +21,7 @@
         <div class="my-2">
             <div class="row g-0">
                 <div class="col-4">
-                    <img src="/storage/{{$event->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="event Image">
+                    <img src="/storage/{{$event->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="Event Image">
 
 
                 </div>

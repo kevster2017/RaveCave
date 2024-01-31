@@ -19,6 +19,7 @@ class StripeController extends Controller
     public function stripePost(Request $req)
     {
 
+        dd($req);
         $userId = auth()->user()->id;
         $fullCart = Cart::where('userID', $userId)
             ->get();

@@ -13,7 +13,7 @@ class StripeController extends Controller
 {
     public function stripe()
     {
-        return view('stripe');
+        return view('tickets.stripe');
     }
 
     public function stripePost(Request $request)

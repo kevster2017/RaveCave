@@ -16,7 +16,7 @@ class StripeController extends Controller
         return view('tickets.stripe');
     }
 
-    public function stripePost(Request $req)
+    public function stripePost(Request $request)
     {
 
 
@@ -32,12 +32,13 @@ class StripeController extends Controller
 
         $total = ($cart->price * 100);
 
+        //dd($request->_token);
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create([
             "amount" => $total,
             "currency" => "GBP",
-            "source" => $req->stripeToken,
-            "description" => "This payment is testing purpose of The Rave Cave"
+            "source" => $request->stripeToken,
+            "description" => "This payment is for {$cart->title}",
         ]);
 
         /* Create new Ticket */

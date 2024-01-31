@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('price');
+            $table->string('paymentMethod');
 
             $table->timestamps();
         });

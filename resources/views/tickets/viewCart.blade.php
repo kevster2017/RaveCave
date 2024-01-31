@@ -39,8 +39,9 @@
 
     <div class="mt-3 text-center">
 
+
+      <a href="{{ route('tickets.review') }}" class="btn btn-primary my-3 me-2">Continue to payment</a>
       <!-- Button trigger modal -->
-      <a href="{{ route('tickets.review') }}" class="btn btn-primary my-3 me-2">Continue</a>
       <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cart->id }}">
         Cancel Booking
       </button>

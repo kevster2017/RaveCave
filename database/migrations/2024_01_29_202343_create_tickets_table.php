@@ -24,6 +24,8 @@ return new class extends Migration
             $table->integer('price');
             $table->string('paymentMethod');
 
+            $table->string('paymentStatus');
+
             $table->timestamps();
         });
     }

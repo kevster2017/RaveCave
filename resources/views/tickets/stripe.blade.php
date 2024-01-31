@@ -66,7 +66,7 @@
 
                         <div class="form-floating my-3 col-4 offset-1">
                            <input type="text" class="form-control" id="startDate" placeholder="Start mm/yy" name="startDate" class="form-control @error('startDate') is-invalid @enderror" value="{{ old('startDate') }}" required autocomplete="startDate" autofocus>
-                           <label for="startDate" class='control-label'>Start mm/yy</label>
+                           <label for="startDate" class='control-label'>Expiry Month 12</label>
                            @error('startDate')
                            <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
 
                         <div class="form-floating my-3 col-4 offset-1">
                            <input type="text" class="form-control" id="endDate" placeholder="End mm/yy" name="endDate" class="form-control @error('endDate') is-invalid @enderror" value="{{ old('endDate') }}" required autocomplete="endDate" autofocus>
-                           <label for="endDate" class='control-label'>End mm/yy</label>
+                           <label for="endDate" class='control-label'>Expiry Year 2028</label>
                            @error('endDate')
                            <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
 
                         <div class="form-floating my-3 col-3 offset-1">
                            <input type="text" class="form-control" id="cvc" placeholder="cvc" name="cvc" class="form-control @error('cvc') is-invalid @enderror" value="{{ old('cvc') }}" required autocomplete="cvc" autofocus>
-                           <label for="cvc" class='control-label'>CVC</label>
+                           <label for="cvc" class='control-label'>CVC 123</label>
                            @error('cvc')
                            <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>

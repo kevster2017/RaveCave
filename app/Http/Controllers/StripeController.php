@@ -35,10 +35,8 @@ class StripeController extends Controller
             $ticket->time = $req->time;
             $ticket->price = $cart->price;
             $ticket->image = $req->image;
-            $ticket->paymentMethod = $req->payment;
+            $ticket->paymentMethod = "Stripe";
             $ticket->save();
-
-            $ticket->paymentStatus = "Paid";
         }
 
         $total = ($ticket->price * 100);

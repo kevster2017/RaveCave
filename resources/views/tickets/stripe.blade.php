@@ -32,13 +32,13 @@
          <div class="card mt-4">
             <div class="row">
                <div class="col-4 ">
-                  <img src="/images/contactUs.jpg" class="img-fluid rounded-start h-100" alt="Card Payment Image">
+                  <img src="/images/cardPayment.jpg" class="img-fluid rounded-start h-100" alt="Card Payment Image">
                </div>
 
                <div class="col-8">
                   <div class="card-body">
                      <h1 class="text-center my-3">Pay By Card</h1>
-                     <form method="POST" action="{{ route('contacts.store') }}" enctype="multipart/form-data">
+                     <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form" enctype="multipart/form-data">
                         @csrf
 
                         <input type="hidden" name="userID" value="{{ Auth::user()->id }}">

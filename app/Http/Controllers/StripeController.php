@@ -16,7 +16,7 @@ class StripeController extends Controller
         return view('tickets.stripe');
     }
 
-    public function stripePost(Request $request)
+    public function stripePost(Request $req)
     {
 
         $userId = auth()->user()->id;
@@ -24,28 +24,35 @@ class StripeController extends Controller
             ->get();
 
         foreach ($fullCart as $cart) {
-            $ticket = Ticket::where('userId', $userId)->get();
-
+            $ticket = new Ticket;
+            $ticket->ticketId = $cart->ticketId;
             $ticket->userId = $cart->userId;
+            $ticket->eventId = $req->eventId;
+            $ticket->title = $cart->title;
+            $ticket->dj = $req->dj;
+            $ticket->date = $cart->date;
+            $ticket->time = $req->time;
+            $ticket->price = $cart->price;
+            $ticket->image = $req->image;
+            $ticket->paymentMethod = $req->payment;
+            $ticket->save();
+
             $ticket->paymentStatus = "Paid";
         }
 
-        $total = DB::table('cart')
-            ->join('tickets', 'cart.ticket_id', '=', 'tickets.id')
-            ->where('cart.userId', $userId)
-            ->sum('tickets.price');
-
-        $total = ($total * 100);
+        $total = ($ticket->price * 100);
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create([
             "amount" => $total,
             "currency" => "GBP",
-            "source" => $request->stripeToken,
+            "source" => $req->stripeToken,
             "description" => "This payment is testing purpose of The Rave Cave"
         ]);
 
         Cart::where('userId', $userId)->delete();
+        $ticket->paymentStatus = "Paid";
+        $ticket->save();
 
         return redirect('/tickets/myTickets')->with('success', 'Payment Successful');
     }

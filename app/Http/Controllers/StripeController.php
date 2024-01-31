@@ -19,27 +19,18 @@ class StripeController extends Controller
     public function stripePost(Request $req)
     {
 
-        dd($req);
-        $userId = auth()->user()->id;
-        $fullCart = Cart::where('userID', $userId)
-            ->get();
 
-        foreach ($fullCart as $cart) {
-            $ticket = new Ticket;
-            $ticket->ticketId = $cart->ticketId;
-            $ticket->userId = $cart->userId;
-            $ticket->eventId = $req->eventId;
-            $ticket->title = $cart->title;
-            $ticket->dj = $req->dj;
-            $ticket->date = $cart->date;
-            $ticket->time = $req->time;
-            $ticket->price = $cart->price;
-            $ticket->image = $req->image;
-            $ticket->paymentMethod = "Stripe";
-            $ticket->save();
+        $userId = auth()->user()->id;
+        $cart = Cart::where('userID', $userId)
+            ->first();
+
+        if (!$cart) {
+            // Handle the case where the cart is not found
+            return redirect()->back()->with('error', 'Cart not found');
         }
 
-        $total = ($ticket->price * 100);
+
+        $total = ($cart->price * 100);
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create([
@@ -49,9 +40,23 @@ class StripeController extends Controller
             "description" => "This payment is testing purpose of The Rave Cave"
         ]);
 
-        Cart::where('userId', $userId)->delete();
+        /* Create new Ticket */
+        $ticket = new Ticket;
+        $ticket->name = $cart->name;
+        $ticket->userId = $cart->userId;
+        $ticket->event_id = $cart->eventId;
+        $ticket->title = $cart->title;
+        $ticket->dj = $cart->dj;
+        $ticket->date = $cart->date;
+        $ticket->time = $cart->time;
+        $ticket->price = $cart->price;
+        $ticket->image = $cart->image;
+        $ticket->paymentMethod = "Stripe";
         $ticket->paymentStatus = "Paid";
         $ticket->save();
+
+        Cart::where('userId', $userId)->delete();
+
 
         return redirect('/tickets/myTickets')->with('success', 'Payment Successful');
     }

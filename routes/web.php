@@ -71,7 +71,7 @@ Route::get("/contacts/show/{id}", [ContactController::class, 'show'])->name('con
 Route::get("/admins", [AdminController::class, 'home'])->name('admins.home');
 
 /* Stripe Routes */
-Route::get("stripe", [StripeController::class, 'stripe'])->middleware('auth');
+Route::get("/tickets/stripe", [StripeController::class, 'stripe'])->name('tickets.stripe')->middleware('auth');
 Route::post("stripe", [StripeController::class, 'stripePost'])->name('stripe.post')->middleware('auth');
 
 /* Cart routes */

@@ -42,7 +42,7 @@
                         @csrf
 
                         <div class="form-floating my-3 col-10 offset-1">
-                           <input type="text" class="form-control" id="name" placeholder="Enter name on card" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                           <input type="text" class="form-control card-number" id="name" placeholder="Enter name on card" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus>
                            <label for="name" class='control-label'>Name on Card</label>
                            @error('name')
                            <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-floating my-3 col-10 offset-1">
-                           <input type="text" class="form-control" id="cardNum" placeholder="Enter 16 digit card number" name="cardNum" class="form-control @error('cardNum') is-invalid @enderror" value="{{ old('cardNum') }}" required autocomplete="cardNum" autofocus>
+                           <input type="text" class="form-control" id="cardNum" placeholder="Enter 16 digit card number" name="cardNum" class="form-control card-number @error('cardNum') is-invalid @enderror" value="{{ old('cardNum') }}" required autocomplete="cardNum" autofocus>
                            <label for="cardNum" class='control-label'>16 Digit Card Number</label>
                            @error('cardNum')
                            <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
 
 
                         <div class="form-floating my-3 col-4 offset-1">
-                           <input type="text" class="form-control" id="startDate" placeholder="Start mm/yy" name="startDate" class="form-control @error('startDate') is-invalid @enderror" value="{{ old('startDate') }}" required autocomplete="startDate" autofocus>
+                           <input type="text" class="form-control" id="startDate" placeholder="Start mm/yy" name="startDate" class="form-control card-expiry-month @error('startDate') is-invalid @enderror" value="{{ old('startDate') }}" required autocomplete="startDate" autofocus>
                            <label for="startDate" class='control-label'>Expiry Month 12</label>
                            @error('startDate')
                            <span class="invalid-feedback" role="alert">
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="form-floating my-3 col-4 offset-1">
-                           <input type="text" class="form-control" id="endDate" placeholder="End mm/yy" name="endDate" class="form-control @error('endDate') is-invalid @enderror" value="{{ old('endDate') }}" required autocomplete="endDate" autofocus>
+                           <input type="text" class="form-control" id="endDate" placeholder="End mm/yy" name="endDate" class="form-control card-expiry-year @error('endDate') is-invalid @enderror" value="{{ old('endDate') }}" required autocomplete="endDate" autofocus>
                            <label for="endDate" class='control-label'>Expiry Year 2028</label>
                            @error('endDate')
                            <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
 
 
                         <div class="form-floating my-3 col-3 offset-1">
-                           <input type="text" class="form-control" id="cvc" placeholder="cvc" name="cvc" class="form-control @error('cvc') is-invalid @enderror" value="{{ old('cvc') }}" required autocomplete="cvc" autofocus>
+                           <input type="text" class="form-control" id="cvc" placeholder="cvc" name="cvc" class="form-control card-cvc @error('cvc') is-invalid @enderror" value="{{ old('cvc') }}" required autocomplete="cvc" autofocus>
                            <label for="cvc" class='control-label'>CVC 123</label>
                            @error('cvc')
                            <span class="invalid-feedback" role="alert">

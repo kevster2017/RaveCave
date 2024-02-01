@@ -41,28 +41,32 @@
                      <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}">
                         @csrf
                         <div class='form-row row'>
-                           <div class='col-xs-12 col-md-6 form-group required'>
-                              <label class='control-label'>Name on Card</label>
-                              <input class='form-control' size='4' type='text'>
+                           <div class='form-floating col-xs-12 col-md-6 form-group required'>
+                              <input class='form-control' size='4' type='text' autofocus placeholder="Name on card">
+                              <label class='control-label ms-2'>Name on Card</label>
+
                            </div>
-                           <div class='col-xs-12 col-md-6 form-group required'>
-                              <label class='control-label'>Card Number</label>
-                              <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+                           <div class='form-floating col-xs-12 col-md-6 form-group required'>
+                              <input autocomplete='off' class='form-control card-number' size='20' type='text' placeholder="Enter 16 digit card number">
+                              <label class='control-label ms-2'>Card Number</label>
+
                            </div>
                         </div>
 
                         <div class='form-row row mt-3'>
-                           <div class='col-xs-12 col-md-4 form-group cvc required'>
-                              <label class='control-label'>CVC</label>
-                              <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+                           <div class='form-floating col-xs-12 col-md-4 form-group cvc required'>
+                              <input autocomplete='off' class='form-control card-cvc' placeholder='CVC' size='4' type='text'>
+                              <label class='control-label ms-2'>CVC</label>
                            </div>
-                           <div class='col-xs-12 col-md-4 form-group expiration required'>
-                              <label class='control-label'>Expiration Month</label>
-                              <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+                           <div class='form-floating col-xs-12 col-md-4 form-group expiration required'>
+                              <input class='form-control card-expiry-month' placeholder='Expiration Month' size='2' type='text'>
+                              <label class='control-label ms-2'>Expiration Month</label>
+
                            </div>
-                           <div class='col-xs-12 col-md-4 form-group expiration required'>
-                              <label class='control-label'>Expiration Year</label>
-                              <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+                           <div class='form-floating col-xs-12 col-md-4 form-group expiration required'>
+                              <input class='form-control card-expiry-year' placeholder='Expiration Year' size='4' type='text'>
+                              <label class='control-label ms-2'>Expiration Year</label>
+
                            </div>
                         </div>
 

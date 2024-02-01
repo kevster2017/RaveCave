@@ -42,9 +42,9 @@
 
                                         <h6 class="card-text">{{ $ticket->dj}}</h6>
                                         <p class="card-text">{{ $ticket->date }} {{ $ticket->time }}</p>
-                                        <p class="card-text">Price: {{ $ticket->price }}</p>
+                                        <p class="card-text">Price: £{{ $ticket->price }}</p>
                                         <p class="card-text">
-                                            <small class="text-muted">Ticket Created: {{ \Carbon\Carbon::parse($ticket->created_at)->diffForHumans() }}</small>
+                                            <small class="text-muted">Ticket Purchased: {{ \Carbon\Carbon::parse($ticket->created_at)->diffForHumans() }}</small>
                                         </p>
 
 

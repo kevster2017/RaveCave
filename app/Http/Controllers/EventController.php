@@ -107,15 +107,11 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $request->validate([
             'userID' => 'required|exists:users,id',
             'dj' => 'required|string|max:255',
-            'video' => 'required|mimes:mp4,avi,mov,wmv',
             'title' => 'required|string|max:255',
-            'image' => 'required|mimes:jpg,jpeg,png,gif',
             'date' => 'required|date',
-            'time' => 'required|date_format:H:i',
             'description' => 'required|string|max:500',
         ]);
 
@@ -123,38 +119,20 @@ class EventController extends Controller
 
         $event->userID = auth()->user()->id;
 
-        if (!empty($request->input('dj'))) {
-            $event->dj = $request->dj;
-        }
-        if (!empty($request->input('title'))) {
-            $event->title = $request->title;
-        }
+        // Mass assignment to update model attributes in bulk
+        $event->fill($request->except(['_token', '_method', 'image', 'video']));
 
-        if (!empty($request->hasFile('image'))) {
-
+        if ($request->hasFile('image')) {
             $event->image = $request->file('image')->store('uploads', 'public');
         }
 
-        if (!empty($request->hasFile('video'))) {
-
+        if ($request->hasFile('video')) {
             $event->video = $request->file('video')->store('uploads', 'public');
         }
 
-        if (!empty($request->input('date'))) {
-            $event->date = $request->date;
-        }
-        if (!empty($request->input('time'))) {
-            $event->time = $request->time;
-        }
-
-        if (!empty($request->input('description'))) {
-            $event->description = $request->description;
-        }
-
-
         $event->save();
 
-        return view('events.show', $event->id)->with('success', 'Event details successfully updated');
+        return redirect()->route('events.show', $event->id)->with('success', 'Event details successfully updated');
     }
 
     /**

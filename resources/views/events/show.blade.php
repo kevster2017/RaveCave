@@ -53,10 +53,12 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
 
-                        @if($ticket->paymentStatus == "Paid")
+                        @if(!is_null($ticket->paymentStatus) && $ticket->paymentStatus === "Paid")
                         <div class="col-12 col-md-3">
                             <a class="btn btn-primary" href="#">Join Event</a>
                         </div>
+                        @endif
+
                         @else
                         <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <form action="{{ route('addToCart') }}" method="POST">

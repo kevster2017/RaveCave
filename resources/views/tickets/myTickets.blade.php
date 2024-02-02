@@ -15,6 +15,10 @@
 
     <h1 class="text-center">My Tickets</h1>
 
+    @if(count($tickets) == 0)
+    <h2 class="text-center mt-3">No tickets purchased. Click <a href="{{ route('events.index') }}">here</a> to view upcoming events</h2>
+    @endif
+
 
     @foreach($tickets as $ticket)
     <div class="row">

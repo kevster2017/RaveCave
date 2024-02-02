@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('tickets.index') }}">All tickets</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('myTickets') }}">My tickets</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $ticket->title }}</li>
         </ol>
     </nav>

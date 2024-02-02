@@ -34,12 +34,12 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col">
-                                    <a href="{{ route('events.show', $ticket->id) }}"><img src="/storage/{{$ticket->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Event Image"></a>
+                                    <a href="{{ route('tickets.show', $ticket->id) }}"><img src="/storage/{{$ticket->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Ticket Image"></a>
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">
 
-                                        <a href="{{ route('events.show', $ticket->id) }}">
+                                        <a href="{{ route('tickets.show', $ticket->id) }}">
                                             <h5 class="card-title">{{ $ticket->title}}</h5>
                                         </a>
 

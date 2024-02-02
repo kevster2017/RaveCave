@@ -49,7 +49,7 @@
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My Tickets</a>
+                            <a class="nav-link" href="{{ route('myTickets') }}">My Tickets</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('events.index') }}">Upcoming Events</a>

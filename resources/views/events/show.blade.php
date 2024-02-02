@@ -53,11 +53,10 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
 
-                        @if(!is_null($ticket->paymentStatus) && $ticket->paymentStatus === "Paid")
+                        @if($ticket && $ticket->paymentStatus === "Paid")
                         <div class="col-12 col-md-3">
                             <a class="btn btn-primary" href="#">Join Event</a>
                         </div>
-                        @endif
 
                         @else
                         <div class="col-12 col-md-3 mb-3 mb-md-0">
@@ -74,7 +73,7 @@
                                 <input type="hidden" name="image" value="{{ $event->image }}">
                                 <input type="hidden" name="eventId" value="{{ $event->id }}">
 
-                                <button class="btn btn-primary" type="submit" href="#">Buy Tickets</button>
+                                <button class="btn btn-primary" type="submit" href="#">Buy Ticket</button>
                             </form>
                         </div>
                         @endif

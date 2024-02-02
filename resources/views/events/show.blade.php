@@ -53,11 +53,7 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
 
-                        <div class="col-12 col-md-3 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
-                        </div>
-
-                        @if($ticket->status == "Paid")
+                        @if($ticket->paymentStatus == "Paid")
                         <div class="col-12 col-md-3">
                             <a class="btn btn-primary" href="#">Join Event</a>
                         </div>
@@ -80,6 +76,12 @@
                             </form>
                         </div>
                         @endif
+
+
+                        <div class="col-12 col-md-3 mb-3 me-2">
+                            <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
+                        </div>
+
                         @if ($event->userID == auth()->user()->id)
                         <div class="col-12 col-md-3">
                             <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>

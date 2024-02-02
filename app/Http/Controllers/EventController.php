@@ -84,7 +84,7 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
-        dd($ticket->paymentStatus);
+        // dd($ticket->paymentStatus);
 
         return view('events.show', [
             'event' => $event,

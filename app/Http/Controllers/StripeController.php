@@ -20,7 +20,6 @@ class StripeController extends Controller
     {
 
 
-        dd($request);
         $userId = auth()->user()->id;
         $cart = Cart::where('userID', $userId)
             ->first();

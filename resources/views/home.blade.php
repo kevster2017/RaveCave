@@ -38,7 +38,9 @@
             </div>
             <div class="col">
                 <div class="card custom-card h-100">
-                    <img src="/images/eventImage.jpg" class="card-img-top img-fluid" alt="DJ on MP3 decks">
+                    <a href="{{ route('myTickets') }}">
+                        <img src="/images/eventImage.jpg" class="card-img-top img-fluid" alt="DJ on MP3 decks">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">View Tickets</h5>
                         <p class="card-text">View Your tickets here</p>

@@ -100,7 +100,7 @@
 
                     <div class="ms-5">
                         <p class="card-text"><strong>Description:</strong> {{ $event->description }}</p>
-                        <p class="card-text"><strong>Ticket Price:</strong> £TBC </p>
+                        <p class="card-text"><strong>Ticket Price:</strong> £{{ $event->price }}</p>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -77,8 +78,15 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
+        $user = Auth()->user()->id;
+
+        $ticket = Ticket::where('userId', $user)
+            ->where('event_id', $event->id)
+            ->first();
+
         return view('events.show', [
-            'event' => $event
+            'event' => $event,
+            'ticket' => $ticket
         ]);
     }
 

@@ -13,7 +13,7 @@
 
 <div class="container py-3">
 
-    <h1 class="text-center">All Events</h1>
+    <h1 class="text-center my-3">All Events</h1>
 
 
     @foreach($events as $event)

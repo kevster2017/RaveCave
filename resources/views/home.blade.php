@@ -16,7 +16,9 @@
             </div>
             <div class="col">
                 <div class="card custom-card h-100">
-                    <img src="/images/liveEvent.jpg" class="card-img-top img-fluid" alt="Crowd dancing">
+                    <a href="{{ route('events.index') }}">
+                        <img src="/images/liveEvent.jpg" class="card-img-top img-fluid" alt="Crowd dancing">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">Live Event</h5>
                         <p class="card-text">View live events here</p>

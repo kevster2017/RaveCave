@@ -52,6 +52,16 @@
                 <h5 class="card-header">Follow {{ $event->title }}</h5>
                 <div class="card-body">
                     <div class="row text-center ms-3">
+
+                        <div class="col-12 col-md-3 mb-3 mb-md-0">
+                            <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
+                        </div>
+
+                        @if($ticket->status == "Paid")
+                        <div class="col-12 col-md-3">
+                            <a class="btn btn-primary" href="#">Join Event</a>
+                        </div>
+                        @else
                         <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <form action="{{ route('addToCart') }}" method="POST">
                                 @csrf
@@ -69,12 +79,7 @@
                                 <button class="btn btn-primary" type="submit" href="#">Buy Tickets</button>
                             </form>
                         </div>
-                        <div class="col-12 col-md-3 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <a class="btn btn-primary" href="#">Join Event</a>
-                        </div>
+                        @endif
                         @if ($event->userID == auth()->user()->id)
                         <div class="col-12 col-md-3">
                             <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>

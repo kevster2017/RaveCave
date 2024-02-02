@@ -75,7 +75,7 @@
                 <div class="card-body">
 
                     <div class="ms-5">
-                        <p class="card-text"><strong>Description:</strong> {{ $ticket->description }}</p>
+                        <p class="card-text"><strong>Description:</strong> {{ $ticket->event->description }}</p>
                         <p class="card-text"><strong>Ticket Price:</strong> £{{ $ticket->price }} </p>
                     </div>
                 </div>

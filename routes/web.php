@@ -99,3 +99,11 @@ Route::get("/tickets/show/{id}", [TicketController::class, 'show'])->name('ticke
 Route::get("/tickets/review", [TicketController::class, 'review'])->name('tickets.review')->middleware('auth');
 Route::get("/tickets/payment", [TicketController::class, 'payment'])->name('tickets.payment')->middleware('auth');
 Route::get("/tickets/paymentComplete", [TicketController::class, 'paymentComplete'])->name('tickets.paymentComplete')->middleware('auth');
+
+/* Favourite Routes */
+Route::post('/djs/{id}/favorite', 'FavoriteController@addToFavorites')->name('djs.favorite');
+Route::delete('/djs/{id}/unfavorite', 'FavoriteController@removeFromFavorites')->name('djs.unfavorite');
+
+/* Follow Routes */
+Route::post('/events/{id}/follow', 'FollowController@addToFollows')->name('events.favorite');
+Route::delete('/events/{id}/unfollow', 'FollowController@removeFromFollows')->name('events.unfollow');

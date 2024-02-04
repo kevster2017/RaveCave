@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\PayPalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,12 @@ Route::get("/admins", [AdminController::class, 'home'])->name('admins.home');
 /* Stripe Routes */
 Route::get("/tickets/stripe", [StripeController::class, 'stripe'])->name('tickets.stripe')->middleware('auth');
 Route::post("stripe", [StripeController::class, 'stripePost'])->name('stripe.post')->middleware('auth');
+
+/* PayPal Routes */
+Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
+Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 
 /* Cart routes */
 Route::post("/add_to_cart", [TicketController::class, 'addToCart'])->name('addToCart')->middleware('auth');

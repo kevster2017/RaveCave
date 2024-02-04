@@ -101,6 +101,34 @@ class PayPalController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            /* If payment successful, create the booking */
+            /* Create a new Ticket Booking */
+
+            $userId = auth()->user()->id;
+
+            $cart = Cart::where('userId', $userId)
+                ->first();
+
+            /* Create new Ticket */
+            $ticket = new Ticket;
+            $ticket->name = $cart->name;
+            $ticket->userId = $cart->userId;
+            $ticket->event_id = $cart->eventId;
+            $ticket->title = $cart->title;
+            $ticket->dj = $cart->dj;
+            $ticket->date = $cart->date;
+            $ticket->time = $cart->time;
+            $ticket->price = $cart->price;
+            $ticket->image = $cart->image;
+            $ticket->paymentMethod = "PayPal";
+            $ticket->paymentStatus = "Paid";
+            $ticket->save();
+
+            Cart::where('userId', $userId)->delete();
+
+
+            return redirect('/tickets/myTickets')->with('success', 'Payment Successful');
+
             return redirect()
                 ->route('paypal')
                 ->with('success', 'Transaction complete.');

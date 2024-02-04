@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DJ;
 use Illuminate\Http\Request;
 
 class FavouriteController extends Controller
 {
-    public function addToFavorites(Item $item)
+    public function addTofollows(DJ $id)
     {
-        auth()->user()->favorites()->syncWithoutDetaching([$item->id]);
-        return redirect()->back()->with('success', 'Item added to favorites.');
+        auth()->user()->follows()->syncWithoutDetaching([$id->id]);
+        return redirect()->back()->with('success', 'You are now following.');
     }
 
-    public function removeFromFavorites(Item $item)
+    public function removeFromfollows(DJ $id)
     {
-        auth()->user()->favorites()->detach($item->id);
-        return redirect()->back()->with('success', 'Item removed from favorites.');
+        auth()->user()->follows()->detach($id->id);
+        return redirect()->back()->with('success', 'You have unfollowed.');
     }
 }

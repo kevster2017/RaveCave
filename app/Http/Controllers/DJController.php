@@ -75,7 +75,7 @@ class DJController extends Controller
     public function show($id)
     {
         $dj = DJ::findOrFail($id);
-
+        $dj->load('favoritedBy'); // Eager load the favoritedBy relationship
 
         return view('djs.show', [
             'dj' => $dj

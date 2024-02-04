@@ -52,9 +52,18 @@
                 <h5 class="card-header">Follow {{ $dj->djname }}</h5>
                 <div class="card-body">
                     <div class="row text-center ms-3">
-                        <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Add to favourites</a>
-                        </div>
+                        @if(auth()->check() && $item->favoritedBy->contains(auth()->user()))
+                        <form action="{{ route('djs.unfavorite', $dj->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Remove from Favorites</button>
+                        </form>
+                        @else
+                        <form action="{{ route('djs.favorite', $dj->id) }}" method="POST">
+                            @csrf
+                            <button type="submit">Add to Favorites</button>
+                        </form>
+                        @endif
                         @if( $dj->user_id == auth()->user()->id)
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
                             <a class="btn btn-danger" href="{{ route('djs.edit', $dj->id) }}">Edit Profile</a>

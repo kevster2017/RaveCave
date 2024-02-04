@@ -111,7 +111,7 @@
       if (radioButton.id === 'stripe' && radioButton.checked) {
         paymentButton.href = "{{ route('tickets.stripe') }}";
       } else if (radioButton.id === 'paypal' && radioButton.checked) {
-        paymentButton.href = "{{ route('tickets.stripe') }}";
+        paymentButton.href = "{{ route('tickets.paypal') }}";
       }
     })
   });

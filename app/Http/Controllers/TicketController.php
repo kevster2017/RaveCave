@@ -48,18 +48,6 @@ class TicketController extends Controller
         }
     }
 
-    public function review()
-    {
-        $userId = auth()->user()->id;
-
-        // Find auth user ticket details
-        $ticket = DB::table('tickets')
-            ->where('userId', $userId)
-            ->get();
-
-
-        return view('tickets.review', ['ticket' => $ticket]);
-    }
 
     function bookNow()
     {

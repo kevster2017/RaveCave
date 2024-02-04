@@ -54,13 +54,14 @@ class User extends Authenticatable
         return $this->hasOne(DJ::class);
     }
 
-    public function favourite()
+    public function favourites()
     {
-        return $this->hasMany(Favourite::class);
+        return $this->hasMany(Favourite::class, 'favorites');
     }
 
-    public function follow()
+
+    public function follows()
     {
-        return $this->hasMany(Follow::class);
+        return $this->hasMany(Follow::class, 'follows');
     }
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\Ticket;
+use App\Models\Event;
 
 class PayPalController extends Controller
 {
@@ -24,6 +27,17 @@ class PayPalController extends Controller
      */
     public function payment(Request $request)
     {
+        $userId = auth()->user()->id;
+
+        $cart = Cart::where('userId', $userId)
+            ->first();
+
+
+        if (!$cart) {
+            // Handle the case where the cart is not found
+            return redirect()->back()->with('error', 'Cart not found');
+        }
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -37,8 +51,8 @@ class PayPalController extends Controller
             "purchase_units" => [
                 0 => [
                     "amount" => [
-                        "currency_code" => "USD",
-                        "value" => "100.00"
+                        "currency_code" => "GBP",
+                        "value" => $cart->price
                     ]
                 ]
             ]

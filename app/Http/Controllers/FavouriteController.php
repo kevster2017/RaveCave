@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DJ;
-use App\Models\Follow;
+use App\Models\Favourite;
 use Illuminate\Http\Request;
 
 class FavouriteController extends Controller

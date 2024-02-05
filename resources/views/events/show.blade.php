@@ -80,14 +80,37 @@
 
 
                         <div class="col-12 col-md-3 mb-3 me-2">
-                            <a class="btn btn-primary" href="#">Follow {{ $event->title }}</a>
+                            @if(auth()->check() && $event->followedBy->contains(auth()->user()))
+                            <form action="{{ route('events.unfollow', $event->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary">Remove from Favourites</button>
+                            </form>
+                            @else
+                            <form action="{{ route('events.follow, $event->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="event_id" value="{{ $event->id }}">
+
+                                <button type="submit" class="btn btn-primary">Add to Favourites</button>
+                            </form>
+                            @endif
                         </div>
 
-                        @if ($event->userID == auth()->user()->id)
-                        <div class="col-12 col-md-3">
-                            <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>
+
+
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col">
+
                         </div>
-                        @endif
+                        <div class="col">
+                            @if ($event->userID == auth()->user()->id)
+                            <div class="col-12 col-md-3">
+                                <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>
+                            </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

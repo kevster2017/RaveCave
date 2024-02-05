@@ -62,6 +62,9 @@
                             @else
                             <form action="{{ route('djs.favourite', $dj->id) }}" method="POST">
                                 @csrf
+                                <input type="hidden" name="user_id" value="auth()->user()->id">
+                                <input type="hidden" name="dj_id" value="{{ $dj->id }}">
+
                                 <button type="submit" class="btn btn-primary">Add to Favourites</button>
                             </form>
                             @endif

@@ -20,15 +20,21 @@ class FavouriteController extends Controller
         ]);
     }
 
-    public function addTofavourites(DJ $id)
+    public function addTofavourites(Favourite $favourite, Request $request)
     {
-        auth()->user()->favourites()->syncWithoutDetaching([$id->id]);
-        return redirect()->back()->with('success', 'You are now favourites.');
+
+        $favourite->user_id = $request->user_id;
+        $favourite->dj_id = $request->dj_id;
+        $favourite->save();
+
+        return redirect()->back()->with('success', 'Added to favourites.');
     }
 
-    public function removeFromfavourites(DJ $id)
+    public function removeFromfavourites($id)
     {
-        auth()->user()->favourites()->detach($id->id);
-        return redirect()->back()->with('success', 'You have favourites.');
+
+        Favourite::destroy($id);
+
+        return redirect()->back()->with('success', 'Removed from favourites.');
     }
 }

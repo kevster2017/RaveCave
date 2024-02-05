@@ -20,8 +20,11 @@
         <div class="my-2">
             <div class="row g-0">
                 <div class="col-3">
+                    @if($user->image != "images/profileImage.jpg")
                     <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
-
+                    @else
+                    <img src="/images/profileImage.jpg" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+                    @endif
 
                 </div>
 

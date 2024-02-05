@@ -15,20 +15,20 @@ class FavouriteController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        return view('follows.index', [
+        return view('favourites.index', [
             'favourites' => $favourites
         ]);
     }
 
-    public function addTofollows(DJ $id)
+    public function addTofavourites(DJ $id)
     {
-        auth()->user()->follows()->syncWithoutDetaching([$id->id]);
-        return redirect()->back()->with('success', 'You are now following.');
+        auth()->user()->favourites()->syncWithoutDetaching([$id->id]);
+        return redirect()->back()->with('success', 'You are now favourites.');
     }
 
-    public function removeFromfollows(DJ $id)
+    public function removeFromfavourites(DJ $id)
     {
-        auth()->user()->follows()->detach($id->id);
-        return redirect()->back()->with('success', 'You have unfollowed.');
+        auth()->user()->favourites()->detach($id->id);
+        return redirect()->back()->with('success', 'You have favourites.');
     }
 }

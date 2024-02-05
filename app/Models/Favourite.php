@@ -9,7 +9,7 @@ class Favourite extends Model
 {
     use HasFactory;
 
-    public function favoritedBy()
+    public function favouritedBy()
     {
         return $this->belongsToMany(User::class, 'favorites');
     }

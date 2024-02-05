@@ -104,8 +104,8 @@ Route::get("/tickets/paymentComplete", [TicketController::class, 'paymentComplet
 
 /* Favourite Routes */
 Route::get("/favourites", [FavouriteController::class, 'index'])->name('favourites.index')->middleware('auth');
-Route::post('/djs/{id}/favorite', 'FavoriteController@addToFavourites')->name('djs.favorite');
-Route::delete('/djs/{id}/unfavorite', 'FavoriteController@removeFromFavourites')->name('djs.unfavorite');
+Route::post('/djs/{id}/favorite', 'FavouriteController@addToFavourites')->name('djs.favourite');
+Route::delete('/djs/{id}/unfavorite', 'FavouriteController@removeFromFavourites')->name('djs.unfavourite');
 
 /* Follow Routes */
 Route::get("/follows", [FollowController::class, 'index'])->name('follows.index')->middleware('auth');

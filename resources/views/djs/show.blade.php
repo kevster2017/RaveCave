@@ -52,16 +52,16 @@
                 <h5 class="card-header">Follow {{ $dj->djname }}</h5>
                 <div class="card-body">
                     <div class="row text-center ms-3">
-                        @if(auth()->check() && $item->favoritedBy->contains(auth()->user()))
-                        <form action="{{ route('djs.unfavorite', $dj->id) }}" method="POST">
+                        @if(auth()->check() && $item->favouritedBy->contains(auth()->user()))
+                        <form action="{{ route('djs.unfavourite', $dj->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Remove from Favorites</button>
+                            <button type="submit">Remove from Favourites</button>
                         </form>
                         @else
-                        <form action="{{ route('djs.favorite', $dj->id) }}" method="POST">
+                        <form action="{{ route('djs.favourite', $dj->id) }}" method="POST">
                             @csrf
-                            <button type="submit">Add to Favorites</button>
+                            <button type="submit">Add to Favourites</button>
                         </form>
                         @endif
                         @if( $dj->user_id == auth()->user()->id)

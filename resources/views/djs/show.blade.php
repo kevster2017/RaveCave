@@ -51,27 +51,30 @@
             <div class="card text-bg-light">
                 <h5 class="card-header">Follow {{ $dj->djname }}</h5>
                 <div class="card-body">
-                    <div class="row text-center ms-3">
-                        @if(auth()->check() && $item->favouritedBy->contains(auth()->user()))
-                        <form action="{{ route('djs.unfavourite', $dj->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Remove from Favourites</button>
-                        </form>
-                        @else
-                        <form action="{{ route('djs.favourite', $dj->id) }}" method="POST">
-                            @csrf
-                            <button type="submit">Add to Favourites</button>
-                        </form>
-                        @endif
-                        @if( $dj->user_id == auth()->user()->id)
-                        <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <div class="row justify-content-between ms-3">
+                        <div class="col">
+                            @if(auth()->check() && $dj->favouritedBy->contains(auth()->user()))
+                            <form action="{{ route('djs.unfavourite', $dj->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary">Remove from Favourites</button>
+                            </form>
+                            @else
+                            <form action="{{ route('djs.favourite', $dj->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Add to Favourites</button>
+                            </form>
+                            @endif
+                        </div>
+                        <div class="col">
+                            @if( $dj->user_id == auth()->user()->id)
+
                             <a class="btn btn-danger" href="{{ route('djs.edit', $dj->id) }}">Edit Profile</a>
+
+                            @endif
                         </div>
-                        @endif
-                        <div class="col-12 col-md-4">
-                            <a class="btn btn-primary" href="#">Button 3</a>
-                        </div>
+
+
                     </div>
                 </div>
             </div>

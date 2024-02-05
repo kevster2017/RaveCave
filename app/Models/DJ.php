@@ -31,6 +31,6 @@ class DJ extends Model
 
     public function favouritedBy()
     {
-        return $this->belongsToMany(User::class, 'user_favourites', 'dj_id', 'user_id');
+        return $this->belongsToMany(User::class, 'favourites', 'dj_id', 'user_id');
     }
 }

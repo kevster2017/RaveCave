@@ -30,7 +30,7 @@ class FollowController extends Controller
         return redirect()->back()->with('success', 'You are now following this event');
     }
 
-    public function removeFromfollows($id)
+    public function removeFromFollows($id)
     {
         Follow::destroy($id);
 

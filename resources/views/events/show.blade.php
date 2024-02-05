@@ -84,7 +84,7 @@
                             <form action="{{ route('events.unfollow', $event->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-primary">Remove from Favourites</button>
+                                <button type="submit" class="btn btn-primary">Unfollow</button>
                             </form>
                             @else
                             <form action="{{ route('events.follow', $event->id) }}" method="POST">
@@ -92,7 +92,7 @@
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
 
-                                <button type="submit" class="btn btn-primary">Add to Favourites</button>
+                                <button type="submit" class="btn btn-primary">Follow</button>
                             </form>
                             @endif
                         </div>

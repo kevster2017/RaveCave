@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\FollowController;
+use App\Http\Controllers\FavouriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,9 +103,11 @@ Route::get("/tickets/payment", [TicketController::class, 'payment'])->name('tick
 Route::get("/tickets/paymentComplete", [TicketController::class, 'paymentComplete'])->name('tickets.paymentComplete')->middleware('auth');
 
 /* Favourite Routes */
+Route::get("/favourites", [FavouriteController::class, 'index'])->name('favourites.index')->middleware('auth');
 Route::post('/djs/{id}/favorite', 'FavoriteController@addToFavorites')->name('djs.favorite');
 Route::delete('/djs/{id}/unfavorite', 'FavoriteController@removeFromFavorites')->name('djs.unfavorite');
 
 /* Follow Routes */
+Route::get("/follows", [FollowController::class, 'index'])->name('follows.index')->middleware('auth');
 Route::post('/events/{id}/follow', 'FollowController@addToFollows')->name('events.favorite');
 Route::delete('/events/{id}/unfollow', 'FollowController@removeFromFollows')->name('events.unfollow');

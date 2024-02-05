@@ -3,10 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\DJ;
+use App\Models\Follow;
 use Illuminate\Http\Request;
 
 class FavouriteController extends Controller
 {
+    public function index()
+    {
+
+        $follows = Follow::where('id', auth()->user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('follows.index', [
+            'follows' => $follows
+        ]);
+    }
+
     public function addTofollows(DJ $id)
     {
         auth()->user()->follows()->syncWithoutDetaching([$id->id]);

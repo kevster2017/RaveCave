@@ -28,4 +28,9 @@ class DJ extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function favouritedBy()
+    {
+        return $this->belongsToMany(User::class, 'user_favourites', 'dj_id', 'user_id');
+    }
 }

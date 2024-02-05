@@ -32,9 +32,15 @@ class FavouriteController extends Controller
 
     public function removeFromfavourites($id)
     {
+        $favourite = Favourite::where('dj_id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
 
-        Favourite::destroy($id);
-
-        return redirect()->back()->with('success', 'Removed from favourites.');
+        if ($favourite) {
+            $favourite->delete();
+            return redirect()->back()->with('success', 'Removed from favourites.');
+        } else {
+            return redirect()->back()->with('error', 'You have not favourited this DJ.');
+        }
     }
 }

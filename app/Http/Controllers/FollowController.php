@@ -27,13 +27,21 @@ class FollowController extends Controller
         $follow->user_id = $request->user_id;
         $follow->event_id = $request->event_id;
         $follow->save();
+
         return redirect()->back()->with('success', 'You are now following this event');
     }
 
     public function removeFromFollows($id)
     {
-        Follow::destroy($id);
+        $follow = Follow::where('event_id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
 
-        return redirect()->back()->with('success', 'You are no longer following this event');
+        if ($follow) {
+            $follow->delete();
+            return redirect()->back()->with('success', 'You are no longer following this event');
+        } else {
+            return redirect()->back()->with('error', 'You are not following this event');
+        }
     }
 }

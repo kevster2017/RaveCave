@@ -24,4 +24,9 @@ class Event extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+
+    public function followedBy()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'event_id', 'user_id');
+    }
 }

@@ -80,7 +80,7 @@
 
 
                         <div class="col-12 col-md-3 mb-3 me-2">
-                            @if(auth()->check() && $event->followedBy && $event->followedBy->contains(auth()->user()))
+                            @if(auth()->check() && $event->followedBy->contains(auth()->user()))
                             <form action="{{ route('events.unfollow', $event->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

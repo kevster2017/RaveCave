@@ -9,8 +9,8 @@ class Follow extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function followedBy()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'follows');
     }
 }

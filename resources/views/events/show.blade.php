@@ -87,7 +87,7 @@
                                 <button type="submit" class="btn btn-primary">Remove from Favourites</button>
                             </form>
                             @else
-                            <form action="{{ route('events.follow, $event->id) }}" method="POST">
+                            <form action="{{ route('events.follow', $event->id) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">

@@ -22,15 +22,18 @@ class FollowController extends Controller
             'follows' => $follows
         ]);
     }
-    public function addTofollows(Event $id)
+    public function addTofollows(Follow $follow, Request $request)
     {
-        auth()->user()->follows()->syncWithoutDetaching([$id->id]);
-        return redirect()->back()->with('success', 'Item added to follows.');
+        $follow->user_id = $request->user_id;
+        $follow->event_id = $request->event_id;
+        $follow->save();
+        return redirect()->back()->with('success', 'You are now following this event');
     }
 
-    public function removeFromfollows(Event $id)
+    public function removeFromfollows($id)
     {
-        auth()->user()->follows()->detach($id->id);
-        return redirect()->back()->with('success', 'Item removed from follows.');
+        Follow::destroy($id);
+
+        return redirect()->back()->with('success', 'You are no longer following this event');
     }
 }

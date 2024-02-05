@@ -109,5 +109,5 @@ Route::delete('/djs/{id}/unfavourite', [FavouriteController::class, 'removeFromF
 
 /* Follow Routes */
 Route::get("/follows", [FollowController::class, 'index'])->name('follows.index')->middleware('auth');
-Route::post('/events/{id}/follow', 'FollowController@addToFollows')->name('events.favorite');
-Route::delete('/events/{id}/unfollow', 'FollowController@removeFromFollows')->name('events.unfollow');
+Route::post('/events/{id}/follow', [FollowController::class, 'addToFollows'])->name('events.favorite');
+Route::delete('/events/{id}/unfollow', [FollowController::class, 'removeFromFollows'])->name('events.unfollow');

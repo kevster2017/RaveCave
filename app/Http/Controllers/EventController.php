@@ -149,9 +149,9 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
-        dd($ticket);
+
         if ($ticket) {
-            return view('eventdoor');
+            return view('events.eventDoor');
         } else {
             return redirect()->back()->with('error', 'Please purchase a ticket for this event');
         }

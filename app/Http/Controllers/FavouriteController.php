@@ -11,12 +11,12 @@ class FavouriteController extends Controller
     public function index()
     {
 
-        $favourites = Favourite::where('id', auth()->user()->id)
+        $djs = Favourite::where('id', auth()->user()->id)
             ->orderBy('created_at', 'DESC')
             ->get();
 
         return view('favourites.index', [
-            'favourites' => $favourites
+            'djs' => $djs
         ]);
     }
 

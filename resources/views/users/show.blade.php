@@ -61,7 +61,7 @@
                             <a class="btn btn-primary" href="#">Reset Password</a>
                         </div>
                         <div class="col-12 col-md-4">
-                            <a class="btn btn-primary" href="#">MyTickets</a>
+                            <a class="btn btn-primary" href="{{ route('myTickets') }}">MyTickets</a>
                         </div>
                     </div>
                     <div class="row mt-3">

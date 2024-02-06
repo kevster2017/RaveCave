@@ -138,6 +138,30 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+    public function join($id)
+    {
+        $event = Event::findOrFail($id);
+
+        $user = Auth()->user()->id;
+
+        $ticket = Ticket::where('userId', $user)
+            ->where('event_id', $event->id)
+            ->first();
+
+        if ($ticket) {
+            return view('eventdoor');
+        } else {
+            return redirect()->back()->with('error', 'Please purchase a ticket for this event');
+        }
+        // dd($ticket->paymentStatus);
+
+        return view('events.show', [
+            'event' => $event,
+            'ticket' => $ticket
+        ]);
+    }
+
     public function destroy(Event $event)
     {
         //

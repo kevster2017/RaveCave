@@ -15,11 +15,15 @@ class FavouriteController extends Controller
 
 
         $djs = Favourite::where('user_id', $userId)
-            ->with('dj')
             ->get();
 
+        dd($djs->dj_id);
+        $favourites = DJ::where('id', $djs->dj_id)
+            ->get();
+
+
         return view('favourites.index', [
-            'djs' => $djs
+            'favourites' => $favourites
         ]);
     }
 

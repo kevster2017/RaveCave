@@ -69,7 +69,7 @@
                             <a class="btn btn-primary" href="{{ route('favourites.index') }}">Favourite DJs</a>
                         </div>
                         <div class="col">
-                            <a class="btn btn-primary" href="#">Followed Events</a>
+                            <a class="btn btn-primary" href="{{ route('follows.index') }}">Followed Events</a>
                         </div>
                     </div>
                 </div>

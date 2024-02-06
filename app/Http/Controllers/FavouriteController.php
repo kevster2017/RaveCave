@@ -12,7 +12,7 @@ class FavouriteController extends Controller
     public function index()
     {
 
-        $userId = Auth::id();
+        $userId = auth()->user()->id;
 
         $favourites = DB::table('favourites')
             ->join('djs', 'favourites.dj_id', '=', 'djs.id')

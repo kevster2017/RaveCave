@@ -149,6 +149,7 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
+        dd($ticket);
         if ($ticket) {
             return view('eventdoor');
         } else {
@@ -156,10 +157,7 @@ class EventController extends Controller
         }
         // dd($ticket->paymentStatus);
 
-        return view('events.show', [
-            'event' => $event,
-            'ticket' => $ticket
-        ]);
+
     }
 
     public function destroy(Event $event)

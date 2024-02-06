@@ -55,7 +55,7 @@
 
 
                         <div class="col-12 col-md-3">
-                            <a class="btn btn-primary" href="#">Join Event</a>
+                            <a class="btn btn-primary" href="{{ route('events.join') }}">Join Event</a>
                         </div>
 
 

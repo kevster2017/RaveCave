@@ -50,6 +50,7 @@ Route::put("/events/{id}", [EventController::class, 'update'])->name('events.upd
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('auth');
 
 Route::get("/events/show/{id}", [EventController::class, 'show'])->name('events.show')->middleware('auth');
+Route::get("/events/join/{id}", [EventController::class, 'join'])->name('events.join')->middleware('auth');
 
 /* DJ Routes */
 Route::get("/djs", [DjController::class, 'index'])->name('djs.index');

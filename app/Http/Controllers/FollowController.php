@@ -7,6 +7,7 @@ use App\Models\Follow;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FollowController extends Controller
 {
@@ -14,8 +15,12 @@ class FollowController extends Controller
     public function index()
     {
 
-        $follows = Follow::where('id', auth()->user()->id)
-            ->orderBy('created_at', 'DESC')
+        $userId = auth()->user()->id;
+
+        $follows = DB::table('follows')
+            ->join('events', 'follows.event_id', '=', 'events.id')
+            ->where('follows.user_id', $userId)
+            ->select('events.*', 'follows.id as follows_id')
             ->get();
 
         return view('follows.index', [

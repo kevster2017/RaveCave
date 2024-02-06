@@ -43,7 +43,7 @@
                                         <h6 class="card-text">{{ $follow->dj}}</h6>
                                         <p class="card-text">{{ $follow->date }} {{ $follow->time }}</p>
                                         <p class="card-text">Price: £5</p>
-                                        <p class="card-text"><small class="text-muted">following event since: {{ \Carbon\Carbon::parse($follow->created_at)->diffForHumans() }}</small></p>
+                                        <p class="card-text"><small class="text-muted">Following event since: {{ \Carbon\Carbon::parse($follow->created_at)->diffForHumans() }}</small></p>
 
                                     </div>
                                 </div>

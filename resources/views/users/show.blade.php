@@ -66,7 +66,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <a class="btn btn-primary" href="#">Favourite DJs</a>
+                            <a class="btn btn-primary" href="{{ route('favourites.index') }}">Favourite DJs</a>
                         </div>
                         <div class="col">
                             <a class="btn btn-primary" href="#">Followed Events</a>

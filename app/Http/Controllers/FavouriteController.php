@@ -5,21 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\DJ;
 use App\Models\Favourite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FavouriteController extends Controller
 {
     public function index()
     {
 
-        $userId = auth()->user()->id;
+        $userId = Auth::id();
 
-
-        $djs = Favourite::where('user_id', $userId)
+        $favourites = DB::table('favourites')
+            ->join('djs', 'favourites.dj_id', '=', 'djs.id')
+            ->where('favourites.user_id', $userId)
+            ->select('djs.*', 'favourites.id as favourites_id')
             ->get();
 
-        dd($djs->dj_id);
-        $favourites = DJ::where('id', $djs->dj_id)
-            ->get();
 
 
         return view('favourites.index', [

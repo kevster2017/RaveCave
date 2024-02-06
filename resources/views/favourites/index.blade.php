@@ -43,7 +43,7 @@
                                         <p class="card-text">Home Town: {{ $favourite->town}}</p>
                                         <p class="card-text">Country: {{ $favourite->country }}</p>
                                         <p class="card-text">Genre: {{ $favourite->genre }}</p>
-                                        <p class="card-text"><small class="text-muted">Added to Favourites: {{ $favourite->created_at->diffForHumans() }}</small></p>
+                                        <p class="card-text"><small class="text-muted">Added to Favourites: {{ \Carbon\Carbon::parse($favourite->created_at)->diffForHumans() }}</small></p>
 
                                     </div>
                                 </div>

@@ -51,6 +51,10 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events
 
 Route::get("/events/show/{id}", [EventController::class, 'show'])->name('events.show')->middleware('auth');
 Route::get("/events/join/{id}", [EventController::class, 'join'])->name('events.join')->middleware('auth');
+Route::get('/events/eventDoor', function () {
+    return view('eventDoor');
+})->name('eventDoor');
+
 
 /* DJ Routes */
 Route::get("/djs", [DjController::class, 'index'])->name('djs.index');

@@ -48,7 +48,7 @@ body {
     left: 38%; /* Adjust as needed */
     width: 10%; /* Adjust as needed */
     height: 20%; /* Adjust as needed */
-    background-color: black; /* Make the link invisible */
+    background-color: transparent; /* Make the link invisible */
 
         /* Media query for smaller screens */
         @media screen and (max-width: 768px) {

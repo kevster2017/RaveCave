@@ -13,7 +13,8 @@
 </div>
 
 <div class="container mt-3">
-    <h1 class="text-center my-5">Welcome to {{ $event->title }}</h1>
+    <h1 class="text-center mt-5 mb-2">Welcome to {{ $event->title }}</h1>
+    <h2 class="text-center my-2">Tap the scanner to enter</h2>
 </div>
 
 <div class="container-fluid" id="eventDoor">

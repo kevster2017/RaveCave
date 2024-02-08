@@ -56,7 +56,7 @@ Route::get('/events/eventDoor', function () {
 })->name('eventDoor');
 Route::get("/events/live/{id}", [EventController::class, 'live'])->name('events.live')->middleware('auth');
 Route::get('/events/eventLive', function () {
-    return view('eventLive');
+    return view('events.eventLive');
 })->name('eventLive');
 
 /* DJ Routes */

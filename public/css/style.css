@@ -30,15 +30,35 @@ body {
     /* Add other styles as needed */
 }
 
-#eventDoor{
-    background-image: url("/images/doorstaff.jpg");
-    background-size: cover; /* or contain, depending on your preference */
-    background-position: center center;
-    background-repeat: no-repeat;
+#eventDoor {
+    position: relative;
     height: 900px; /* Set a height for the row, adjust as needed */
-    /* Add other styles as needed */
 }
 
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or contain, depending on your preference */
+    position: relative;
+}
+
+.hidden-link {
+    position: absolute;
+    top: 58%; /* Adjust as needed */
+    left: 38%; /* Adjust as needed */
+    width: 10%; /* Adjust as needed */
+    height: 20%; /* Adjust as needed */
+    background-color: black; /* Make the link invisible */
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            top: 56%; /* Adjust as needed */
+            left: 15%; /* Adjust as needed */
+            width: 30%; /* Adjust as needed */
+            height: 20%; /* Adjust as needed */
+        }
+    
+}
 .custom-card .card-img-top {
     height: 350px; /* Set to height of largest image*/
     object-fit: cover; /* Ensures the image covers the entire space, maintaining its aspect ratio */

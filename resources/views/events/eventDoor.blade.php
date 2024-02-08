@@ -17,7 +17,10 @@
 </div>
 
 <div class="container-fluid" id="eventDoor">
-    <img src="">
+    <img src="/images/doorstaff.jpg" alt="Event Door" class="event-image">
+
+    <!-- Hidden Link -->
+    <a href="#" class="hidden-link"></a>
 </div>
 
 

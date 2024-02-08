@@ -21,7 +21,7 @@
     <img src="/images/doorstaff.jpg" alt="Event Door" class="event-image">
 
     <!-- Hidden Link -->
-    <a href="#" class="hidden-link"></a>
+    <a href="{{ route('eventLive') }}" class="hidden-link"></a>
 </div>
 
 

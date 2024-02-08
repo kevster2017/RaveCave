@@ -78,8 +78,17 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
+        $user = Auth()->user()->id;
+
+        $ticket = Ticket::where('userId', $user)
+            ->where('event_id', $event->id)
+            ->first();
+
+        // dd($ticket->paymentStatus);
+
         return view('events.show', [
             'event' => $event,
+            'ticket' => $ticket
         ]);
     }
 
@@ -142,8 +151,8 @@ class EventController extends Controller
 
 
         if ($ticket) {
-            dd($ticket);
-            return route('events.join', $event->id);
+
+            return view('events/eventDoor', compact('event', 'ticket'));
         } else {
             return redirect()->back()->with('error', 'Please purchase a ticket for this event');
         }

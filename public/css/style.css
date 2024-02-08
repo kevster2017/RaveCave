@@ -30,6 +30,15 @@ body {
     /* Add other styles as needed */
 }
 
+#eventDoor{
+    background-image: url("/images/doorstaff.jpg");
+    background-size: cover; /* or contain, depending on your preference */
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 900px; /* Set a height for the row, adjust as needed */
+    /* Add other styles as needed */
+}
+
 .custom-card .card-img-top {
     height: 350px; /* Set to height of largest image*/
     object-fit: cover; /* Ensures the image covers the entire space, maintaining its aspect ratio */

@@ -16,7 +16,7 @@
     <h1 class="text-center my-5">Welcome to {{ $event->title }}</h1>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" id="eventDoor">
     <img src="">
 </div>
 

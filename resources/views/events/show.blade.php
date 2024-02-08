@@ -55,7 +55,7 @@
 
                         @if($ticket && $ticket->paymentStatus === "Paid")
                         <div class="col">
-                            <a class="btn btn-primary" href="#">Join Event</a>
+                            <a class="btn btn-primary" href="{{ route('events.join', $ticket->event_id) }}">Join Event</a>
                         </div>
 
                         @else

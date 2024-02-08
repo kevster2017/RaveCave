@@ -151,7 +151,7 @@ class EventController extends Controller
 
 
         if ($ticket) {
-            return view('events.eventDoor');
+            return route('events.join', $event->id);
         } else {
             return redirect()->back()->with('error', 'Please purchase a ticket for this event');
         }

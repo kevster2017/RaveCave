@@ -17,7 +17,7 @@
     <img src="/images/valleypark.jpg" alt="Valley Park" class="event-image">
     <img src="/images/stage.jpg" alt="Stage" class="overlay-imageStage">
     <video class="video-overlay" controls>
-        <source src="/storage/uploads/4TK2Y213R7uLzTmxBT4mRsNyBsCmlbgOYkIjdd4e.mp4" type="video/mp4">
+        <source src="/storage/{{ $event->video }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>

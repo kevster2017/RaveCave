@@ -12,8 +12,9 @@
     </nav>
 </div>
 
-<div class="container mt-3">
+<div class="container mt-3" id="event">
     <h1 class="text-center my-5">You are now at................</h1>
+    <img src="/images/valleypark.jpg" alt="Valley Part" class="event-image">
 </div>
 
 

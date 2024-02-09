@@ -42,18 +42,7 @@ body {
     position: relative;
 }
 
-.eventImages{
-  position: relative;
-  display: inline-block; /* Keeps container size as per the content */
-}
 
-.overlay-imageStage {
-    position: absolute;
-    top: 23%; /* Adjust as per your requirement */
-    left: 37%; /* Adjust as per your requirement */
- height:31%;
- width: 30%;
-  }
 
 .hidden-link {
     position: absolute;
@@ -73,13 +62,26 @@ body {
     
 }
 
-.video-overlay {
+.eventImages{
+    position: relative;
+    display: inline-block; /* Keeps container size as per the content */
+  }
+  
+  .overlay-imageStage {
     position: absolute;
-    top: 35%;
-    left:47%;
-    height: 13%;
-    width: 10%;
-    z-index: 2;
+    top: 5%; /* Adjust as per your requirement */
+    left: 25%; /* Adjust as per your requirement */
+ height:75%;
+ width: 50%;
+  }
+
+.video-overlay {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  height: 44%;
+  width: 40%;
+  z-index: 2;
 }
 .custom-card .card-img-top {
     height: 350px; /* Set to height of largest image*/

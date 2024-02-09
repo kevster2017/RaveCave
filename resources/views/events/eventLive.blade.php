@@ -20,7 +20,9 @@
         <source src="/storage/{{ $event->video }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <img src="/images/burgerVan.jpg" alt="Burger Van" class="overlay-imageStage">
+    <a href="">
+        <img src="/images/burgerVan.jpg" alt="Burger Van" class="overlay-imageStage">
+    </a>
 </div>
 
 

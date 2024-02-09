@@ -42,6 +42,19 @@ body {
     position: relative;
 }
 
+.eventImages{
+  position: relative;
+  display: inline-block; /* Keeps container size as per the content */
+}
+
+.overlay-imageStage {
+    position: absolute;
+    top: 23%; /* Adjust as per your requirement */
+    left: 37%; /* Adjust as per your requirement */
+ height:31%;
+ width: 30%;
+  }
+
 .hidden-link {
     position: absolute;
     top: 58%; /* Adjust as needed */
@@ -58,6 +71,13 @@ body {
             height: 20%; /* Adjust as needed */
         }
     
+}
+
+.video-overlay {
+    position: absolute;
+    height: 5%;
+    width: 10%;
+    z-index: 2;
 }
 .custom-card .card-img-top {
     height: 350px; /* Set to height of largest image*/

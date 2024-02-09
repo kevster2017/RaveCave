@@ -12,9 +12,14 @@
     </nav>
 </div>
 
-<div class="container mt-3" id="event">
-    <h1 class="text-center my-5">You are now at................</h1>
-    <img src="/images/valleypark.jpg" alt="Valley Part" class="event-image">
+<div class="container-fluid eventImages mt-3" id="event">
+
+    <img src="/images/valleypark.jpg" alt="Valley Park" class="event-image">
+    <img src="/images/stage.jpg" alt="Stage" class="overlay-imageStage">
+    <video class="video-overlay" controls>
+        <source src="movie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
 
 

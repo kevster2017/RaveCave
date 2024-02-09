@@ -75,6 +75,14 @@ body {
  width: 50%;
   }
 
+  .overlay-burgerVan {
+    position: absolute;
+    top: 44%; /* Adjust as per your requirement */
+    left: 77%; /* Adjust as per your requirement */
+ height:25%;
+ width: 20%;
+  }
+
 .video-overlay {
   position: absolute;
   top: 20%;

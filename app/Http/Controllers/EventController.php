@@ -161,6 +161,24 @@ class EventController extends Controller
 
     }
 
+    public function eventLive($id)
+    {
+        $event = Event::findOrFail($id);
+
+        $user = Auth()->user()->id;
+
+        $ticket = Ticket::where('userId', $user)
+            ->where('event_id', $event->id)
+            ->first();
+
+        // dd($ticket->paymentStatus);
+
+        return view('eventLive.show', [
+            'event' => $event,
+            'ticket' => $ticket
+        ]);
+    }
+
     public function destroy(Event $event)
     {
         //

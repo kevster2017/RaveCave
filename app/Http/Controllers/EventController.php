@@ -173,7 +173,7 @@ class EventController extends Controller
 
         // dd($ticket->paymentStatus);
 
-        return view('eventLive.show', [
+        return view('events/eventLive', [
             'event' => $event,
             'ticket' => $ticket
         ]);

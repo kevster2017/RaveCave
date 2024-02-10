@@ -38,6 +38,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card custom-card h-100">
+                    <a href="#">
+                        <img src="/images/burger.jpg" class="card-img-top img-fluid" alt="DJ on MP3 decks">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Create a food business profile</h5>
+                        <p class="card-text">Create your business profile here</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="col">
                 <div class="card custom-card h-100">
                     <a href="{{ route('myTickets') }}">

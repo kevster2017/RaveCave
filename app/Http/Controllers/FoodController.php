@@ -55,7 +55,7 @@ class FoodController extends Controller
 
         $food->save();
 
-        return redirect()->back()->with('success', "Food Profile Created");
+        return view('foods.show', $food->id)->with('success', "Food Profile Created");
     }
 
     public function show($id)

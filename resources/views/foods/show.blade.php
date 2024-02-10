@@ -73,7 +73,7 @@
 
                     <div class="ms-5">
                         <p class="card-text"><strong>Description:</strong> {{ $food->description}}</p>
-                        <p class="card-text"><strong>Web Link:</strong> {{ $food->webLink}}</p>
+                        <p class="card-text"><strong>Web Link:</strong> <a href="{{ $food->webLink}}">Click to view web page for {{ $food->businessName }}</a></p>
                     </div>
                 </div>
             </div>

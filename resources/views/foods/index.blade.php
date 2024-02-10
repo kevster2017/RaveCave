@@ -16,7 +16,7 @@
     <h1 class="text-center">All Food Businesses</h1>
 
 
-    @foreach($food as $food)
+    @foreach($foods as $food)
     <div class="row">
         <div class="col-sm-8 mx-auto">
 
@@ -30,7 +30,7 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    <a href="{{ route('food.show', $food->id) }}"><img src="/storage/{{$food->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Food Image"></a>
+                                    <a href="{{ route('foods.show', $food->id) }}"><img src="/storage/{{$food->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Food Image"></a>
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">

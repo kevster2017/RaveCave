@@ -73,4 +73,59 @@ class FoodController extends Controller
 
         return view('foods.edit', ['food' => $food]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'businessName' => 'required|string|max:25',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'town' => 'required|string|max:25',
+            'type' => 'required|string|max:25',
+            'description' => 'required|string|max:500',
+            'webLink' => 'required|string|max:500',
+
+        ]);
+
+
+        $food = Food::find($id);
+
+        $food->user_id = auth()->user()->id;
+
+        if (!empty($request->input('businessName'))) {
+            $food->businessName = $request->businessName;
+        }
+
+        if (!empty($request->hasFile('image'))) {
+
+            $food->image = $request->file('image')->store('uploads', 'public');
+        }
+
+        if (!empty($request->input('town'))) {
+            $food->town = $request->town;
+        }
+
+        if (!empty($request->input('type'))) {
+            $food->type = $request->type;
+        }
+
+        if (!empty($request->input('description'))) {
+            $food->description = $request->description;
+        }
+
+        if (!empty($request->input('webLink'))) {
+            $food->webLink = $request->webLink;
+        }
+
+
+        $food->save();
+
+        return view('foods.show', $food->id)->with('success', 'Food profile successfully updated');
+    }
+
+
+    public function destroy($id)
+    {
+        //
+    }
 }

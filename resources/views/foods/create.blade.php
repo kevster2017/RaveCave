@@ -60,13 +60,15 @@
 
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                            <select name="type" class="form-select form-select-lg mb-3" aria-label="Food Selection">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="Burgers">Burgers</option>
+                                <option value="Fish and Chips">Fish and Chips</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="Indian">Indian</option>
+                                <option value="Pizza">Pizza</option>
                             </select>
-                            <label for="type">Type of food</label>
+                            <label for="type">Select Type of food</label>
                             @error('type')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

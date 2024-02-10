@@ -6,17 +6,17 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">All DJs</li>
+            <li class="breadcrumb-item active" aria-current="page">All Food Businesses</li>
         </ol>
     </nav>
 </div>
 
 <div class="container py-3">
 
-    <h1 class="text-center">All DJs</h1>
+    <h1 class="text-center">All Food Businesses</h1>
 
 
-    @foreach($djs as $dj)
+    @foreach($food as $food)
     <div class="row">
         <div class="col-sm-8 mx-auto">
 
@@ -30,20 +30,20 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    <a href="{{ route('djs.show', $dj->id) }}"><img src="/storage/{{$dj->image}}" class="img-responsive rounded-start img-fluid card-img" alt="dj Image"></a>
+                                    <a href="{{ route('food.show', $food->id) }}"><img src="/storage/{{$food->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Food Image"></a>
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">
 
-                                        <a href="{{ route('djs.show', $dj->id) }}">
-                                            <h5 class="card-title">{{ $dj->djname}}</h5>
+                                        <a href="{{ route('foods.show', $food->id) }}">
+                                            <h5 class="card-title">{{ $food->businessName}}</h5>
                                         </a>
 
 
-                                        <p class="card-text">Home Town: {{ $dj->town}}</p>
-                                        <p class="card-text">Country: {{ $dj->country }}</p>
-                                        <p class="card-text">Genre: {{ $dj->genre }}</p>
-                                        <p class="card-text"><small class="text-muted">Joined The Rave Cave: {{ $dj->created_at->diffForHumans() }}</small></p>
+                                        <p class="card-text">Town: {{ $food->town}}</p>
+
+                                        <p class="card-text">Food Type: {{ $food->type }}</p>
+                                        <p class="card-text"><small class="text-muted">Joined The Rave Cave: {{ $food->created_at->diffForHumans() }}</small></p>
 
                                     </div>
                                 </div>

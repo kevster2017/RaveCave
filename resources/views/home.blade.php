@@ -53,6 +53,18 @@
 
             <div class="col">
                 <div class="card custom-card h-100">
+                    <a href="{{ route('foods.index') }}">
+                        <img src="/images/burger.jpg" class="card-img-top img-fluid" alt="Burger and chips">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Food Business Index</h5>
+                        <p class="card-text">Food Business Index</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card custom-card h-100">
                     <a href="{{ route('myTickets') }}">
                         <img src="/images/eventImage.jpg" class="card-img-top img-fluid" alt="DJ on MP3 decks">
                     </a>

@@ -57,4 +57,20 @@ class FoodController extends Controller
 
         return redirect()->back()->with('success', "Food Profile Created");
     }
+
+    public function show($id)
+    {
+        $food = Food::findOrFail($id);
+
+        return view('foods.show', [
+            'food' => $food
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $food = Food::find($id);
+
+        return view('foods.edit', ['food' => $food]);
+    }
 }

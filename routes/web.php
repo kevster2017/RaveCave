@@ -12,6 +12,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\FavouriteController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,3 +124,14 @@ Route::delete('/djs/{id}/unfavourite', [FavouriteController::class, 'removeFromF
 Route::get("/follows", [FollowController::class, 'index'])->name('follows.index')->middleware('auth');
 Route::post('/events/{id}/follow', [FollowController::class, 'addToFollows'])->name('events.follow');
 Route::delete('/events/{id}/unfollow', [FollowController::class, 'removeFromFollows'])->name('events.unfollow');
+
+/* Food Routes */
+Route::get("/foods", [FoodController::class, 'index'])->name('foods.index');
+Route::get("/foods/create", [FoodController::class, 'create'])->name('foods.create')->middleware('auth');
+Route::post("/foods/store", [FoodController::class, 'store'])->name('foods.store')->middleware('auth');
+
+Route::get("/foods/{id}/edit", [FoodController::class, 'edit'])->name('foods.edit')->middleware('auth');
+Route::put("/foods/{id}", [FoodController::class, 'update'])->name('foods.update')->middleware('auth');
+Route::delete('/foods/{id}', [FoodController::class, 'destroy'])->name('foods.destroy')->middleware('auth');
+
+Route::get("/foods/show/{id}", [FoodController::class, 'show'])->name('foods.show')->middleware('auth');

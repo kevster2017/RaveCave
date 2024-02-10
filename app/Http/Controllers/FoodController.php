@@ -79,7 +79,6 @@ class FoodController extends Controller
         $request->validate([
             'user_id' => 'required',
             'businessName' => 'required|string|max:25',
-            'image' => 'required|mimes:jpg,jpeg,png,gif',
             'town' => 'required|string|max:25',
             'type' => 'required|string|max:25',
             'description' => 'required|string|max:500',
@@ -92,35 +91,18 @@ class FoodController extends Controller
 
         $food->user_id = auth()->user()->id;
 
-        if (!empty($request->input('businessName'))) {
-            $food->businessName = $request->businessName;
-        }
+        // Mass assignment to update model attributes in bulk
+        $food->fill($request->except(['_token', '_method', 'image']));
 
         if (!empty($request->hasFile('image'))) {
 
             $food->image = $request->file('image')->store('uploads', 'public');
         }
 
-        if (!empty($request->input('town'))) {
-            $food->town = $request->town;
-        }
-
-        if (!empty($request->input('type'))) {
-            $food->type = $request->type;
-        }
-
-        if (!empty($request->input('description'))) {
-            $food->description = $request->description;
-        }
-
-        if (!empty($request->input('webLink'))) {
-            $food->webLink = $request->webLink;
-        }
-
 
         $food->save();
 
-        return view('foods.show', $food->id)->with('success', 'Food profile successfully updated');
+        return redirect()->route('foods.show', $food->id)->with('success', 'Food business profile updated successfully!');
     }
 
 

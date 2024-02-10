@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'businessName',
+        'image',
+        'town',
+        'type',
+        'description',
+        'webLink',
+
+    ];
+
+    // Define relationship with User Model
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

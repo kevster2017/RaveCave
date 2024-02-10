@@ -26,9 +26,9 @@
 
 
                         <div class="form-floating my-3 col-10 offset-1">
-                            <input type="text" class="form-control" id="businessname" placeholder="Enter your Business name" name="businessname" class="form-control @error('businessname') is-invalid @enderror" value="{{ old('businessname') }}" required autocomplete="businessname" autofocus>
-                            <label for="businessname">Your Business Name</label>
-                            @error('businessname')
+                            <input type="text" class="form-control" id="businessName" placeholder="Enter your Business name" name="businessName" class="form-control @error('businessName') is-invalid @enderror" value="{{ old('businessName') }}" required autocomplete="businessName" autofocus>
+                            <label for="businessName">Your Business Name</label>
+                            @error('businessName')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

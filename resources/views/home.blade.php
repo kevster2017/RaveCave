@@ -41,7 +41,7 @@
 
             <div class="col">
                 <div class="card custom-card h-100">
-                    <a href="#">
+                    <a href="{{ route('foods.create') }}">
                         <img src="/images/burger.jpg" class="card-img-top img-fluid" alt="Burger and chips">
                     </a>
                     <div class="card-body">

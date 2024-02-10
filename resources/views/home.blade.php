@@ -42,10 +42,10 @@
             <div class="col">
                 <div class="card custom-card h-100">
                     <a href="#">
-                        <img src="/images/burger.jpg" class="card-img-top img-fluid" alt="DJ on MP3 decks">
+                        <img src="/images/burger.jpg" class="card-img-top img-fluid" alt="Burger and chips">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">Create a food business profile</h5>
+                        <h5 class="card-title">Create Food Business Profile</h5>
                         <p class="card-text">Create your business profile here</p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">View Tickets</h5>
-                        <p class="card-text">View Your tickets here</p>
+                        <p class="card-text">View your tickets here</p>
                     </div>
                 </div>
             </div>

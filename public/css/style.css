@@ -90,6 +90,7 @@ body {
   height: 44%;
   width: 40%;
   z-index: 2;
+
 }
 .custom-card .card-img-top {
     height: 350px; /* Set to height of largest image*/

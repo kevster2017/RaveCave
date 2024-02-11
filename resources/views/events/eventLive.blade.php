@@ -26,11 +26,13 @@
         <img src="/images/burgerVan.png" alt="Burger Van" class="overlay-burgerVan">
     </a>
 </div>
-
 <div class="container mt-5">
-    <div class="card">
-        <div class="card-header">Messages</div>
-        <div class="card-body" style="overflow-y: auto;">
+    <div class="card d-none" id="messageCard">
+        <div class="card-header">
+            <button id="closeBtn" class="btn btn-danger float-end">&#x2716;</button>
+            Messages
+        </div>
+        <div class="card-body" style="height: 300px; overflow-y: auto;">
             <ul class="list-group list-group-flush" id="messageList">
                 <!-- Messages will be displayed here -->
             </ul>
@@ -45,10 +47,45 @@
             </form>
         </div>
     </div>
+    <button id="burgerBtn" class="btn btn-primary">&#9776;</button>
 </div>
 
+<!-- Custom JavaScript -->
+<script>
+    // Function to handle form submission
+    document.getElementById('messageForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
+        // Get the input message value
+        var message = document.getElementById('messageInput').value.trim();
 
+        // If the message is not empty
+        if (message !== '') {
+            // Append the message to the list
+            var messageList = document.getElementById('messageList');
+            var listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.textContent = message;
+            messageList.appendChild(listItem);
 
+            // Clear the input field
+            document.getElementById('messageInput').value = '';
+        }
+    });
+
+    // Toggle message card visibility
+    document.getElementById('burgerBtn').addEventListener('click', function() {
+        var messageCard = document.getElementById('messageCard');
+
+        messageCard.classList.toggle('d-none');
+    });
+
+    // Close message card and show burger button
+    document.getElementById('closeBtn').addEventListener('click', function() {
+        var messageCard = document.getElementById('messageCard');
+
+        messageCard.classList.add('d-none');
+    });
+</script>
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\Event;
 
 class MessageController extends Controller
 {
@@ -43,5 +44,19 @@ class MessageController extends Controller
         $message->save();
 
         return redirect()->back()->with('success', 'Message successfully sent');
+    }
+
+    public function show($id)
+    {
+
+        $eventId = Event::findOrFail($id);
+
+        $messages = Message::where('event_id', $eventId)
+            ->orderBy('created_at', 'ASC')
+            ->get();
+
+        return view('events.eventLive', [
+            'messages' => $messages
+        ]);
     }
 }

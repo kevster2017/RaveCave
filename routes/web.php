@@ -13,6 +13,7 @@ use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -135,3 +136,14 @@ Route::put("/foods/{id}", [FoodController::class, 'update'])->name('foods.update
 Route::delete('/foods/{id}', [FoodController::class, 'destroy'])->name('foods.destroy')->middleware('auth');
 
 Route::get("/foods/show/{id}", [FoodController::class, 'show'])->name('foods.show')->middleware('auth');
+
+/* Message Routes */
+Route::get("/messages", [MessageController::class, 'index'])->name('messages.index');
+Route::get("/messages/create", [MessageController::class, 'create'])->name('messages.create')->middleware('auth');
+Route::post("/messages/store", [MessageController::class, 'store'])->name('messages.store')->middleware('auth');
+
+Route::get("/messages/{id}/edit", [MessageController::class, 'edit'])->name('messages.edit')->middleware('auth');
+Route::put("/messages/{id}", [MessageController::class, 'update'])->name('messages.update')->middleware('auth');
+Route::delete('/messages/{id}', [MessageController::class, 'destroy'])->name('messages.destroy')->middleware('auth');
+
+Route::get("/messages/show/{id}", [MessageController::class, 'show'])->name('messages.show')->middleware('auth');

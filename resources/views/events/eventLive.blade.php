@@ -27,6 +27,26 @@
     </a>
 </div>
 
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">Messages</div>
+        <div class="card-body" style="overflow-y: auto;">
+            <ul class="list-group list-group-flush" id="messageList">
+                <!-- Messages will be displayed here -->
+            </ul>
+        </div>
+        <div class="card-footer">
+            <form id="messageForm" method="POST" action="{{ route('messages.store') }}">
+                @csrf
+                <div class="mb-3">
+                    <textarea class="form-control" id="messageInput" name="message" rows="3" placeholder="Type a message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 

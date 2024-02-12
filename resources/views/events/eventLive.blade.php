@@ -82,28 +82,39 @@
         // Get the form data
         var formData = new FormData(this);
 
-
         // Send the form data via AJAX
         fetch(this.action, {
-
                 method: this.method,
                 body: formData,
                 headers: {
-                    'X-CSRF-TOKEN': '@csrf'
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 }
             })
             .then(response => {
                 if (response.ok) {
                     // If the submission was successful, clear the input field
                     document.getElementById('messageInput').value = '';
-                    // You may also want to update the UI with the newly submitted message here
+                    // Parse the JSON response
+                    return response.json();
                 } else {
-                    console.error('Form submission failed!');
+                    console.error('Form submission failed:', response.status, response.statusText);
+                    throw new Error('Form submission failed');
+                }
+            })
+            .then(data => {
+                // Check if the response indicates success
+                if (data.success) {
+                    // Update the UI with the new message
+                    var messageList = document.getElementById('messageList');
+                    var listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    listItem.textContent = data.message.message; // Assuming the response contains the message content
+                    messageList.appendChild(listItem);
+                } else {
+                    console.error('Form submission failed:', data.error);
                 }
             })
             .catch(error => console.error('Error:', error));
-
-
     });
 
     // Toggle message card visibility

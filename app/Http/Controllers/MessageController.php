@@ -45,7 +45,7 @@ class MessageController extends Controller
 
         $message->save();
 
-        // return redirect()->back()->with('success', 'Message successfully sent');
+        return response()->json(['success' => true, 'message' => $message]);
     }
 
     public function show($id)

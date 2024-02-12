@@ -28,7 +28,7 @@ class MessageController extends Controller
     public function store(Request $request, Message $message)
     {
 
-        // dd($request);
+        //dd($request);
         $validatedData = $request->validate([
             'user_id' => 'required',
             'event_id' => 'required',
@@ -45,7 +45,7 @@ class MessageController extends Controller
 
         $message->save();
 
-        return redirect()->back()->with('success', 'Message successfully sent');
+        // return redirect()->back()->with('success', 'Message successfully sent');
     }
 
     public function show($id)

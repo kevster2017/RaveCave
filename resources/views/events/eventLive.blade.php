@@ -56,10 +56,10 @@
         <div class="card-footer">
             <form id="messageForm" method="POST" action="{{ route('messages.store') }}">
                 @csrf
-                <input type="hidden" name="user_id" value="auth()->user()->id">
-                <input type="hidden" name="event_id" value="auth()->user()->id">
-                <input type="hidden" name="image" value="auth()->user()->image">
-                <input type="hidden" name="username" value="auth()->user()->username">
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id}} ">
+                <input type="hidden" name="event_id" value="{{ $event->id }}">
+                <input type="hidden" name="image" value="{{ auth()->user()->image }}">
+                <input type="hidden" name="username" value="{{ auth()->user()->username }}">
 
                 <div class="mb-3">
                     <textarea class="form-control" id="messageInput" name="message" rows="3" placeholder="Type a message"></textarea>
@@ -72,7 +72,9 @@
     </form>
 </div>
 
-<!-- Custom Ajax
+
+<!-- Ajax request -->
+
 <script>
     document.getElementById('messageForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
@@ -117,5 +119,5 @@
     });
 </script>
 
--->
+
 @endsection

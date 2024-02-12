@@ -33,13 +33,34 @@
             Messages
         </div>
         <div class="card-body" style="height: 300px; overflow-y: auto;">
+            @if($messages)
             <ul class="list-group list-group-flush" id="messageList">
                 <!-- Messages will be displayed here -->
+                @foreach($messages as $message)
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/storage/{{ $message->image }}">
+                    </div>
+                    <div class="col=9">
+                        <h6>{{ $messase->username }}</h6>
+                        <p> {{message->message }}</p>
+                    </div>
+                </div>
+
+                @endforeach
             </ul>
+            @else
+            <h3>No messages available</h3>
+            @endif
         </div>
         <div class="card-footer">
             <form id="messageForm" method="POST" action="{{ route('messages.store') }}">
                 @csrf
+                <input type="hidden" name="user_id" value="auth()->user()->id">
+                <input type="hidden" name="event_id" value="auth()->user()->id">
+                <input type="hidden" name="image" value="auth()->user()->image">
+                <input type="hidden" name="username" value="auth()->user()->username">
+
                 <div class="mb-3">
                     <textarea class="form-control" id="messageInput" name="message" rows="3" placeholder="Type a message"></textarea>
                 </div>

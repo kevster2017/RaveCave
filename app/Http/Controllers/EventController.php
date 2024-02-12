@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Ticket;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -171,11 +172,16 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
+        $messages = Message::where('event_id', $event)
+            ->orderBy('created_at', 'ASC')
+            ->get();
+
         // dd($ticket->paymentStatus);
 
         return view('events/eventLive', [
             'event' => $event,
-            'ticket' => $ticket
+            'ticket' => $ticket,
+            'messages' => $messages
         ]);
     }
 

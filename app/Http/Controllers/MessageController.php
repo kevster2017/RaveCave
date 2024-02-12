@@ -27,6 +27,8 @@ class MessageController extends Controller
 
     public function store(Request $request, Message $message)
     {
+
+        // dd($request);
         $validatedData = $request->validate([
             'user_id' => 'required',
             'event_id' => 'required',

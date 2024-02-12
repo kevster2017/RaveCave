@@ -9,6 +9,8 @@ class Message extends Model
 {
     use HasFactory;
 
+    protected $table = 'messages'; // Explicitly specify the table name as laravel looking for a table called message
+
     protected $fillable = [
         'message',
 

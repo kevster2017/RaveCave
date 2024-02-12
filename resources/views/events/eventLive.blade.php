@@ -65,48 +65,57 @@
                     <textarea class="form-control" id="messageInput" name="message" rows="3" placeholder="Type a message"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+
         </div>
     </div>
     <button id="burgerBtn" class="btn btn-primary">&#9776;</button>
+    </form>
 </div>
 
-<!-- Custom JavaScript -->
+<!-- Custom Ajax
 <script>
-    // Function to handle form submission
     document.getElementById('messageForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
-        // Get the input message value
-        var message = document.getElementById('messageInput').value.trim();
+        // Get the form data
+        var formData = new FormData(this);
 
-        // If the message is not empty
-        if (message !== '') {
-            // Append the message to the list
-            var messageList = document.getElementById('messageList');
-            var listItem = document.createElement('li');
-            listItem.className = 'list-group-item';
-            listItem.textContent = message;
-            messageList.appendChild(listItem);
 
-            // Clear the input field
-            document.getElementById('messageInput').value = '';
-        }
+        // Send the form data via AJAX
+        fetch(this.action, {
+
+                method: this.method,
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '@csrf'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // If the submission was successful, clear the input field
+                    document.getElementById('messageInput').value = '';
+                    // You may also want to update the UI with the newly submitted message here
+                } else {
+                    console.error('Form submission failed!');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
+
     });
 
     // Toggle message card visibility
     document.getElementById('burgerBtn').addEventListener('click', function() {
         var messageCard = document.getElementById('messageCard');
-
         messageCard.classList.toggle('d-none');
     });
 
     // Close message card and show burger button
     document.getElementById('closeBtn').addEventListener('click', function() {
         var messageCard = document.getElementById('messageCard');
-
         messageCard.classList.add('d-none');
     });
 </script>
 
+-->
 @endsection

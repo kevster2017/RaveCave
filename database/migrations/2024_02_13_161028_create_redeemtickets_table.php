@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('redeemtickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('ticket_id')->constrained()->onDelete('cascade');
+            $table->integer('event_id');
+            $table->integer('dj_id');
+            $table->string('djName');
+            $table->string('eventName');
             $table->timestamps();
         });
     }

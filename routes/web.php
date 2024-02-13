@@ -14,6 +14,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\RedeemTicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +116,11 @@ Route::get("/tickets/show/{id}", [TicketController::class, 'show'])->name('ticke
 Route::get("/tickets/review", [TicketController::class, 'review'])->name('tickets.review')->middleware('auth');
 Route::get("/tickets/payment", [TicketController::class, 'payment'])->name('tickets.payment')->middleware('auth');
 Route::get("/tickets/paymentComplete", [TicketController::class, 'paymentComplete'])->name('tickets.paymentComplete')->middleware('auth');
+
+/* Redeem Ticket Routes */
+Route::get("/redeemTickets", [RedeemTicketController::class, 'index']);
+Route::post("/redeemTickets/store", [RedeemTicketController::class, 'store'])->name('redeemTickets.store')->middleware('auth');
+
 
 /* Favourite Routes */
 Route::get("/favourites", [FavouriteController::class, 'index'])->name('favourites.index')->middleware('auth');

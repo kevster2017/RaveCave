@@ -27,8 +27,8 @@
         <input type="hidden" name="event_id" value="{{ $event->id }}">
         <input type="hidden" name="eventName" value="{{ $event->title }}">
         <input type="hidden" name="djName" value="{{ $event->dj }}">
-        <input type="hidden" name="dj_id" value="{{ $event->dj->id }}">
-        <input type="hidden" name="ticket_id" value="{{ $event->ticket->id }}">
+        <input type="hidden" name="dj_id" value="{{ $event->dj()->first()->id }}">
+        <input type="hidden" name="ticket_id" value="{{ $event->ticket()->id }}">
         <img src="/images/doorstaff.jpg" alt="Event Door" class="event-image">
         <a href="{{ route('live.event', $event->id) }}" class="hidden-link"></a>
     </form>

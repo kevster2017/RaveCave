@@ -27,7 +27,7 @@ class Event extends Model
 
     public function dj()
     {
-        return $this->hasMany(DJ::class);
+        return $this->hasOne(DJ::class);
     }
 
     public function followedBy()

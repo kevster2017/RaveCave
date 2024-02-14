@@ -18,4 +18,8 @@ class RedeemTicketController extends Controller
             'tickers' => $tickets
         ]);
     }
+
+    public function store(Request $request, RedeemTicket $ticket)
+    {
+    }
 }

@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('ticket_id')->constrained()->onDelete('cascade');
-            $table->integer('event_id');
-            $table->integer('dj_id');
+            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->foreignId('dj_id')->constrained()->onDelete('cascade');
             $table->string('djName');
             $table->string('eventName');
+            $table->boolean('redeemed')->default(0);
             $table->timestamps();
         });
     }

@@ -82,6 +82,27 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header">
+            Rate This Event
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Event Rating</h5>
+            <form action="" method="POST">
+                @csrf
+                <textarea class="form-control @error('comment') is-invalid @enderror mt-3" id="comment" name="comment" rows="3" placeholder="Enter a comment" required>{{ old('comment') }}</textarea>
+                @error('comment')
+                <label for="comment">Enter your comment</label>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+                <button type="submit" class="btn btn-primary mt-3">Submit Rating</button>
+            </form>
+
+
+        </div>
+    </div>
 
 </div>
 

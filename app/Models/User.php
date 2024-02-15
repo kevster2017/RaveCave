@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Follow::class, 'follows');
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(RateEvent::class, 'ratings');
+    }
 }

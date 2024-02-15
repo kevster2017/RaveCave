@@ -89,35 +89,52 @@
         <div class="card-body">
             <form id="ratingForm" action="{{ route('rateEvent') }}" method="POST">
                 @csrf
-                <div class="star-rating">
-                    <h5 class="card-title">Event Rating</h5> -
-                    <input type="radio" id="star5" name="stars" value="5" />
-                    <label for="star5" title="5 stars">&#9733;</label>
-                    <input type="radio" id="star4" name="stars" value="4" />
-                    <label for="star4" title="4 stars">&#9733;</label>
-                    <input type="radio" id="star3" name="stars" value="3" />
-                    <label for="star3" title="3 stars">&#9733;</label>
-                    <input type="radio" id="star2" name="stars" value="2" />
-                    <label for="star2" title="2 stars">&#9733;</label>
-                    <input type="radio" id="star1" name="stars" value="1" />
-                    <label for="star1" title="1 star">&#9733;</label>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="star-rating">
+                            <h5 class="card-title text-center">Event Rating</h5>
+                            <input type="radio" id="star5" name="stars" value="5" />
+                            <label for="star5" title="5 stars">&#9733;</label>
+                            <input type="radio" id="star4" name="stars" value="4" />
+                            <label for="star4" title="4 stars">&#9733;</label>
+                            <input type="radio" id="star3" name="stars" value="3" />
+                            <label for="star3" title="3 stars">&#9733;</label>
+                            <input type="radio" id="star2" name="stars" value="2" />
+                            <label for="star2" title="2 stars">&#9733;</label>
+                            <input type="radio" id="star1" name="stars" value="1" />
+                            <label for="star1" title="1 star">&#9733;</label>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <textarea class="form-control @error('comment') is-invalid @enderror mt-3" id="comment" name="comment" rows="3" placeholder="Enter a comment" required>{{ old('comment') }}</textarea>
+                        @error('comment')
+                        <label for="comment">Enter your comment</label>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <button type="submit" class="btn btn-primary mt-3">Submit Rating</button>
+                    </div>
                 </div>
-
-
-                <textarea class="form-control @error('comment') is-invalid @enderror mt-3" id="comment" name="comment" rows="3" placeholder="Enter a comment" required>{{ old('comment') }}</textarea>
-                @error('comment')
-                <label for="comment">Enter your comment</label>
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-                <button type="submit" class="btn btn-primary mt-3">Submit Rating</button>
             </form>
+
+
         </div>
     </div>
 
 </div>
 
-
+<script>
+    const stars = document.querySelectorAll('.star-rating input[type="radio"]');
+    stars.forEach(star => {
+        star.addEventListener('change', (event) => {
+            stars.forEach(s => {
+                if (s !== event.target) {
+                    s.checked = false;
+                }
+            });
+        });
+    });
+</script>
 
 @endsection

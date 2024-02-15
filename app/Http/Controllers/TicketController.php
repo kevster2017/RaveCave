@@ -118,7 +118,20 @@ class TicketController extends Controller
     public function show(string $id)
     {
         $ticket = Ticket::findOrFail($id);
-        return view('/tickets/show', ['ticket' => $ticket]);
+
+        // Fetch all rate events with 5-star ratings
+        $eventRating = RateEvent::where('event_id', $ticket->event_id)->count();
+
+        // Fetch total number of rate events
+        $totalEventsCount = RateEvent::where('event_id', $ticket->event_id)->count();
+
+        // Calculate total stars awarded
+        $totalStars = $eventRating->sum('stars');
+
+        // Calculate overall average rating
+        $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;
+
+        return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating]);
     }
 
     public function removeCart($id)

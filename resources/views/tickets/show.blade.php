@@ -53,6 +53,20 @@
 
                     </div>
                 </div>
+
+                <div class="col mt-3 ">
+                    <div class="card-body">
+                        <h2>Event Ratings</h2>
+                        <p>Average 5-Star Ratings: {{ $averageRating }}%</p>
+                        <div class="stars">
+                            @for ($i = 0; $i < 5; $i++) @if ($i < $$averageRating / 20) <span class="star-filled">&#9733;</span>
+                                @else
+                                <span class="star">&#9733;</span>
+                                @endif
+                                @endfor
+                        </div>
+                    </div>
+                </div>
             </div>
 
 

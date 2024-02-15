@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Cart;
-use App\Models\Event;
+use App\Models\RateEvent;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 

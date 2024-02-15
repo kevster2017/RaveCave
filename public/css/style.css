@@ -123,3 +123,16 @@ body {
 .star-rating input[type="radio"]:checked ~ label {
     color: #ffc107; /* Change to yellow */
 }
+
+.star-filled,
+.star {
+    font-size: 150%; /* Adjust the font size as needed */
+}
+
+.star-filled {
+  color: #ffc107; /* Yellow color for filled stars */
+}
+
+.star {
+  color: #ccc; /* Grey color for empty stars */
+}

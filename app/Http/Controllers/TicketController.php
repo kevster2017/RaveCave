@@ -119,14 +119,14 @@ class TicketController extends Controller
     {
         $ticket = Ticket::findOrFail($id);
 
-        // Fetch all rate events with 5-star ratings
-        $eventRating = RateEvent::where('event_id', $ticket->event_id)->count();
+        // Fetch all rate events for the specific event
+        $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
 
-        // Fetch total number of rate events
-        $totalEventsCount = RateEvent::where('event_id', $ticket->event_id)->count();
+        // Calculate total number of rate events
+        $totalEventsCount = $rateEvents->count();
 
         // Calculate total stars awarded
-        $totalStars = $eventRating->sum('stars');
+        $totalStars = $rateEvents->sum('stars');
 
         // Calculate overall average rating
         $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;

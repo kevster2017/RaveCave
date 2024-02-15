@@ -9,6 +9,8 @@ class RateEvent extends Model
 {
     use HasFactory;
 
+    protected $table = 'rateevents'; // Explicitly specify the table name as laravel looking for a table called rate_events
+
     protected $fillable = [
         'stars',
         'comment',

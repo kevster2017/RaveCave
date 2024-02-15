@@ -22,11 +22,11 @@ class RateEventController extends Controller
     public function store(Request $request, RateEvent $rating)
     {
 
-        dd($request);
+        // dd($request);
 
         $request->validate([
             'stars' => 'required|integer',
-            'message' => 'required|string|max:500',
+            'comment' => 'required|string|max:500',
         ]);
 
 
@@ -36,7 +36,7 @@ class RateEventController extends Controller
         $rating->name = $request->name;
         $rating->image = $request->image;
         $rating->stars = $request->stars;
-        $rating->message = $request->message;
+        $rating->comment = $request->comment;
 
 
 

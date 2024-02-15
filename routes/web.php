@@ -15,6 +15,7 @@ use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RedeemTicketController;
+use App\Http\Controllers\RateEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -153,3 +154,8 @@ Route::put("/messages/{id}", [MessageController::class, 'update'])->name('messag
 Route::delete('/messages/{id}', [MessageController::class, 'destroy'])->name('messages.destroy')->middleware('auth');
 
 Route::get("/messages/show/{id}", [MessageController::class, 'show'])->name('messages.show')->middleware('auth');
+
+
+/* Rate Event Routes */
+Route::get("/rateEvents", [RateEventController::class, 'index']);
+Route::post("/rateEvents/store", [RateEventController::class, 'store'])->name('rateEvent')->middleware('auth');

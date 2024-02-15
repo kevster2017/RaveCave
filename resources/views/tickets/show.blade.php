@@ -89,6 +89,12 @@
         <div class="card-body">
             <form id="ratingForm" action="{{ route('rateEvent') }}" method="POST">
                 @csrf
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="event_id" value="{{ $ticket->event_id }}">
+                <input type="hidden" name="name" value="{{ Auth::user()->username }}">
+                <input type="hidden" name="image" value="{{ Auth::user()->image }}">
+
+
                 <div class="row">
                     <div class="col-4">
                         <div class="star-rating">

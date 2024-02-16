@@ -16,6 +16,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RedeemTicketController;
 use App\Http\Controllers\RateEventController;
+use App\Http\Controllers\RateDjController;
 
 /*
 |--------------------------------------------------------------------------
@@ -159,3 +160,7 @@ Route::get("/messages/show/{id}", [MessageController::class, 'show'])->name('mes
 /* Rate Event Routes */
 Route::get("/rateEvents", [RateEventController::class, 'index']);
 Route::post("/rateEvents/store", [RateEventController::class, 'store'])->name('rateEvent')->middleware('auth');
+
+/* Rate DJ Routes */
+Route::get("/rateDjs", [RateDjController::class, 'index']);
+Route::post("/rateDjs/store", [RateDjController::class, 'store'])->name('rateDj')->middleware('auth');

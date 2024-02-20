@@ -146,6 +146,8 @@ class TicketController extends Controller
         $ticket->redeemed_at = now();
 
         $ticket->save();
+
+        return route('live.event', $ticket->event_id);
     }
 
     public function redeemTicketIndex()

@@ -23,6 +23,8 @@ class RateDjController extends Controller
 
     public function store(Request $request, RateDj $rating)
     {
+
+        //dd($request);
         $request->validate([
             'stars' => 'required|integer',
             'comment' => 'required|string|max:500',

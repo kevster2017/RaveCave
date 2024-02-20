@@ -31,7 +31,7 @@ class DJ extends Model
 
     public function event()
     {
-        return $this->belongsTo(Event::class);
+        return $this->hasMany(Event::class);
     }
 
     public function favouritedBy()

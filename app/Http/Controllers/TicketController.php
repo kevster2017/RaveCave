@@ -134,6 +134,21 @@ class TicketController extends Controller
         return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating]);
     }
 
+    public function redeemTicket(Request $id)
+    {
+    }
+
+    public function redeemTicketIndex()
+    {
+        $tickets = Ticket::where('id', 'True')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('redeemTickets.index', [
+            'tickets' => $tickets
+        ]);
+    }
+
     public function removeCart($id)
     {
         Cart::destroy($id);

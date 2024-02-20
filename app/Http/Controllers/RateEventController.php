@@ -45,7 +45,10 @@ class RateEventController extends Controller
         return redirect()->back()->with('success', "Event rating successfully added");
     }
 
-    public function delete()
+    public function destroy($id)
     {
+        RateEvent::destroy($id);
+
+        return redirect()->route('Events.index')->with('success', 'Event Rating successfully deleted');
     }
 }

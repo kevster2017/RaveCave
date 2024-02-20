@@ -120,8 +120,8 @@ Route::get("/tickets/payment", [TicketController::class, 'payment'])->name('tick
 Route::get("/tickets/paymentComplete", [TicketController::class, 'paymentComplete'])->name('tickets.paymentComplete')->middleware('auth');
 
 /* Redeem Ticket Routes */
-Route::get("/redeemTickets", [RedeemTicketController::class, 'index']);
-Route::post("/redeemTickets/store", [RedeemTicketController::class, 'store'])->name('redeemTicket')->middleware('auth');
+Route::get("/redeemTickets", [TicketController::class, 'redeemTicketIndex']);
+Route::post("/redeemTickets/store", [TicketController::class, 'redeemTicket'])->name('redeemTicket')->middleware('auth');
 
 
 /* Favourite Routes */

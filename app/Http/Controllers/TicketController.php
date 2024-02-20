@@ -142,8 +142,10 @@ class TicketController extends Controller
         $ticket->fill($request->except(['_token', '_method', 'name', 'userID', 'dj, image', 'title', 'date', 'time', 'price', 'paymentMethod', 'paymentStatus']));
 
 
-        $ticket->redeemed = "true";
-        $ticket->redeemed_at = time . now();
+        $ticket->redeemed = true;
+        $ticket->redeemed_at = now();
+
+        $ticket->save();
     }
 
     public function redeemTicketIndex()

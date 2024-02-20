@@ -147,7 +147,7 @@ class TicketController extends Controller
 
         $ticket->save();
 
-        return route('live.event', $ticket->event_id);
+        return route('events.eventLive', $ticket->event_id);
     }
 
     public function redeemTicketIndex()

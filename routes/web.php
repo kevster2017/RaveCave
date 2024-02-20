@@ -63,7 +63,6 @@ Route::get("/events/live/{id}", [EventController::class, 'live'])->name('events.
 Route::get("/events/eventLive/{id}", [EventController::class, 'eventLive'])->name('live.event')->middleware('auth');
 
 
-
 Route::get('/events/eventLive', function () {
     return view('events.eventLive');
 })->name('eventLive');

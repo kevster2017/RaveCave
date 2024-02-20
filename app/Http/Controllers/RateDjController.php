@@ -39,4 +39,12 @@ class RateDjController extends Controller
 
         return redirect()->back()->with('success', "DJ rating successfullly added");
     }
+
+
+    public function destroy($id)
+    {
+        RateDj::destroy($id);
+
+        return redirect()->route('djs.index')->with('success', 'DJ Rating successfully deleted');
+    }
 }

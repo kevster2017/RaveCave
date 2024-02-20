@@ -44,4 +44,8 @@ class RateEventController extends Controller
 
         return redirect()->back()->with('success', "Event rating successfully added");
     }
+
+    public function delete()
+    {
+    }
 }

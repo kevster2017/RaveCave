@@ -21,10 +21,10 @@
 
 
     <!-- Hidden Link -->
-    <form method="POST" action="{{ route('redeemTicket') }}">
+    <form method="POST" action="{{ route('redeemTicket', $event->id) }}">
         @csrf
         <img src="/images/doorstaff.jpg" alt="Event Door" class="event-image">
-        <a href="{{ route('live.event', $event->id) }}" class="hidden-link"></a>
+        <button type="submit" class="hidden-link" style="border: none; background: none; cursor: pointer;"></button>
     </form>
 </div>
 

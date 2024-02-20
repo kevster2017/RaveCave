@@ -16,6 +16,7 @@ class EventSeeder extends Seeder
         Event::create([
             'userID' => 1, // Replace with the desired userID
             'dj' => 'Carl Cox', // Replace with the actual DJ name
+            'dj_id' => 1,
             'image' => 'uploads/i2OQF4dudttRmsMiLEtTPvub5zkbt3Gqqqi5oUv1.jpg', // Replace with the actual image path
             'video' => '/tmp/phpqDddax', // Replace with the actual video path
             'title' => 'Tomorrowland',
@@ -28,6 +29,7 @@ class EventSeeder extends Seeder
         Event::create([
             'userID' => 1, // Replace with the desired userID
             'dj' => 'Sven Vath', // Replace with the actual DJ name
+            'dj_id' => 1,
             'image' => 'uploads/oFbTKdh7RjXQOMnguyciaM8oCr4R2gHLof17bwr7.png', // Replace with the actual image path
             'video' => '/tmp/phpIdmKOO', // Replace with the actual video path
             'title' => 'Lunanosity',
@@ -40,6 +42,7 @@ class EventSeeder extends Seeder
         Event::create([
             'userID' => 1, // Replace with the desired userID
             'dj' => 'Ritchie Hawtin', // Replace with the actual DJ name
+            'dj_id' => 2,
             'image' => 'uploads/BZZb9LDXe9HKLvO8N3irbUBluuugbOpR0awj7Zbp.jpg', // Replace with the actual image path
             'video' => '/tmp/phpZvpABw', // Replace with the actual video path
             'title' => 'Shine',
@@ -52,6 +55,7 @@ class EventSeeder extends Seeder
         Event::create([
             'userID' => 1, // Replace with the desired userID
             'dj' => 'Nina Kravitz', // Replace with the actual DJ name
+            'dj_id' => 2,
             'image' => 'uploads/Uk8NM8TotXR8GOQ8XjvUPaZ7C4AOyLFnsTYJe0Qq.jpg', // Replace with the actual image path
             'video' => 'uploads/4TK2Y213R7uLzTmxBT4mRsNyBsCmlbgOYkIjdd4e.mp4', // Replace with the actual video path
             'title' => 'Xmas Shine',

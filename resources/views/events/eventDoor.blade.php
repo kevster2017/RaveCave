@@ -21,11 +21,13 @@
 
 
     <!-- Hidden Link -->
-    <form method="POST" action="{{ route('redeemTicket', $event->id) }}">
+    <form id="redeemTicketForm" method="POST" action="{{ route('redeemTicket') }}">
         @csrf
+        <input type="hidden" name="id" value="{{ $event->id }}">
         <img src="/images/doorstaff.jpg" alt="Event Door" class="event-image">
         <button type="submit" class="hidden-link" style="border: none; background: none; cursor: pointer;"></button>
     </form>
+
 </div>
 
 

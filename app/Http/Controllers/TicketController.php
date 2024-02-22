@@ -134,13 +134,14 @@ class TicketController extends Controller
         return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating]);
     }
 
-    public function redeemTicket(Request $request, $id)
+    public function redeemTicket(Request $request)
     {
-        $ticket = Ticket::findOrFail($id);
+        $eventId = $request->input('id'); // Retrieve the event ID from the request
+
+        $ticket = Ticket::findOrFail($eventId);
 
         // Mass assignment to update model attributes in bulk
-        $ticket->fill($request->except(['_token', '_method', 'name', 'userID', 'dj, image', 'title', 'date', 'time', 'price', 'paymentMethod', 'paymentStatus']));
-
+        $ticket->fill($request->except(['_token', '_method', 'name', 'userID', 'dj', 'image', 'title', 'date', 'time', 'price', 'paymentMethod', 'paymentStatus']));
 
         $ticket->redeemed = true;
         $ticket->redeemed_at = now();

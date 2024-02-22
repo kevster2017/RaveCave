@@ -150,6 +150,9 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
+        if ($ticket->redeemed == true) {
+            return redirect()->route('eventLive', $ticket->event_id);
+        }
 
         if ($ticket) {
 

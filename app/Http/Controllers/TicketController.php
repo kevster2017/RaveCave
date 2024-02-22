@@ -142,16 +142,16 @@ class TicketController extends Controller
 
         $ticket = Ticket::where('event_id', $eventId)
             ->first();
-        dd($ticket);
+
 
         // Mass assignment to update model attributes in bulk
-        $ticket->fill($request->except(['_token', '_method', 'name', 'userID', 'dj', 'image', 'title', 'date', 'time', 'price', 'paymentMethod', 'paymentStatus']));
+        $ticket->fill($request->except(['_token', '_method', 'id', 'name', 'userID', 'dj', 'image', 'title', 'date', 'time', 'price', 'paymentMethod', 'paymentStatus']));
 
         $ticket->redeemed = true;
         $ticket->redeemed_at = now();
 
         $ticket->save();
-
+        //dd($ticket);
         return redirect()->route('events.eventLive', $ticket->event_id);
     }
 

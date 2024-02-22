@@ -60,12 +60,13 @@ Route::get('/events/eventDoor', function () {
     return view('eventDoor');
 })->name('eventDoor');
 Route::get("/events/live/{id}", [EventController::class, 'live'])->name('events.live')->middleware('auth');
-Route::get("/events/eventLive/{id}", [EventController::class, 'eventLive'])->name('live.event')->middleware('auth');
+Route::get("/events/eventLive/{id}", [EventController::class, 'eventLive'])->name('eventLive')->middleware('auth');
 
-
+/*
 Route::get('/events/eventLive', function () {
     return view('events.eventLive');
 })->name('eventLive');
+*/
 
 /* DJ Routes */
 Route::get("/djs", [DjController::class, 'index'])->name('djs.index');

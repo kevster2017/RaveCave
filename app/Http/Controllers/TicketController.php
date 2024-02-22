@@ -136,9 +136,13 @@ class TicketController extends Controller
 
     public function redeemTicket(Request $request)
     {
+
+
         $eventId = $request->input('id'); // Retrieve the event ID from the request
 
-        $ticket = Ticket::findOrFail($eventId);
+        $ticket = Ticket::where('event_id', $eventId)
+            ->first();
+        dd($ticket);
 
         // Mass assignment to update model attributes in bulk
         $ticket->fill($request->except(['_token', '_method', 'name', 'userID', 'dj', 'image', 'title', 'date', 'time', 'price', 'paymentMethod', 'paymentStatus']));

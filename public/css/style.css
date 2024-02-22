@@ -47,7 +47,7 @@ body {
 
 .hidden-link {
     position: absolute;
-    top: 58%; /* Adjust as needed */
+    top: 100%; /* Adjust as needed */
     left: 38%; /* Adjust as needed */
     width: 10%; /* Adjust as needed */
     height: 20%; /* Adjust as needed */
@@ -55,10 +55,10 @@ body {
 
         /* Media query for smaller screens */
         @media screen and (max-width: 768px) {
-            top: 56%; /* Adjust as needed */
-            left: 15%; /* Adjust as needed */
-            width: 30%; /* Adjust as needed */
-            height: 20%; /* Adjust as needed */
+            top: 72%; /* Adjust as needed */
+            left: 37%; /* Adjust as needed */
+            width: 10%; /* Adjust as needed */
+            height: 10%; /* Adjust as needed */
         }
     
 }

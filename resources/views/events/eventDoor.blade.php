@@ -17,7 +17,7 @@
     <h2 class="text-center my-2">Tap the scanner to enter</h2>
 </div>
 
-<div class="container-fluid" id="eventDoor">
+<div class="container-fluid">
 
 
     <!-- Hidden Link -->
@@ -25,7 +25,7 @@
         @csrf
         <input type="hidden" name="id" value="{{ $event->id }}">
         <img src="/images/doorstaff.jpg" alt="Event Door" class="event-image">
-        <button type="submit" class="hidden-link" style="border: none; background: none; cursor: pointer;"></button>
+        <button type="submit" class="hidden-link" style=" border: none; cursor: pointer;"></button>
     </form>
 
 </div>

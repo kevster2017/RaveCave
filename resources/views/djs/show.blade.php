@@ -20,15 +20,13 @@
     <div class="card text-bg-light mb-3">
         <div class="my-2">
             <div class="row g-0">
-                <div class="col-3">
+                <div class="col-4">
                     <img src="/storage/{{$dj->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="dj Image">
-
 
                 </div>
 
                 <div class="col mt-3 ms-5">
                     <div class="card-body">
-
 
                         <h2 class="card-title mb-3">{{ $dj->djname}}</h2>
 
@@ -37,14 +35,42 @@
                         <p class="card-text"><strong>Genre:</strong> {{ $dj->genre }}</p>
                         <p class="card-text"><small class="text-muted"><strong>Joined The Rave Cave:</strong> {{ $dj->created_at->diffForHumans() }}</small></p>
 
+                        @if( $dj->user_id == auth()->user()->id)
+
+                        <a class="btn btn-danger" href="{{ route('djs.edit', $dj->id) }}">Edit Profile</a>
+
+                        @endif
+
 
                     </div>
+                </div>
+
+                <div class="col mt-3 ">
+                    <div class="card-body">
+                        <h2>DJ Ratings</h2>
+                        <div class="row">
+                            <div class="stars">
+                                @for ($i = 0; $i < 5; $i++) @if ($i < $rating) <span class="star-filled">&#9733;</span>
+                                    @else
+                                    <span class="star">&#9733;</span>
+                                    @endif
+                                    @endfor
+                            </div>
+
+                            <p>Ratings Count: ({{$totalRatingsCount}})</p>
+                            <p><a href="#">View all ratings</a></p>
+                        </div>
+
+                    </div>
+
+
                 </div>
             </div>
 
 
-
         </div>
+
+
     </div>
     <div class="row mb-5">
         <div class="col-12 col-md-4">
@@ -69,13 +95,7 @@
                             </form>
                             @endif
                         </div>
-                        <div class="col">
-                            @if( $dj->user_id == auth()->user()->id)
 
-                            <a class="btn btn-danger" href="{{ route('djs.edit', $dj->id) }}">Edit Profile</a>
-
-                            @endif
-                        </div>
 
 
                     </div>
@@ -90,7 +110,7 @@
 
                     <div class="ms-5">
                         <p class="card-text"><strong>Description:</strong> {{ $dj->description}}</p>
-                        <p class="card-text"><strong>Social Media:</strong> {{ $dj->social }}</p>
+                        <p class="card-text"><strong>Social Media:</strong> <a href="{{ $dj->social }}">{{ $dj->social }}</a></p>
                         <p class="card-text"><strong>Began DJ Career:</strong> {{ date('d/m/Y', strtotime($dj->date)) }}</p>
                     </div>
                 </div>

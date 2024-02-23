@@ -35,7 +35,16 @@
                         <h3 class="card-text mb-3"> {{ $event->dj }}</h3>
                         <p class="card-text"><strong>Date:</strong> {{ date('d/m/Y', strtotime($event->date)) }}</p>
                         <p class="card-text"><strong>Time:</strong> {{ $event->time }} </p>
+                        <div class="row mt-3">
 
+                            <div class="col">
+                                @if ($event->userID == auth()->user()->id)
+                                <div class="col">
+                                    <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
 
 
                     </div>
@@ -119,21 +128,8 @@
                             @endif
                         </div>
 
-
-
                     </div>
-                    <div class="row justify-content-between mt-3">
-                        <div class="col">
 
-                        </div>
-                        <div class="col">
-                            @if ($event->userID == auth()->user()->id)
-                            <div class="col">
-                                <a class="btn btn-danger" href="{{ route('events.edit', $event->id) }}">Edit Event</a>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

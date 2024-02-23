@@ -90,20 +90,21 @@ class EventController extends Controller
         $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
 
         // Calculate total number of rate events
-        $totalEventsCount = $rateEvents->count();
+        $totalRatingsCount = $rateEvents->count();
 
         // Calculate total stars awarded
         $totalStars = $rateEvents->sum('stars');
 
         // Calculate overall average rating
-        $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;
+        $rating = ($totalRatingsCount > 0) ? $totalStars / $totalRatingsCount : 0;
 
         // dd($ticket->paymentStatus);
 
         return view('events.show', [
             'event' => $event,
             'ticket' => $ticket,
-            'rating' => $rating
+            'rating' => $rating,
+            'totalRatingsCount' => $totalRatingsCount
         ]);
     }
 

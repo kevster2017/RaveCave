@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DJ;
+use App\Models\RateDJ;
 use Illuminate\Http\Request;
 
 class DJController extends Controller
@@ -77,8 +78,22 @@ class DJController extends Controller
         $dj = DJ::findOrFail($id);
         $dj->load('favouritedBy'); // Eager load the favoritedBy relationship
 
+        // Fetch all rate Djs for the specific Dj
+        $rateDjs = RateDJ::where('dj_id', $dj->id)->get();
+
+        // Calculate total number of rate events
+        $totalRatingsCount = $rateDjs->count();
+
+        // Calculate total stars awarded
+        $totalStars = $rateDjs->sum('stars');
+
+        // Calculate overall average rating
+        $rating = ($totalRatingsCount > 0) ? $totalStars / $totalRatingsCount : 0;
+
         return view('djs.show', [
-            'dj' => $dj
+            'dj' => $dj,
+            'rating' => $rating,
+            'totalRatingsCount' => $totalRatingsCount
         ]);
     }
 

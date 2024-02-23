@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Ticket;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Models\RateEvent;
 use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
@@ -85,11 +86,24 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
+        // Fetch all rate events for the specific event
+        $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
+
+        // Calculate total number of rate events
+        $totalEventsCount = $rateEvents->count();
+
+        // Calculate total stars awarded
+        $totalStars = $rateEvents->sum('stars');
+
+        // Calculate overall average rating
+        $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;
+
         // dd($ticket->paymentStatus);
 
         return view('events.show', [
             'event' => $event,
-            'ticket' => $ticket
+            'ticket' => $ticket,
+            'rating' => $rating
         ]);
     }
 

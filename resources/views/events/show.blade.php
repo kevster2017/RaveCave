@@ -44,14 +44,22 @@
                 <div class="col mt-3 ">
                     <div class="card-body">
                         <h2>Event Ratings</h2>
-                        <p>Average 5-Star Ratings: {{ $rating }}%</p>
-                        <div class="stars">
-                            @for ($i = 0; $i < 5; $i++) @if ($i < $rating) <span class="star-filled">&#9733;</span>
-                                @else
-                                <span class="star">&#9733;</span>
-                                @endif
-                                @endfor
+                        <div class="row">
+                            <div class="stars">
+                                @for ($i = 0; $i < 5; $i++) @if ($i < $rating) <span class="star-filled">&#9733;</span>
+                                    @else
+                                    <span class="star">&#9733;</span>
+                                    @endif
+                                    @endfor
+                            </div>
+
+                            <p>Ratings Count: ({{$totalRatingsCount}})</p>
+                            <p><a href="#">View all ratings</a></p>
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>

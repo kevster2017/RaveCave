@@ -65,7 +65,7 @@ class UserController extends Controller
         }
 
         if (!empty($request->input('email'))) {
-            $user->name = $request->email;
+            $user->email = $request->email;
         }
 
         if (!empty($request->input('town'))) {
@@ -76,10 +76,10 @@ class UserController extends Controller
         }
 
         if (!empty($request->input('username'))) {
-            $user->town = $request->username;
+            $user->username = $request->username;
         }
         if (!empty($request->input('isAdmin'))) {
-            $user->country = $request->isAdmin;
+            $user->isAdmin = $request->isAdmin;
         }
 
         if (!empty($request->hasFile('image'))) {

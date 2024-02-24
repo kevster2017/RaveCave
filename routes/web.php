@@ -163,4 +163,5 @@ Route::post("/rateEvents/store", [RateEventController::class, 'store'])->name('r
 
 /* Rate DJ Routes */
 Route::get("/rateDjs", [RateDjController::class, 'index']);
+Route::get("/rateDjs/show/{id}", [RateDjController::class, 'show'])->name('rateDjs.show')->middleware('auth');;
 Route::post("/rateDjs/store", [RateDjController::class, 'store'])->name('rateDj')->middleware('auth');

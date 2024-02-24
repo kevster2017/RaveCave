@@ -30,7 +30,11 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col">
-                                    <img src="/storage/{{$rating->image}}" class="img-responsive rounded-start img-fluid card-img" alt="rating Image">
+                                    @if($rating->image != "images/profileImage.jpg")
+                                    <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+                                    @else
+                                    <img src="/images/profileImage.jpg" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+                                    @endif
                                 </div>
                                 <div class="col ms-3">
                                     <div class="card-body">
@@ -39,7 +43,8 @@
 
 
                                         <div class="stars">
-                                            @for ($i = 0; $i < 5; $i++) @if ($i < $rating) <span class="star-filled">&#9733;</span>
+                                            @for ($i = 0; $i < 5; $i++) @if ($i < $rating->stars)
+                                                <span class="star-filled">&#9733;</span>
                                                 @else
                                                 <span class="star">&#9733;</span>
                                                 @endif

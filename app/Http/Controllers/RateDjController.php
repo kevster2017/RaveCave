@@ -24,6 +24,7 @@ class RateDjController extends Controller
     public function show($id)
     {
 
+
         $djId = DJ::where('id', '>', $id)
             ->orderBy('created_at', 'DESC')
             ->get();

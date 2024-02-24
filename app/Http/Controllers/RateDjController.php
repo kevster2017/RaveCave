@@ -20,6 +20,18 @@ class RateDjController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+
+        $ratings = RateDj::where('dj_id', '>', $id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('rateDjs.show', [
+            'ratings' => $ratings
+        ]);
+    }
+
 
     public function store(Request $request, RateDj $rating)
     {

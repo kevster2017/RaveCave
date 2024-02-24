@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RateDj;
+use App\Models\DJ;
 
 use Illuminate\Http\Request;
 
@@ -23,10 +24,15 @@ class RateDjController extends Controller
     public function show($id)
     {
 
-        $ratings = RateDj::where('dj_id', '>', $id)
+        $djId = DJ::where('id', '>', $id)
             ->orderBy('created_at', 'DESC')
             ->get();
 
+        $ratings = RateDj::where('dj_id', '>', $djId)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        //dd($ratings);
         return view('rateDjs.show', [
             'ratings' => $ratings
         ]);

@@ -124,6 +124,7 @@
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
 
                                 <button type="submit" class="btn btn-primary">Follow</button>
+
                             </form>
                             @endif
                         </div>

@@ -97,6 +97,8 @@
             </div>
         </div>
     </div>
+
+    @if($rateEvents != null)
     <div class="card">
         <div class="card-header">
             Rate This Event
@@ -142,7 +144,7 @@
 
         </div>
     </div>
-
+    @endif
 </div>
 
 <script>

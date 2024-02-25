@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('userId');
             $table->string('dj');
+            $table->integer('djId');
             $table->string('image');
             $table->string('title');
             $table->date('date');

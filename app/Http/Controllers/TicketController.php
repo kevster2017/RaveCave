@@ -131,7 +131,7 @@ class TicketController extends Controller
         // Calculate overall average rating
         $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;
 
-        return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating]);
+        return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating, 'rateEvents' => $rateEvents]);
     }
 
     public function redeemTicket(Request $request)

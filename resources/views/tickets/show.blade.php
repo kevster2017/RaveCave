@@ -26,7 +26,7 @@
 @endif
 
 <div class="container mt-3">
-    <h1 class="text-center my-5">{{ $ticket->title }}</h1>
+    <h1 class="text-center my-5">Your ticket to {{ $ticket->title }}</h1>
 </div>
 
 <div class="container">

@@ -122,7 +122,7 @@ class TicketController extends Controller
         // Fetch all rate events for the specific event
         $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
 
-
+        // dd($rateEvents);
 
         // Calculate total number of rate events
         $totalEventsCount = $rateEvents->count();

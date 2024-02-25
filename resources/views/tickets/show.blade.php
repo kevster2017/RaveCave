@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    @if($rateEvents != null)
+    @if($rateEvents != null && $rateEvents->contains(auth()->id()))
     <div class="card">
         <div class="card-header">
             Rate This Event

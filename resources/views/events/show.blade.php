@@ -82,7 +82,7 @@
             <div class="card text-bg-light">
                 <h5 class="card-header">Follow {{ $event->title }}</h5>
                 <div class="card-body">
-                    <div class="row text-center">
+                    <div class="row">
 
                         @if($ticket && $ticket->paymentStatus === "Paid")
                         <div class="col">
@@ -90,7 +90,7 @@
                         </div>
 
                         @else
-                        <div class="col">
+                        <div class="row">
                             <form action="{{ route('addToCart') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="userId" value="{{ Auth()->User()->id }}">
@@ -110,7 +110,7 @@
                         @endif
 
 
-                        <div class="col">
+                        <div class="row mt-3">
                             @if(auth()->check() && $event->followedBy->contains(auth()->user()))
                             <form action="{{ route('events.unfollow', $event->id) }}" method="POST">
                                 @csrf

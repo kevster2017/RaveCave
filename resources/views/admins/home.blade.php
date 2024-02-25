@@ -36,6 +36,24 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card custom-card h-100">
+                    <a href=" {{ route('rateDjs.index') }}"><img src="/images/allUsers.jpg" class="card-img-top img-fluid" alt="Ravers dancing"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">View All DJ Ratings</h5>
+                        <p class="card-text">View all DJ ratings received</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card custom-card h-100">
+                    <a href=" {{ route('rateEvents.index') }}"><img src="/images/allUsers.jpg" class="card-img-top img-fluid" alt="Ravers dancing"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">View All Event Ratings</h5>
+                        <p class="card-text">View all event ratings received</p>
+                    </div>
+                </div>
+            </div>
 
 
             @endif

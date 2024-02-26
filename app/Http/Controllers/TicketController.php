@@ -122,6 +122,15 @@ class TicketController extends Controller
         // Fetch all rate events for the specific event
         $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
 
+        $rated = false;
+
+        // Check if any of the rate events contain the authenticated user's ID
+        foreach ($rateEvents as $rateEvent) {
+            if ($rateEvent->user_id === auth()->id()) {
+                $rated = true;
+                break; // No need to continue once found
+            }
+        }
 
         // Calculate total number of rate events
         $totalEventsCount = $rateEvents->count();
@@ -135,7 +144,7 @@ class TicketController extends Controller
         $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;
 
 
-        return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating, 'rateEvents' => $rateEvents]);
+        return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating, 'rateEvents' => $rateEvents, 'rated' => $rated]);
     }
 
     public function redeemTicket(Request $request)

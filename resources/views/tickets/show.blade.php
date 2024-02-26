@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    @if($rateEvents && $rateEvents->user_id != auth()->user()->id)
+    @if(!$rated)
     <div class="card">
         <div class="card-header">
             Rate This Event

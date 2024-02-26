@@ -81,6 +81,16 @@ class DJController extends Controller
         // Fetch all rate Djs for the specific Dj
         $rateDjs = RateDJ::where('dj_id', $dj->id)->get();
 
+        $rated = false;
+
+        // Check if any of the rate events contain the authenticated user's ID
+        foreach ($rateDjs as $rateDj) {
+            if ($rateDj->user_id === auth()->id()) {
+                $rated = true;
+                break; // No need to continue once found
+            }
+        }
+
         // Calculate total number of rate events
         $totalRatingsCount = $rateDjs->count();
 
@@ -93,7 +103,8 @@ class DJController extends Controller
         return view('djs.show', [
             'dj' => $dj,
             'rating' => $rating,
-            'totalRatingsCount' => $totalRatingsCount
+            'totalRatingsCount' => $totalRatingsCount,
+            'rated' => $rated
         ]);
     }
 

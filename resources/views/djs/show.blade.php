@@ -118,6 +118,7 @@
         </div>
     </div>
 
+    @if(!$rated)
     <div class="card">
         <div class="card-header">
             Rate {{ $dj->name }}
@@ -163,6 +164,7 @@
 
         </div>
     </div>
+    @endif
 
 
 </div>

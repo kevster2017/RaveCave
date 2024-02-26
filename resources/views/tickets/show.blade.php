@@ -101,7 +101,7 @@
     @if(!$rated)
     <div class="card">
         <div class="card-header">
-            Rate This Event
+            Rate {{ $event->name }}
         </div>
         <div class="card-body">
             <form id="ratingForm" action="{{ route('rateEvent') }}" method="POST">

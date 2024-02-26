@@ -17,8 +17,12 @@ class RateDjController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        return view('djs.index', [
-            'ratings' => $ratings
+        $user = User::where('id', auth()->user()->id)
+            ->first();
+
+        return view('rateDjs.index', [
+            'ratings' => $ratings,
+            'user' => $user
         ]);
     }
 

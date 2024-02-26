@@ -6,17 +6,18 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">All Events</li>
+            <li class="breadcrumb-item" aria-current="page">All Ratings</li>
+            <li class="breadcrumb-item active" aria-current="page">All DJ Ratings</li>
         </ol>
     </nav>
 </div>
 
 <div class="container py-3">
 
-    <h1 class="text-center my-3">All Events</h1>
+    <h1 class="text-center my-3">All Ratings</h1>
 
 
-    @foreach($events as $event)
+    @foreach($ratings as $rating)
     <div class="row">
         <div class="col-sm-8 mx-auto">
 
@@ -29,21 +30,27 @@
 
                         <div class="my-2">
                             <div class="row g-0">
-                                <div class="col">
-                                    <a href="{{ route('events.show', $event->id) }}"><img src="/storage/{{$event->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Event Image"></a>
+                                <div class="col-4">
+
+                                    <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+
                                 </div>
-                                <div class="col ms-3">
+                                <div class="col ms-5">
                                     <div class="card-body">
 
-                                        <a href="{{ route('events.show', $event->id) }}">
-                                            <h5 class="card-title">{{ $event->title}}</h5>
-                                        </a>
+                                        <h2 class="card-title">{{ $rating->name}}</h2>
 
 
-                                        <h6 class="card-text">{{ $event->dj}}</h6>
-                                        <p class="card-text">{{ $event->date }} {{ $event->time }}</p>
-                                        <p class="card-text">Price: £5</p>
-                                        <p class="card-text"><small class="text-muted">Event Created: {{ $event->created_at->diffForHumans() }}</small></p>
+                                        <div class="stars">
+                                            @for ($i = 0; $i < 5; $i++) @if ($i < $rating->stars)
+                                                <span class="star-filled">&#9733;</span>
+                                                @else
+                                                <span class="star">&#9733;</span>
+                                                @endif
+                                                @endfor
+                                        </div>
+                                        <p class="card-text">{{ $rating->comment }} </p>
+                                        <p class="card-text"><small class="text-muted">Comment Added: {{ $rating->created_at->diffForHumans() }}</small></p>
 
                                     </div>
                                 </div>

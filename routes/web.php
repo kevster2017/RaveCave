@@ -159,9 +159,10 @@ Route::get("/messages/show/{id}", [MessageController::class, 'show'])->name('mes
 
 /* Rate Event Routes */
 Route::get("/rateEvents", [RateEventController::class, 'index'])->name('rateEvents.index');
+Route::get("/rateEvents/show/{id}", [RateEventController::class, 'show'])->name('rateEvents.show')->middleware('auth');
 Route::post("/rateEvents/store", [RateEventController::class, 'store'])->name('rateEvent')->middleware('auth');
 
 /* Rate DJ Routes */
 Route::get("/rateDjs", [RateDjController::class, 'index'])->name('rateDjs.index');
-Route::get("/rateDjs/show/{id}", [RateDjController::class, 'show'])->name('rateDjs.show')->middleware('auth');;
+Route::get("/rateDjs/show/{id}", [RateDjController::class, 'show'])->name('rateDjs.show')->middleware('auth');
 Route::post("/rateDjs/store", [RateDjController::class, 'store'])->name('rateDj')->middleware('auth');

@@ -30,17 +30,15 @@
 
                         <div class="my-2">
                             <div class="row g-0">
-                                <div class="col">
-                                    @if($rating->image != "images/profileImage.jpg")
+                                <div class="col-4">
+
                                     <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
-                                    @else
-                                    <img src="/images/profileImage.jpg" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
-                                    @endif
+
                                 </div>
-                                <div class="col ms-3">
+                                <div class="col ms-5">
                                     <div class="card-body">
 
-                                        <h5 class="card-title">{{ $rating->name}}</h5>
+                                        <h2 class="card-title">{{ $rating->name}}</h2>
 
 
                                         <div class="stars">

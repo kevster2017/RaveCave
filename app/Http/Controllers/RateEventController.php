@@ -19,7 +19,7 @@ class RateEventController extends Controller
         $user = User::where('id', auth()->user()->id)
             ->first();
 
-        return view('events.index', [
+        return view('rateEvents.index', [
             'ratings' => $ratings,
             'user' => $user
         ]);

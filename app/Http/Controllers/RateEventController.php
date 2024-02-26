@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
 use App\Models\RateEvent;
 
 use Illuminate\Http\Request;
@@ -51,17 +52,22 @@ class RateEventController extends Controller
     {
 
 
-        $eventId = Event::where('id', '>', $id)
+        $event = Event::where('id',  $id)
+            ->orderBy('created_at', 'DESC')
+            ->firstOrFail();
+
+        $ratings = RateEvent::where('event_id', $event->id)
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        $ratings = RateEvent::where('event_id', '>', $eventId)
-            ->orderBy('created_at', 'DESC')
-            ->get();
+        $user = User::where('id', auth()->user()->id)
+            ->first();
 
-        //dd($ratings);
-        return view('rateEventss.show', [
-            'ratings' => $ratings
+        // dd($user);
+
+        return view('rateEvents.show', [
+            'ratings' => $ratings,
+            'user' => $user
         ]);
     }
 

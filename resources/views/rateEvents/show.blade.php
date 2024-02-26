@@ -6,7 +6,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">All Ratings</li>
+            <li class="breadcrumb-item"><a href="{{ route('events.index') }}">All Events</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Event Ratings</li>
         </ol>
     </nav>
 </div>
@@ -29,17 +30,17 @@
 
                         <div class="my-2">
                             <div class="row g-0">
-                                <div class="col">
+                                <div class="col-4">
                                     @if($rating->image != "images/profileImage.jpg")
                                     <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
                                     @else
                                     <img src="/images/profileImage.jpg" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
                                     @endif
                                 </div>
-                                <div class="col ms-3">
+                                <div class="col ms-5">
                                     <div class="card-body">
 
-                                        <h5 class="card-title">{{ $rating->name}}</h5>
+                                        <h2 class="card-title">{{ $rating->name}}</h2>
 
 
                                         <div class="stars">

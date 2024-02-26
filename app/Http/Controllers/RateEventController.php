@@ -39,6 +39,7 @@ class RateEventController extends Controller
 
         $rating->user_id = $request->user_id;
         $rating->event_id = $request->event_id;
+        $rating->eventName = $request->eventName;
         $rating->name = $request->name;
         $rating->image = $request->image;
         $rating->stars = $request->stars;

@@ -128,6 +128,7 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                 <input type="hidden" name="dj_id" value="{{ $dj->id }}">
+                <input type="hidden" name="djName" value="{{ $dj->name }}">
                 <input type="hidden" name="name" value="{{ Auth::user()->username }}">
                 <input type="hidden" name="image" value="{{ Auth::user()->image }}">
 

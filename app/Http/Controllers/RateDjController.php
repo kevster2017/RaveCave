@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RateDj;
 use App\Models\DJ;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -33,9 +34,13 @@ class RateDjController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
+        $user = User::where('id', auth()->user()->id)
+            ->first();
+
         //dd($ratings);
         return view('rateDjs.show', [
-            'ratings' => $ratings
+            'ratings' => $ratings,
+            'user' => $user
         ]);
     }
 

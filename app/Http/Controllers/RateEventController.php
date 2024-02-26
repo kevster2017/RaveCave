@@ -16,8 +16,12 @@ class RateEventController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
+        $user = User::where('id', auth()->user()->id)
+            ->first();
+
         return view('events.index', [
-            'ratings' => $ratings
+            'ratings' => $ratings,
+            'user' => $user
         ]);
     }
 

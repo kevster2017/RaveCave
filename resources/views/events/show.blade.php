@@ -63,7 +63,7 @@
                             </div>
 
                             <p>Ratings Count: ({{$totalRatingsCount}})</p>
-                            <p><a href="#">View all ratings</a></p>
+                            <p><a href="{{ route('rateEvents.show', $event->id) }}">View all ratings</a></p>
                         </div>
 
 

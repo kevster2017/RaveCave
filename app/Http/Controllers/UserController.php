@@ -37,8 +37,6 @@ class UserController extends Controller
         $favourites = Favourite::where('user_id', $id)
             ->count();
 
-
-
         $follows = Follow::where('user_id', $id)
             ->count();
 

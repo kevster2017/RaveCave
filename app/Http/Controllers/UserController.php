@@ -42,7 +42,6 @@ class UserController extends Controller
         $follows = Follow::where('user_id', $id)
             ->count();
 
-        dd($follows);
 
         return view('users.show', [
             'user' => $user,

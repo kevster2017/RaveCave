@@ -28,7 +28,7 @@
 
                 </div>
 
-                <div class="col mt-3 ms-5">
+                <div class="col mt-2 ms-5">
                     <div class="card-body">
 
 
@@ -38,7 +38,16 @@
                         <p class="card-text"><strong>Country:</strong> {{ $user->country }}</p>
                         <p class="card-text"><strong>Email:</strong> {{ $user->email }}</p>
                         <p class="card-text"><small class="text-muted"><strong>Joined The Rave Cave:</strong> {{ $user->created_at->diffForHumans() }}</small></p>
-                        <a class="btn btn-danger" href="{{ route('users.edit', auth()->user()->id) }}">Edit Profile</a>
+                        <div class="row">
+                            <div class="col">
+                                <a class="btn btn-danger" href="{{ route('users.edit', auth()->user()->id) }}">Edit Profile</a>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-primary" href="#">Reset Password</a>
+                            </div>
+
+
+                        </div>
 
                     </div>
                 </div>
@@ -54,11 +63,9 @@
                 <h5 class="card-header">Buttons</h5>
                 <div class="card-body">
                     <div class="row text-center ms-3">
+
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
 
-                        </div>
-                        <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="#">Reset Password</a>
                         </div>
                         <div class="col-12 col-md-4">
                             <a class="btn btn-primary" href="{{ route('myTickets') }}">MyTickets</a>

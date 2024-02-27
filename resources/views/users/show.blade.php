@@ -62,12 +62,8 @@
             <div class="card text-bg-light">
                 <h5 class="card-header">Buttons</h5>
                 <div class="card-body">
-                    <div class="row text-center ms-3">
-
-                        <div class="col-12 col-md-4 mb-3 mb-md-0">
-
-                        </div>
-                        <div class="col-12 col-md-4">
+                    <div class="row">
+                        <div class="col">
                             <a class="btn btn-primary" href="{{ route('myTickets') }}">MyTickets</a>
                         </div>
                     </div>
@@ -75,6 +71,8 @@
                         <div class="col">
                             <a class="btn btn-primary" href="{{ route('favourites.index') }}">Favourite DJs</a>
                         </div>
+                    </div>
+                    <div class="row mt-3">
                         <div class="col">
                             <a class="btn btn-primary" href="{{ route('follows.index') }}">Followed Events</a>
                         </div>

@@ -65,6 +65,7 @@
                     <div class="row">
                         <div class="col">
                             <a class="btn btn-primary" href="{{ route('myTickets') }}">MyTickets</a>
+
                         </div>
                     </div>
                     <div class="row mt-3">

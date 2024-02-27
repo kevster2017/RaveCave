@@ -42,11 +42,15 @@ class UserController extends Controller
         $follows = Follow::where('user_id', $id)
             ->count();
 
+        $tickets = Ticket::where('userId', $id)
+            ->count();
+
 
         return view('users.show', [
             'user' => $user,
             'favourites' => $favourites,
             'follows' => $follows,
+            'tickets' => $tickets,
 
         ]);
     }

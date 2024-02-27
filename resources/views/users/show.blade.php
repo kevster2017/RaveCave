@@ -63,7 +63,7 @@
                 <h5 class="card-header">Buttons</h5>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-4">
                             <a class="btn btn-primary" href="{{ route('myTickets') }}">MyTickets</a>
                         </div>
                         <div class="col">
@@ -71,19 +71,19 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col">
+                        <div class="col-4">
                             <a class="btn btn-primary" href="{{ route('favourites.index') }}">Favourite DJs</a>
                         </div>
                         <div class="col">
-                            <p>(3) </p><a href="#">All Favourites</a>
+                            <p>(3) Favourites</p>
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col">
+                        <div class="col-4">
                             <a class="btn btn-primary" href="{{ route('follows.index') }}">Followed Events</a>
                         </div>
                         <div class="col">
-                            <p>(3) </p><a href="#">All Followed Events</a>
+                            <p>(3) All Followed Events</p>
                         </div>
                     </div>
                 </div>

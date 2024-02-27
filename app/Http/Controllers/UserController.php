@@ -34,8 +34,21 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
+        $favourites = Favourite::where('user_id', $id)
+            ->count();
+
+
+
+        $follows = Follow::where('user_id', $id)
+            ->count();
+
+        dd($follows);
+
         return view('users.show', [
-            'user' => $user
+            'user' => $user,
+            'favourites' => $favourites,
+            'follows' => $follows,
+
         ]);
     }
 

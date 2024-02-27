@@ -65,17 +65,25 @@
                     <div class="row">
                         <div class="col">
                             <a class="btn btn-primary" href="{{ route('myTickets') }}">MyTickets</a>
-
+                        </div>
+                        <div class="col">
+                            <p>(3) Tickets</p>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
                             <a class="btn btn-primary" href="{{ route('favourites.index') }}">Favourite DJs</a>
                         </div>
+                        <div class="col">
+                            <p>(3) </p><a href="#">All Favourites</a>
+                        </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
                             <a class="btn btn-primary" href="{{ route('follows.index') }}">Followed Events</a>
+                        </div>
+                        <div class="col">
+                            <p>(3) </p><a href="#">All Followed Events</a>
                         </div>
                     </div>
                 </div>

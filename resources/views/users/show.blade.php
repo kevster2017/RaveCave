@@ -38,7 +38,7 @@
                         <p class="card-text"><strong>Country:</strong> {{ $user->country }}</p>
                         <p class="card-text"><strong>Email:</strong> {{ $user->email }}</p>
                         <p class="card-text"><small class="text-muted"><strong>Joined The Rave Cave:</strong> {{ $user->created_at->diffForHumans() }}</small></p>
-
+                        <a class="btn btn-danger" href="{{ route('users.edit', auth()->user()->id) }}">Edit Profile</a>
 
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="card-body">
                     <div class="row text-center ms-3">
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
-                            <a class="btn btn-primary" href="{{ route('users.edit', auth()->user()->id) }}">Edit Profile</a>
+
                         </div>
                         <div class="col-12 col-md-4 mb-3 mb-md-0">
                             <a class="btn btn-primary" href="#">Reset Password</a>

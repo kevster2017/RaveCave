@@ -116,6 +116,7 @@ class PayPalController extends Controller
             $ticket->event_id = $cart->eventId;
             $ticket->title = $cart->title;
             $ticket->dj = $cart->dj;
+            $ticket->djId = $cart->djId;
             $ticket->date = $cart->date;
             $ticket->time = $cart->time;
             $ticket->price = $cart->price;

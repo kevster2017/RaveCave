@@ -99,26 +99,20 @@ class EventController extends Controller
 
             // Calculate overall average rating
             $rating = ($totalRatingsCount > 0) ? $totalStars / $totalRatingsCount : 0;
+            // dd($ticket->paymentStatus);
+
+            return view('events.show', [
+                'event' => $event,
+                'ticket' => $ticket,
+                'rating' => $rating,
+                'totalRatingsCount' => $totalRatingsCount
+            ]);
+        } else {
+            return view('events.show', [
+                'event' => $event,
+                'ticket' => $ticket,
+            ]);
         }
-
-
-        // Calculate total number of rate events
-        $totalRatingsCount = $rateEvents->count();
-
-        // Calculate total stars awarded
-        $totalStars = $rateEvents->sum('stars');
-
-        // Calculate overall average rating
-        $rating = ($totalRatingsCount > 0) ? $totalStars / $totalRatingsCount : 0;
-
-        // dd($ticket->paymentStatus);
-
-        return view('events.show', [
-            'event' => $event,
-            'ticket' => $ticket,
-            'rating' => $rating,
-            'totalRatingsCount' => $totalRatingsCount
-        ]);
     }
 
     /**

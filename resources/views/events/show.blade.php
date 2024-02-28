@@ -128,7 +128,7 @@
                                         <button type="submit" class="btn btn-primary">Unfollow</button>
                                     </div>
                                     <div class="col">
-                                        <p>({{ $followers }}) followers</p>
+                                        <p>({{ $followerCount }}) followers</p>
 
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@
                                         <button type="submit" class="btn btn-primary">Follow</button>
                                     </div>
                                     <div class="col">
-                                        <p>({{ $followers }}) followers</p>
+                                        <p>({{ $followerCount }}) followers</p>
 
                                     </div>
                                 </div>

@@ -33,7 +33,10 @@ class FollowController extends Controller
         $follow->event_id = $request->event_id;
         $follow->save();
 
-        return redirect()->back()->with('success', 'You are now following this event');
+        $event = Event::find($request->event_id);
+        $followerCount = $event->followers()->count();
+
+        return redirect()->back()->with(['success', 'You are now following this event', 'followerCount' => $followerCount]);
     }
 
     public function removeFromFollows($id)

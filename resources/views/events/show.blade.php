@@ -53,6 +53,8 @@
                 <div class="col mt-3 ">
                     <div class="card-body">
                         <h2>Event Ratings</h2>
+
+                        @if($rating != 0)
                         <div class="row">
                             <div class="stars">
                                 @for ($i = 0; $i < 5; $i++) @if ($i < $rating) <span class="star-filled">&#9733;</span>
@@ -65,6 +67,11 @@
                             <p>Ratings Count: ({{$totalRatingsCount}})</p>
                             <p><a href="{{ route('rateEvents.show', $event->id) }}">View all ratings</a></p>
                         </div>
+                        @else
+                        <div class="row">
+                            <p>No ratings received</p>
+                        </div>
+                        @endif
 
 
 

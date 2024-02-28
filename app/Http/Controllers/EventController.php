@@ -108,9 +108,12 @@ class EventController extends Controller
                 'totalRatingsCount' => $totalRatingsCount
             ]);
         } else {
+
+            $rating = 0;
             return view('events.show', [
                 'event' => $event,
                 'ticket' => $ticket,
+                'rating' => $rating,
             ]);
         }
     }

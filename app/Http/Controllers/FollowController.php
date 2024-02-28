@@ -34,7 +34,9 @@ class FollowController extends Controller
         $follow->save();
 
         $event = Event::find($request->event_id);
-        $followerCount = $event->followers()->count();
+        $followerCount = $event->followedBy()->count();
+
+        dd($followerCount);
 
         return redirect()->back()->with(['success', 'You are now following this event', 'followerCount' => $followerCount]);
     }

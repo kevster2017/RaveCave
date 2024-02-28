@@ -105,6 +105,7 @@
                                 <input type="hidden" name="eventId" value="{{ $event->id }}">
                                 <input type="hidden" name="title" value="{{ $event->title }}">
                                 <input type="hidden" name="dj" value="{{ $event->dj }}">
+                                <input type="hidden" name="djId" value="{{ $event->dj_id }}">
                                 <input type="hidden" name="date" value="{{ $event->date }}">
                                 <input type="hidden" name="time" value="{{ $event->time }}">
                                 <input type="hidden" name="price" value="{{ $event->price }}">

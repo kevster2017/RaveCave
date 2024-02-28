@@ -36,7 +36,7 @@ class FollowController extends Controller
         $event = Event::find($request->event_id);
         $followerCount = $event->followedBy()->count();
 
-        dd($followerCount);
+
 
         return redirect()->back()->with(['success', 'You are now following this event', 'followerCount' => $followerCount]);
     }
@@ -47,9 +47,12 @@ class FollowController extends Controller
             ->where('user_id', auth()->id())
             ->first();
 
+        $event = Event::find($follow->event_id);
+        $followerCount = $event->followedBy()->count();
+
         if ($follow) {
             $follow->delete();
-            return redirect()->back()->with('success', 'You are no longer following this event');
+            return redirect()->back()->with(['success', 'You are no longer following this event', 'followerCount' => $followerCount]);
         } else {
             return redirect()->back()->with('error', 'You are not following this event');
         }

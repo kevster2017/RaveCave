@@ -117,6 +117,7 @@ class EventController extends Controller
                 'event' => $event,
                 'ticket' => $ticket,
                 'rating' => $rating,
+                'followerCount' => $followerCount,
             ]);
         }
     }

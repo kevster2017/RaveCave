@@ -32,7 +32,7 @@
 
                         <h2 class="card-title mb-3">{{ $event->title}}</h2>
 
-                        <h3 class="card-text mb-3"><a href="{{ route('$djs.show', $event->djId) }}"> {{ $event->dj }}</a></h3>
+                        <h3 class="card-text mb-3"><a href="{{ route('djs.show', $event->dj_id) }}"> {{ $event->dj }}</a></h3>
                         <p class="card-text"><strong>Date:</strong> {{ date('d/m/Y', strtotime($event->date)) }}</p>
                         <p class="card-text"><strong>Time:</strong> {{ $event->time }} </p>
                         <div class="row mt-3">

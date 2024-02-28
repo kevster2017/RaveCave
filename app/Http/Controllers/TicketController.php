@@ -18,6 +18,7 @@ class TicketController extends Controller
         $cart->name = $request->name;
         $cart->eventId = $request->eventId;
         $cart->dj = $request->dj;
+        $cart->djId = $request->djId;
         $cart->date = $request->date;
         $cart->time = $request->time;
         $cart->price = $request->price;

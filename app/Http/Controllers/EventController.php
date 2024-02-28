@@ -79,6 +79,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
+        $followerCount = $event->followedBy()->count();
 
         $user = Auth()->user()->id;
 
@@ -105,7 +106,9 @@ class EventController extends Controller
                 'event' => $event,
                 'ticket' => $ticket,
                 'rating' => $rating,
-                'totalRatingsCount' => $totalRatingsCount
+                'totalRatingsCount' => $totalRatingsCount,
+                'followerCount' => $followerCount,
+
             ]);
         } else {
 

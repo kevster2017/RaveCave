@@ -45,7 +45,7 @@
 
                         <h2 class="card-title mb-3"><a href="{{ route('events.show', $ticket->event_id) }}">{{ $ticket->title}}</a></h2>
 
-                        <h3 class="card-text mb-3"><a href="#">{{ $ticket->dj }}</a> </h3>
+                        <h3 class="card-text mb-3"><a href="{{ route('djs.show', $ticket->djId) }}">{{ $ticket->dj }}</a> </h3>
                         <p class="card-text"><strong>Date:</strong> {{ date('d/m/Y', strtotime($ticket->date)) }}</p>
                         <p class="card-text"><strong>Time:</strong> {{ $ticket->time }} </p>
 
@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    @if(!$rated)
+    @if(!$rated && $rating != 0)
     <div class="card">
         <div class="card-header">
             Rate {{ $event->name }}

@@ -86,8 +86,21 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
-        // Fetch all rate events for the specific event
-        $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
+        if ($ticket !== null && isset($ticket->event_id)) {
+            // Fetch all rate events for the specific event
+            $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
+
+
+            // Calculate total number of rate events
+            $totalRatingsCount = $rateEvents->count();
+
+            // Calculate total stars awarded
+            $totalStars = $rateEvents->sum('stars');
+
+            // Calculate overall average rating
+            $rating = ($totalRatingsCount > 0) ? $totalStars / $totalRatingsCount : 0;
+        }
+
 
         // Calculate total number of rate events
         $totalRatingsCount = $rateEvents->count();

@@ -12,8 +12,22 @@
 </div>
 
 <div class="container py-3">
-
     <h1 class="text-center my-3">All Events</h1>
+    <div class="container">
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort By
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sortDropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Option 1</a></li>
+                <li><a class="dropdown-item" href="#">Option 2</a></li>
+                <li><a class="dropdown-item" href="#">Option 3</a></li>
+                <!-- Add more options as needed -->
+            </ul>
+        </div>
+    </div>
+
 
 
     @foreach($events as $event)

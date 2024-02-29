@@ -14,7 +14,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\RedeemTicketController;
+use App\Http\Controllers\SortController;
 use App\Http\Controllers\RateEventController;
 use App\Http\Controllers\RateDjController;
 
@@ -169,9 +169,9 @@ Route::post("/rateDjs/store", [RateDjController::class, 'store'])->name('rateDj'
 
 /* Sorting Routes */
 //Route::get('/events', 'SortController@index')->name('items.index');
-Route::get('/events/priceHighLow', 'SortController@priceHighLow')->name('events.priceHighLow');
-Route::get('/events/priceLowHigh', 'SortController@priceLowHigh')->name('events.priceLowHigh');
-Route::get('/events/AtoZ', 'SortController@AtoZ')->name('events.AtoZ');
-Route::get('/events/ZtoA', 'SortController@ZtoA')->name('events.ZtoA');
-Route::get('/events/newestOldest', 'SortController@newestOldest')->name('events.newestOldest');
-Route::get('/events/oldestNewest', 'SortController@oldestNewest')->name('events.oldestNewest');
+Route::get('/events/priceHighLow', [SortController::class, 'priceHighLow'])->name('events.priceHighLow');
+Route::get('/events/priceLowHigh', [SortController::class, 'priceLowHigh'])->name('events.priceLowHigh');
+Route::get('/events/AtoZ', [SortController::class, 'AtoZ'])->name('events.AtoZ');
+Route::get('/events/ZtoA', [SortController::class, 'ZtoA'])->name('events.ZtoA');
+Route::get('/events/newestOldest', [SortController::class, 'newestOldest'])->name('events.newestOldest');
+Route::get('/events/oldestNewest', [SortController::class, 'oldestNewest'])->name('events.oldestNewest');

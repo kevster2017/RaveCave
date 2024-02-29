@@ -123,12 +123,12 @@
                             <form action="{{ route('events.unfollow', $event->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <div class="row">
+                                <div class="d-flex align-items-center">
                                     <div class="col-4">
                                         <button type="submit" class="btn btn-primary">Unfollow</button>
                                     </div>
                                     <div class="col">
-                                        <p>({{ $followerCount }}) followers</p>
+                                        <p class="mb-0 ms-3">({{ $followerCount }}) followers</p>
 
                                     </div>
                                 </div>
@@ -139,12 +139,12 @@
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                <div class="row">
+                                <div class="d-flex align-items-center">
                                     <div class="col-4">
                                         <button type="submit" class="btn btn-primary">Follow</button>
                                     </div>
                                     <div class="col">
-                                        <p>({{ $followerCount }}) followers</p>
+                                        <p class="mb-0 ms-3">({{ $followerCount }}) followers</p>
 
                                     </div>
                                 </div>

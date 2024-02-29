@@ -77,7 +77,7 @@
             <div class="card text-bg-light">
                 <h5 class="card-header">Follow {{ $dj->djname }}</h5>
                 <div class="card-body">
-                    <div class="row justify-content-between ms-3">
+                    <div class="row">
                         <div class="col">
                             @if(auth()->check() && $dj->favouritedBy->contains(auth()->user()))
                             <form action="{{ route('djs.unfavourite', $dj->id) }}" method="POST">

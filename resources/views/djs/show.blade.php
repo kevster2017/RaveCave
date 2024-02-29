@@ -83,15 +83,31 @@
                             <form action="{{ route('djs.unfavourite', $dj->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-primary">Remove from Favourites</button>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-primary">Remove from Favourites</button>
+                                    </div>
+                                    <div class="col">
+                                        <p>({{ $favouriteCount }}) favourites</p>
+                                    </div>
+                                </div>
+
                             </form>
                             @else
                             <form action="{{ route('djs.favourite', $dj->id) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="dj_id" value="{{ $dj->id }}">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-primary">Add to Favourites</button>
+                                    </div>
+                                    <div class="col">
+                                        <p>({{ $favouriteCount }}) favourites</p>
+                                    </div>
+                                </div>
 
-                                <button type="submit" class="btn btn-primary">Add to Favourites</button>
+
                             </form>
                             @endif
                         </div>

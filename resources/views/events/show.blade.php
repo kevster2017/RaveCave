@@ -117,7 +117,7 @@
                                         <button class="btn btn-primary" type="submit">Buy Ticket</button>
                                     </div>
                                     <div class="col">
-                                        <p class="mb-0 ms-3">Tickets Sold: ({{ $ticketsSold }}) </p>
+                                        <p class="mb-0 ms-3">({{ $ticketsSold }}) tickets sold </p>
                                     </div>
 
                                 </div>

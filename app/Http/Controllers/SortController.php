@@ -55,6 +55,7 @@ class SortController extends Controller
     {
         $events = Event::where('id', '>', 0)
             ->orderBy('date', 'ASC')
+            ->orderBy('time', 'ASC')
             ->get();
 
         return view('events.index', [
@@ -66,6 +67,7 @@ class SortController extends Controller
     {
         $events = Event::where('id', '>', 0)
             ->orderBy('date', 'DESC')
+            ->orderBy('time', 'DESC')
             ->get();
 
         return view('events.index', [

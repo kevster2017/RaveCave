@@ -59,7 +59,7 @@
 
                                         <h6 class="card-text">{{ $event->dj}}</h6>
                                         <p class="card-text">{{ $event->date }} {{ $event->time }}</p>
-                                        <p class="card-text">Price: £5</p>
+                                        <p class="card-text">Price: £{{ $event->price}}</p>
                                         <p class="card-text"><small class="text-muted">Event Created: {{ $event->created_at->diffForHumans() }}</small></p>
 
                                     </div>

@@ -20,12 +20,12 @@
                 Sort By
             </button>
             <ul class="dropdown-menu" aria-labelledby="sortDropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
-                <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
-                <li><a class="dropdown-item" href="#">A to Z</a></li>
-                <li><a class="dropdown-item" href="#">Z to A</a></li>
-                <li><a class="dropdown-item" href="#">Date: Newest to Oldest</a></li>
-                <li><a class="dropdown-item" href="#">Date: Oldest to Newest</a></li>
+                <li><a class="dropdown-item" href="{{ route('events.priceLowHigh) }}">Price: Low to High</a></li>
+                <li><a class="dropdown-item" href="{{ route('events.priceHighLow') }}">Price: High to Low</a></li>
+                <li><a class="dropdown-item" href="{{ route('events.AtoZ') }}">Name: A to Z</a></li>
+                <li><a class="dropdown-item" href="{{ route('events.ZtoA') }}">Name: Z to A</a></li>
+                <li><a class="dropdown-item" href="{{ route('events.newestOldest') }}">Date: Newest to Oldest</a></li>
+                <li><a class="dropdown-item" href="{{ route('events.oldestNewest') }">Date: Oldest to Newest</a></li>
 
             </ul>
         </div>
@@ -48,33 +48,33 @@
                             <div class="row g-0">
                                 <div class="col">
                                     <a href="{{ route('events.show', $event->id) }}"><img src="/storage/{{$event->image}}" class="img-responsive rounded-start img-fluid card-img" alt="Event Image"></a>
-                                </div>
-                                <div class="col ms-3">
-                                    <div class="card-body">
+        </div>
+        <div class="col ms-3">
+            <div class="card-body">
 
-                                        <a href="{{ route('events.show', $event->id) }}">
-                                            <h5 class="card-title">{{ $event->title}}</h5>
-                                        </a>
+                <a href="{{ route('events.show', $event->id) }}">
+                    <h5 class="card-title">{{ $event->title}}</h5>
+                </a>
 
 
-                                        <h6 class="card-text">{{ $event->dj}}</h6>
-                                        <p class="card-text">{{ $event->date }} {{ $event->time }}</p>
-                                        <p class="card-text">Price: £5</p>
-                                        <p class="card-text"><small class="text-muted">Event Created: {{ $event->created_at->diffForHumans() }}</small></p>
+                <h6 class="card-text">{{ $event->dj}}</h6>
+                <p class="card-text">{{ $event->date }} {{ $event->time }}</p>
+                <p class="card-text">Price: £5</p>
+                <p class="card-text"><small class="text-muted">Event Created: {{ $event->created_at->diffForHumans() }}</small></p>
 
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- End -->
-                    </li>
-                </div>
-                <!-- End -->
-            </ul>
+            </div>
         </div>
     </div>
 
-    <br>
-    @endforeach
+    <!-- End -->
+    </li>
+</div>
+<!-- End -->
+</ul>
+</div>
+</div>
+
+<br>
+@endforeach
 </div>
 @endsection

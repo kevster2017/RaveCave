@@ -87,6 +87,9 @@ class EventController extends Controller
             ->where('event_id', $event->id)
             ->first();
 
+        $ticketsSold = Ticket::where('event_id', $id)
+            ->count();
+
         if ($ticket !== null && isset($ticket->event_id)) {
             // Fetch all rate events for the specific event
             $rateEvents = RateEvent::where('event_id', $ticket->event_id)->get();
@@ -108,6 +111,7 @@ class EventController extends Controller
                 'rating' => $rating,
                 'totalRatingsCount' => $totalRatingsCount,
                 'followerCount' => $followerCount,
+                'ticketsSold' => $ticketsSold
 
             ]);
         } else {
@@ -118,6 +122,7 @@ class EventController extends Controller
                 'ticket' => $ticket,
                 'rating' => $rating,
                 'followerCount' => $followerCount,
+                'ticketsSold' => $ticketsSold
             ]);
         }
     }

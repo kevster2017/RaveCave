@@ -168,5 +168,10 @@ Route::get("/rateDjs/show/{id}", [RateDjController::class, 'show'])->name('rateD
 Route::post("/rateDjs/store", [RateDjController::class, 'store'])->name('rateDj')->middleware('auth');
 
 /* Sorting Routes */
-Route::get('/events', 'SortController@index')->name('items.index');
-Route::get('/events/sort', 'SortController@sort')->name('items.sort');
+//Route::get('/events', 'SortController@index')->name('items.index');
+Route::get('/events/priceHighLow', 'SortController@priceHighLow')->name('events.priceHighLow');
+Route::get('/events/priceLowHigh', 'SortController@priceLowHigh')->name('events.priceLowHigh');
+Route::get('/events/AtoZ', 'SortController@AtoZ')->name('events.AtoZ');
+Route::get('/events/ZtoZ', 'SortController@ZtoA')->name('events.ZtoA');
+Route::get('/events/newestOldest', 'SortController@newestOldest')->name('events.newestOldest');
+Route::get('/events/oldestNewest', 'SortController@oldestNewest')->name('events.oldestNewest');

@@ -8,9 +8,10 @@
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('djs.index') }}">All DJs</a></li>
             @if(count($ratings) == 0)
-            <li class="breadcrumb-item" aria-current="page"><a href="#" onclick="history.back();">DJ Page</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="history.back();">DJ Page</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All ratings</li>
             @else
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('djs.show', $ratings->dj_id) }}">{{ $ratings->djName }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('djs.show', $ratings->dj_id) }}">{{ $ratings->djName }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $ratings->djName }} ratings</li>
             @endif
 

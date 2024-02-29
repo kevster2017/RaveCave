@@ -76,6 +76,8 @@ class DJController extends Controller
     public function show($id)
     {
         $dj = DJ::findOrFail($id);
+        $favouriteCount = $dj->favouritedBy()->count();
+
         $dj->load('favouritedBy'); // Eager load the favoritedBy relationship
 
         // Fetch all rate Djs for the specific Dj
@@ -104,7 +106,8 @@ class DJController extends Controller
             'dj' => $dj,
             'rating' => $rating,
             'totalRatingsCount' => $totalRatingsCount,
-            'rated' => $rated
+            'rated' => $rated,
+            'favouriteCount' => $favouriteCount
         ]);
     }
 

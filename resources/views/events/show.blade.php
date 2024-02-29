@@ -112,7 +112,16 @@
                                 <input type="hidden" name="image" value="{{ $event->image }}">
                                 <input type="hidden" name="eventId" value="{{ $event->id }}">
 
-                                <button class="btn btn-primary" type="submit" href="#">Buy Ticket</button>
+                                <div class="d-flex align-items-center">
+                                    <div class="col-4">
+                                        <button class="btn btn-primary" type="submit">Buy Ticket</button>
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-0 ms-3">Tickets Sold: ({{ $ticketsSold }}) </p>
+                                    </div>
+
+                                </div>
+
                             </form>
                         </div>
                         @endif

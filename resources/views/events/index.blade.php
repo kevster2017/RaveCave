@@ -13,17 +13,20 @@
 
 <div class="container py-3">
     <h1 class="text-center my-3">All Events</h1>
-    <div class="container">
+    <div class="container col-sm-8 my-3 text-end">
 
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle position-relative" type="button" id="sortDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 Sort By
             </button>
             <ul class="dropdown-menu" aria-labelledby="sortDropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Option 1</a></li>
-                <li><a class="dropdown-item" href="#">Option 2</a></li>
-                <li><a class="dropdown-item" href="#">Option 3</a></li>
-                <!-- Add more options as needed -->
+                <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+                <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+                <li><a class="dropdown-item" href="#">A to Z</a></li>
+                <li><a class="dropdown-item" href="#">Z to A</a></li>
+                <li><a class="dropdown-item" href="#">Date: Newest to Oldest</a></li>
+                <li><a class="dropdown-item" href="#">Date: Oldest to Newest</a></li>
+
             </ul>
         </div>
     </div>

@@ -166,3 +166,7 @@ Route::post("/rateEvents/store", [RateEventController::class, 'store'])->name('r
 Route::get("/rateDjs", [RateDjController::class, 'index'])->name('rateDjs.index');
 Route::get("/rateDjs/show/{id}", [RateDjController::class, 'show'])->name('rateDjs.show')->middleware('auth');
 Route::post("/rateDjs/store", [RateDjController::class, 'store'])->name('rateDj')->middleware('auth');
+
+/* Sorting Routes */
+Route::get('/events', 'SortController@index')->name('items.index');
+Route::get('/events/sort', 'SortController@sort')->name('items.sort');

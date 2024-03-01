@@ -98,17 +98,17 @@
         </div>
     </div>
 
-    @if($rated == false && $rating != 0)
+    @if($rated == false)
     <div class="card">
         <div class="card-header">
-            Rate {{ $event->name }}
+            Rate {{ $ticket->title }}
         </div>
         <div class="card-body">
             <form id="ratingForm" action="{{ route('rateEvent') }}" method="POST">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                 <input type="hidden" name="event_id" value="{{ $ticket->event_id }}">
-                <input type="hidden" name="eventName" value="{{ $event->name }}">
+                <input type="hidden" name="eventName" value="{{ $ticket->title }}">
                 <input type="hidden" name="name" value="{{ Auth::user()->username }}">
                 <input type="hidden" name="image" value="{{ Auth::user()->image }}">
 

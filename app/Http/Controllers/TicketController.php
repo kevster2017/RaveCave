@@ -136,14 +136,13 @@ class TicketController extends Controller
         // Calculate total number of rate events
         $totalEventsCount = $rateEvents->count();
 
-
-
         // Calculate total stars awarded
         $totalStars = $rateEvents->sum('stars');
 
         // Calculate overall average rating
         $rating = ($totalEventsCount > 0) ? $totalStars / $totalEventsCount : 0;
 
+        //dd($rated);
 
         return view('/tickets/show', ['ticket' => $ticket, 'rating' => $rating, 'rateEvents' => $rateEvents, 'rated' => $rated]);
     }

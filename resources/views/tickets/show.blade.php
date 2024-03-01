@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    @if(!$rated && $rating != 0)
+    @if($rated == false && $rating != 0)
     <div class="card">
         <div class="card-header">
             Rate {{ $event->name }}

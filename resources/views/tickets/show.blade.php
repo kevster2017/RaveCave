@@ -98,8 +98,7 @@
         </div>
     </div>
 
-    @if($rated == false)
-    <div class="card">
+    @if($rated == false && $ticket->event->date < now()) <div class="card">
         <div class="card-header">
             Rate {{ $ticket->title }}
         </div>
@@ -144,8 +143,8 @@
 
 
         </div>
-    </div>
-    @endif
+</div>
+@endif
 </div>
 
 <script>

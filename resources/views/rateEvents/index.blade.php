@@ -25,14 +25,19 @@
             <ul class="list-group">
 
                 <!-- list group item-->
-                <div class="card text-bg-light mb-3" id="cardStyle">
+                <div class="card custom-card text-bg-light mb-3" id="cardStyle">
                     <li class="list-group-item">
 
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col-4">
+                                    @if ($rating && $user && isset($user->image))
+                                    <img src="/storage/{{$rating->$user->image}}" alt="User Image">
 
-                                    <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+                                    @else
+                                    <img src="/storage/{{$rating->$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+                                    @endif
+
                                 </div>
                                 <div class="col ms-5">
                                     <div class="card-body">

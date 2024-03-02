@@ -98,6 +98,7 @@
         </div>
     </div>
 
+    <!-- Check if the event has been rated by the user and the event date is before the current date -->
     @if($rated == false && $ticket->event->date < now()) <div class="card mb-3">
         <div class="card-header">
             Rate {{ $ticket->title }}

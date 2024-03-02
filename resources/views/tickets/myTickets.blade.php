@@ -28,7 +28,7 @@
             <ul class="list-group">
 
                 <!-- list group item-->
-                <div class="card text-bg-light mb-3" id="cardStyle">
+                <div class="card custom-card text-bg-light mb-3">
                     <li class="list-group-item">
 
                         <div class="my-2">

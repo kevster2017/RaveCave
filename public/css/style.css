@@ -99,7 +99,7 @@ body {
 
   }
 
-  .custom-card:hover{
+  .custom-card:hover .index-card:hover{
    background-color: rgb(202, 201, 201);
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   }

@@ -31,11 +31,7 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    @if ($rating && $rating->ratedBy)
-                                    <img src="/storage/{{ $rating->ratedBy->image }}" alt="User Image">
-                                    @else
-                                    <img src="/storage/default.jpg" class="img-responsive rounded-start m-3 img-fluid card-img" alt="Default Image">
-                                    @endif
+                                    <img src="/storage/{{$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
 
                                 </div>
                                 <div class="col ms-5">

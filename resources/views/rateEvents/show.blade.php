@@ -16,6 +16,11 @@
 
     <h1 class="text-center my-3">All Ratings</h1>
 
+    @if(count($ratings) == 0)
+    <div class="text-center">
+        <h2>No ratings received</h2>
+    </div>
+    @endif
 
     @foreach($ratings as $rating)
     <div class="row">

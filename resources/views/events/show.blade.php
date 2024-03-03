@@ -137,8 +137,13 @@
                                         <button type="submit" class="btn btn-primary">Unfollow</button>
                                     </div>
                                     <div class="col">
-                                        <p class="mb-0 ms-3">({{ $followerCount }}) followers</p>
-
+                                        <p class="mb-0 ms-3">({{ $followerCount }})
+                                            @if($followerCount == 1)
+                                            follower
+                                            @else
+                                            followers
+                                            @endif
+                                        </p>
                                     </div>
                                 </div>
 

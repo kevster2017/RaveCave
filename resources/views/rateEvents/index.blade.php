@@ -37,8 +37,8 @@
                                 <div class="col ms-5">
                                     <div class="card-body">
 
-                                        <h2 class="card-title">{{ $rating->name}}</h2>
-
+                                        <h2 class="card-title">{{ $rating->eventName}}</h2>
+                                        <h3 class="card-title">{{ $rating->name}}</h3>
 
                                         <div class="stars">
                                             @for ($i = 0; $i < 5; $i++) @if ($i < $rating->stars)

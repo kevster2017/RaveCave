@@ -54,7 +54,7 @@
             <div class="col">
                 <div class="card custom-card h-100">
                     <a href="{{ route('foods.index') }}">
-                        <img src="/images/burger.jpg" class="card-img-top img-fluid" alt="Burger and chips">
+                        <img src="/images/pizza.jpg" class="card-img-top img-fluid" alt="Pizzas">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">Food Business Index</h5>

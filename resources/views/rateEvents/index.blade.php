@@ -31,11 +31,10 @@
                         <div class="my-2">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    @if ($rating && $user && isset($user->image))
-                                    <img src="/storage/{{$rating->$user->image}}" alt="User Image">
-
+                                    @if ($rating && $rating->ratedBy)
+                                    <img src="/storage/{{ $rating->ratedBy->image }}" alt="User Image">
                                     @else
-                                    <img src="/storage/{{$rating->$user->image}}" class="img-responsive rounded-start m-3 img-fluid card-img" alt="user Image">
+                                    <img src="/storage/default.jpg" class="img-responsive rounded-start m-3 img-fluid card-img" alt="Default Image">
                                     @endif
 
                                 </div>

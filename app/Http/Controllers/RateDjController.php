@@ -58,6 +58,7 @@ class RateDjController extends Controller
             'comment' => 'required|string|max:500',
         ]);
 
+        dd($request);
         $rating->user_id = $request->user_id;
         $rating->dj_id = $request->dj_id;
         $rating->djName = $request->djName;

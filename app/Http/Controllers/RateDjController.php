@@ -34,9 +34,11 @@ class RateDjController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
+
         $ratings = RateDj::where('dj_id', '>', $djId)
             ->orderBy('created_at', 'DESC')
             ->get();
+
 
         $user = User::where('id', auth()->user()->id)
             ->first();
@@ -44,7 +46,7 @@ class RateDjController extends Controller
         //dd($ratings);
         return view('rateDjs.show', [
             'ratings' => $ratings,
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
@@ -58,7 +60,7 @@ class RateDjController extends Controller
             'comment' => 'required|string|max:500',
         ]);
 
-        dd($request);
+
         $rating->user_id = $request->user_id;
         $rating->dj_id = $request->dj_id;
         $rating->djName = $request->djName;

@@ -15,6 +15,11 @@
 
     <h1 class="text-center">All Food Businesses</h1>
 
+    @if(count($foods) == 0)
+    <div class="text-center">
+        <h2>No food businesses available</h2>
+    </div>
+    @endif
 
     @foreach($foods as $food)
     <div class="row">

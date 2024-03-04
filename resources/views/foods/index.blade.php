@@ -13,7 +13,7 @@
 
 <div class="container py-3">
 
-    <h1 class="text-center">All Food Businesses</h1>
+    <h1 class="text-center my-3">All Food Businesses</h1>
 
     @if(count($foods) == 0)
     <div class="text-center">
